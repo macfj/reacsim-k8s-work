@@ -1,0 +1,18 @@
+{
+  "USECASE": "dynamic-discount",
+  "KAFKA_BOOTSTRAP_SERVERS": "my-cluster-kafka-bootstrap:9092",
+  "ASSIMIL_ALIGNER_MAX_STEPS": "14400",
+  "ASSIMIL_ALIGNER_START_TIME": "6",
+  "RANDOM_SEED": "0",
+  "CURRENCY_RATE": "186.0",
+  "VTYPES": "car,pedestrian,escooter",
+  "USECASE_BATTERY_ENABLED": "false",
+  "USECASE_BATTERY_DISCOUNT": "0",
+  "USECASE_BATTERY_LOW_PERCENT": "15",
+  "USECASE_NUMBER_ENABLED": "false",
+  "USECASE_NUMBER_DISCOUNT": "0",
+  "USECASE_NUMBER_THRESHOLD": "1",
+  "ASSIMIL_PERSON_FILE": "configs/od/od.csv.gz",
+  "SOARS_STATIONS_FILE": "configs/default/stations.csv",
+  "SUMO_NET_FILE": "configs/sumo/map_kawasaki.net.xml.gz"
+}

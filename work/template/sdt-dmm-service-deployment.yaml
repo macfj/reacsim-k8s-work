@@ -1,0 +1,60 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: /home/mac/kompose -f ./docker-compose/docker-compose.yml -f docker-compose/docker-compose-initial-location.yml -f docker-compose/docker-compose-initial-location-deploy.yml convert
+    kompose.version: 1.35.0 (9532ceef3)
+  labels:
+    io.kompose.service: sdt-dmm-service
+  name: sdt-dmm-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: sdt-dmm-service
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: /home/mac/kompose -f ./docker-compose/docker-compose.yml -f docker-compose/docker-compose-initial-location.yml -f docker-compose/docker-compose-initial-location-deploy.yml convert
+        kompose.version: 1.35.0 (9532ceef3)
+      labels:
+        io.kompose.service: sdt-dmm-service
+    spec:
+      containers:
+        - env:
+            - name: DMM_MODEL_INFO_FILE
+              value: %SIMULATION_ID%/model.zip
+          image: macfltechdev.azurecr.io/sdt-dmm-service:2024-3q
+          livenessProbe:
+            exec:
+              command:
+                - curl
+                - -f
+                - http://localhost:8140/ping
+            failureThreshold: 5
+            initialDelaySeconds: 60
+            periodSeconds: 30
+            timeoutSeconds: 30
+          name: sdt-dmm-service
+          resources:
+            limits:
+              memory: "536870912"
+          volumeMounts:
+            - mountPath: /opt/inputs
+              name: sdt-dmm-service-inputs
+      restartPolicy: Always
+      volumes:
+        - name: sdt-dmm-service-inputs
+          persistentVolumeClaim:
+            claimName: reacsim-inputs
+      initContainers:
+        - name: wait-for-prepare
+          image: bitnami/kubectl:1.24
+          imagePullPolicy: IfNotPresent
+          command:
+            - /bin/sh
+            - -exc
+            - kubectl wait --for condition=complete job/prepare
+

@@ -1,0 +1,15 @@
+<additional>
+    <vType id="car" vClass="passenger"/>
+    <vType
+        id="escooter" vClass="evehicle"
+        length="1.1"
+        minGap="1.5"
+        accel="2"
+        decel="4"
+        maxSpeed="5.55"
+        speedDev="0.1"
+        emissionClass="Energy/unknown"/>
+    <vType id="pedestrian" vClass="pedestrian"/>
+    <vType id="bicycle" vClass="bicycle"/>
+    <vType id="truck" vClass="truck"/>
+</additional>

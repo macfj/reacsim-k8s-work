@@ -1,0 +1,10 @@
+{
+    "osmDefaults": {
+        "timeZone": "${TIMEZONE}"
+    },
+    "staticBikeParkAndRide": false,
+    "staticParkAndRide": false,
+    "transitModelTimeZone": "${TIMEZONE}",
+    "transitServiceStart": "${DATE}",
+    "transitServiceEnd": "${DATE}"
+}

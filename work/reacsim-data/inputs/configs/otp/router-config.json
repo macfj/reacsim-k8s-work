@@ -1,0 +1,25 @@
+{
+  "routingDefaults" : {
+    "numItineraries" : 5
+  },
+  "updaters": [
+    {
+      "type" : "vehicle-parking",
+      "sourceType" : "park-api",
+      "feedId" : "parkapi",
+      "timeZone" : "${TIMEZONE}",
+      "frequency" : "10s",
+      "url" : "http://parking-updater:8080/car-parkapi.json",
+      "tags" : [ "source:parkapi" ]
+    },
+    {
+      "type" : "vehicle-parking",
+      "sourceType" : "bicycle-park-api",
+      "feedId" : "bicycle-parkapi",
+      "timeZone" : "${TIMEZONE}",
+      "frequency" : "10s",
+      "url" : "http://parking-updater:8080/bicycle-parkapi.json",
+      "tags" : [ "source:bicycle-parkapi" ]
+    }
+  ]
+}

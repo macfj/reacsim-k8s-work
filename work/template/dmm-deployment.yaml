@@ -1,0 +1,74 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: /home/mac/kompose -f ./docker-compose/docker-compose.yml -f docker-compose/docker-compose-initial-location.yml -f docker-compose/docker-compose-initial-location-deploy.yml convert
+    kompose.version: 1.35.0 (9532ceef3)
+  labels:
+    io.kompose.service: dmm
+  name: dmm
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: dmm
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: /home/mac/kompose -f ./docker-compose/docker-compose.yml -f docker-compose/docker-compose-initial-location.yml -f docker-compose/docker-compose-initial-location-deploy.yml convert
+        kompose.version: 1.35.0 (9532ceef3)
+      labels:
+        io.kompose.service: dmm
+    spec:
+      containers:
+        - env:
+            - name: INPUTS_PATH
+              value: /opt/inputs
+            - name: LOGGING_LEVEL
+              value: INFO
+            - name: REACSIM_CONFIG_FILE
+              value: /opt/inputs/%SIMULATION_ID%/config.yml
+            - name: REACSIM_SIMULATOR_NAME
+              value: dmm
+            - name: SIMULATION_ID
+              value: %SIMULATION_ID%
+          image: macfltechdev.azurecr.io/dmm:2024-3q
+          livenessProbe:
+            exec:
+              command:
+                - ss
+                - ( dport = :9092 )
+            failureThreshold: 5
+            initialDelaySeconds: 60
+            periodSeconds: 30
+            timeoutSeconds: 30
+          name: dmm
+          resources:
+            limits:
+              memory: "268435456"
+          volumeMounts:
+            - mountPath: /opt/inputs
+              name: dmm-inputs
+          # command: ["sleep", "infinity"]
+      restartPolicy: Always
+      volumes:
+        - name: dmm-inputs
+          persistentVolumeClaim:
+            claimName: reacsim-inputs
+      initContainers:
+        - name: wait-for-sdt-dmm-service
+          image: bitnami/kubectl:1.24
+          imagePullPolicy: IfNotPresent
+          command:
+            - /bin/sh
+            - -exc
+            - kubectl wait --for condition=available deployments/sdt-dmm-service
+        - name: wait-for-kafka
+          image: bitnami/kubectl:1.24
+          imagePullPolicy: IfNotPresent
+          command:
+            - /bin/sh
+            - -exc
+            - kubectl wait --for condition=ready kafka/my-cluster

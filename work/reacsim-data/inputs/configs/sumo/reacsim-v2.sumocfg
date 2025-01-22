@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/sumoConfiguration.xsd">
+  <input>
+    <additional-files value="./vehicle-v2.add.xml"/>
+  </input>
+  <processing>
+    <ignore-route-errors value="True"/>
+    <no-internal-links value="True"/>
+  </processing>
+  <report>
+    <no-step-log value="True"/>
+    <duration-log.disable value="True"/>
+  </report>
+  <mesoscopic>
+    <mesosim value="True"/>
+    <meso-jam-threshold value="1"/>
+    <meso-overtaking value="True"/>
+    <meso-lane-queue value="True"/>
+    <meso-junction-control value="True"/>
+  </mesoscopic>
+</configuration>

@@ -1,0 +1,156 @@
+seed: ${RANDOM_SEED}
+
+# Kafka topics
+kafka:
+  topics:
+    assimil: assimil
+    simulators:
+      sumo-v2: sumo
+      station: station
+      dmm: dmm
+      flow-provider: flow-provider
+      action-selector: action-selector
+      vehicle-planner: vehicle-planner
+      fee-calculator: fee-calculator
+      fuelcost-calculator: fuelcost-calculator
+      toll-calculator: toll-calculator
+      parkcharge-calculator: parkcharge-calculator
+      return-discount: return-discount
+      lowbattery-discount: lowbattery-discount
+    metrics:
+      states: metrics-pos
+      output: metrics-travel
+      current-usage: metrics-escooter-usage
+      total-usage: metrics-escooter-total
+      choice: metrics-choice
+  producer:
+    bootstrap.servers: ${KAFKA_BOOTSTRAP_SERVERS}
+    linger.ms: 1
+  consumer:
+    bootstrap.servers: ${KAFKA_BOOTSTRAP_SERVERS}
+    auto.offset.reset: earliest
+
+assimil:
+  # Number of object stages (same as stage of dracena)
+  numberOfStages: 2
+
+  # Aligner settings
+  aligner:
+    classPath: com.fujitsu.assimil.aligner.SimpleAligner
+    stepLength: 10
+
+    # Number of simulation run steps (seconds)
+    maxSteps: ${ASSIMIL_ALIGNER_MAX_STEPS}
+
+    # start time of simulation (hour)
+    startTime: ${ASSIMIL_ALIGNER_START_TIME}
+
+  # Initial object settings
+  objects:
+    # Person object (use CSV)
+    - classPath: com.fujitsu.assimil.example.Person
+      csv: ${INPUTS_PATH}/${ASSIMIL_PERSON_FILE}
+      parameters:
+        flowProvider: flow-provider
+
+    # Road closure service object
+    - classPath: com.fujitsu.measures.RoadClosure
+      csv: ${INPUTS_PATH}/${ROAD_CLOSURE_FILE}
+      parameters:
+        simulator: sumo-v2
+
+    # Road pricing service object
+    - classPath: com.fujitsu.measures.RoadPricing
+      csv: ${INPUTS_PATH}/${ROAD_PRICING_FILE}
+      parameters:
+        simulator: sumo-v2
+        planner: car,toll-calculator,pedestrian,toll-calculator,bicycle,toll-calculator,escooter,toll-calculator
+
+    # Station object (use CSV)
+    - classPath: com.fujitsu.measures.Station
+      csv: ${INPUTS_PATH}/${SOARS_STATIONS_FILE}
+      oidKey: name
+      parameters:
+        type: escooter
+        simulator: station
+        lowBatteryPercent: ${USECASE_BATTERY_LOW_PERCENT}
+        currentMetrics: current-usage
+        totalMetrics: total-usage
+        service: discount
+
+    # Discount service object
+    - classPath: com.fujitsu.measures.DiscountService
+      oid: discount
+      stage: 1
+      parameters:
+        simulator: return-discount,lowbattery-discount
+        isBatteryBasedDiscountEnabled: ${USECASE_BATTERY_ENABLED}
+        batteryBasedDiscountAmount: ${USECASE_BATTERY_DISCOUNT}
+        lowBatteryPercent: ${USECASE_BATTERY_LOW_PERCENT}
+        isNumberBasedDiscountEnabled: ${USECASE_NUMBER_ENABLED}
+        numberBasedDiscountAmount: ${USECASE_NUMBER_DISCOUNT}
+        scooterNumberThreshold: ${USECASE_NUMBER_THRESHOLD}
+
+  # metrics settings
+  metrics:
+    states:
+      classPath: com.fujitsu.assimil.metrics.ThrottleDump
+      throttle: 60
+    output:
+      classPath: com.fujitsu.assimil.metrics.Pass
+      ignoreEmpty: true
+    current-usage:
+      classPath: com.fujitsu.assimil.metrics.ThrottleDump
+      throttle: 60
+    total-usage:
+      classPath: com.fujitsu.assimil.metrics.Pass
+      ignoreEmpty: true
+
+  # annotation settings (false to speed up)
+  annotation:
+    metrics: false
+    state: false
+
+# Settings for each simulator
+simulators:
+  sumo-v2:
+    sumocfg: ${INPUTS_PATH}/configs/sumo/reacsim-v2.sumocfg
+    net: ${INPUTS_PATH}/${SUMO_NET_FILE}
+    gui: false
+    stepLength: 10 # Simulation step interval (seconds)
+    findRouteDistance: 50 # allowable distance (m)
+    maxIndex: 4
+    #alwaysIndexes: 0
+
+  dmm:
+    modelInfoFile: ${DMM_MODEL_INFO_FILE}
+    serverHost: sdt-dmm-service
+    serverPort: 8140
+    accessToken: 1234567asdfgh
+    currencyRate: ${CURRENCY_RATE}
+
+  flow-provider:
+    vTypes: ${VTYPES}
+    detour: ${DETOUR_VTYPES}
+    planners: car,vehicle-planner,pedestrian,vehicle-planner,bicycle,vehicle-planner,escooter,vehicle-planner,truck,vehicle-planner,car-detour,vehicle-planner
+    simulators: car,sumo-v2,pedestrian,sumo-v2,bicycle,sumo-v2,escooter,sumo-v2,truck,sumo-v2,station,station
+
+  vehicle-planner:
+    assimilStep: 10
+    fee: escooter,fee-calculator
+    fuelCost: car,fuelcost-calculator
+    toll: car,toll-calculator,pedestrian,toll-calculator,escooter,toll-calculator,bicycle,toll-calculator,truck,toll-calculator
+    parkCharge: car,parkcharge-calculator,bicycle,parkcharge-calculator
+    feeMeasures: escooter,return-discount,escooter,lowbattery-discount
+    indexes: 0
+    detourIndexes: 0,1
+    planNumber: 2
+
+  fee-calculator:
+    currencyRate: ${CURRENCY_RATE}
+
+  fuelcost-calculator:
+    currencyRate: ${CURRENCY_RATE}
+
+  parkcharge-calculator:
+    currencyRate: ${CURRENCY_RATE}

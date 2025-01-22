@@ -1,0 +1,122 @@
+seed: ${RANDOM_SEED}
+
+# Kafka topics
+kafka:
+  topics:
+    assimil: assimil
+    simulators:
+      sumo-v2: sumo
+      station: station
+      dmm: dmm
+      flow-provider: flow-provider
+      action-selector: action-selector
+      car-planner: car-planner
+      pedestrian-planner: pedestrian-planner
+      bicycle-planner: bicycle-planner
+      escooter-planner: escooter-planner
+    metrics:
+      states: metrics-pos
+      output: metrics-travel
+      current-usage: metrics-escooter-usage
+      total-usage: metrics-escooter-total
+      choice: metrics-choice
+  producer:
+    bootstrap.servers: ${KAFKA_BOOTSTRAP_SERVERS}
+    linger.ms: 1
+  consumer:
+    bootstrap.servers: ${KAFKA_BOOTSTRAP_SERVERS}
+    auto.offset.reset: earliest
+
+assimil:
+  # Number of object stages (same as stage of dracena)
+  numberOfStages: 2
+
+  # Aligner settings
+  aligner:
+    classPath: com.fujitsu.assimil.aligner.SimpleAligner
+    stepLength: 10
+
+    # Number of simulation run steps (seconds)
+    maxSteps: ${ASSIMIL_ALIGNER_MAX_STEPS}
+
+    # start time of simulation (hour)
+    startTime: ${ASSIMIL_ALIGNER_START_TIME}
+
+  # Initial object settings
+  objects:
+    # Person object (use CSV)
+    - classPath: com.fujitsu.assimil.example.Person
+      csv: ${ASSIMIL_PERSON_FILE}
+      parameters:
+        flowProvider: flow-provider
+
+    # Bay object (use CSV)
+    - classPath: com.fujitsu.measures.Bay
+      csv: ${SOARS_STATIONS_FILE}
+      oidKey: name
+
+    # Discount service object
+    - classPath: com.fujitsu.measures.DiscountService
+      oid: discount
+      stage: 1
+      parameters:
+        simulator: escooter-planner
+        isBatteryBasedDiscountEnabled: ${USECASE_BATTERY_ENABLED}
+        batteryBasedDiscountAmount: ${USECASE_BATTERY_DISCOUNT}
+        lowBatteryPercent: ${USECASE_BATTERY_LOW_PERCENT}
+        isNumberBasedDiscountEnabled: ${USECASE_NUMBER_ENABLED}
+        numberBasedDiscountAmount: ${USECASE_NUMBER_DISCOUNT}
+        scooterNumberThreshold: ${USECASE_NUMBER_THRESHOLD}
+
+  # metrics settings
+  metrics:
+    states:
+      classPath: com.fujitsu.assimil.metrics.ThrottleDump
+      throttle: 60
+    output:
+      classPath: com.fujitsu.assimil.metrics.Pass
+      ignoreEmpty: true
+
+  # annotation settings (false to speed up)
+  annotation:
+    metrics: false
+    state: false
+
+# Settings for each simulator
+simulators:
+  sumo-v2:
+    sumocfg: reacsim-v2.sumocfg
+    net: ${SUMO_NET_FILE}
+    gui: false
+    stepLength: 10 # Simulation step interval (seconds)
+    findRouteDistance: ${SUMO_MAX_DISTANCE} # allowable distance (m)
+
+  station:
+
+  dmm:
+    modelInfoFile: ${DMM_MODEL_INFO_FILE}
+    serverHost: sdt-dmm-service
+    serverPort: 8140
+    accessToken: 1234567asdfgh
+
+  flow-provider:
+    vTypes: ${VTYPES}
+    detour: ${DETOUR_VTYPES}
+    simulators: car,sumo-v2,pedestrian,sumo-v2,bicycle,sumo-v2,escooter,sumo-v2
+
+  action-selector:
+
+  car-planner:
+    currencyRate: ${CURRENCY_RATE}
+    vType: car
+
+  pedestrian-planner:
+    vType: pedestrian
+
+  bicycle-planner:
+    vType: bicycle
+
+  escooter-planner:
+    vType: escooter
+    numberOfBaysForPlan: 2
+    currencyRate: ${CURRENCY_RATE}

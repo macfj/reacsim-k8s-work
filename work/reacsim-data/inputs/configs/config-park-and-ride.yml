@@ -1,0 +1,173 @@
+seed: ${RANDOM_SEED}
+
+# Kafka topics
+kafka:
+  topics:
+    assimil: assimil
+    simulators:
+      sumo-v2: sumo
+      station: station
+      dmm: dmm
+      otp: otp
+      flow-provider: flow-provider
+      action-selector: action-selector
+      otp-planner: otp-planner
+      vehicle-planner: vehicle-planner
+      traffic-simple: traffic-simple
+      parking: parking
+      fee-calculator: fee-calculator
+      fuelcost-calculator: fuelcost-calculator
+      parkcharge-calculator: parkcharge-calculator
+      return-discount: return-discount
+      lowbattery-discount: lowbattery-discount
+    metrics:
+      states: metrics-pos
+      output: metrics-travel
+      current-usage: metrics-usage
+      total-usage: metrics-total
+      choice: metrics-choice
+  producer:
+    bootstrap.servers: ${KAFKA_BOOTSTRAP_SERVERS}
+    linger.ms: 1
+  consumer:
+    bootstrap.servers: ${KAFKA_BOOTSTRAP_SERVERS}
+    auto.offset.reset: earliest
+
+assimil:
+  # Number of object stages (same as stage of dracena)
+  numberOfStages: 2
+
+  # Aligner settings
+  aligner:
+    classPath: com.fujitsu.assimil.aligner.SimpleAligner
+    stepLength: 10
+
+    # Number of simulation run steps (seconds)
+    maxSteps: ${ASSIMIL_ALIGNER_MAX_STEPS}
+
+    # start time of simulation (hour)
+    startTime: ${ASSIMIL_ALIGNER_START_TIME}
+
+  # Initial object settings
+  objects:
+    # Person object (use CSV)
+    - classPath: com.fujitsu.assimil.example.Person
+      csv: ${INPUTS_PATH}/${ASSIMIL_PERSON_FILE}
+      parameters:
+        flowProvider: flow-provider
+
+    # Station object (use CSV)
+    - classPath: com.fujitsu.measures.Station
+      csv: ${INPUTS_PATH}/${SOARS_STATIONS_FILE}
+      oidKey: name
+      parameters:
+        type: escooter
+        simulator: station
+        lowBatteryPercent: ${USECASE_BATTERY_LOW_PERCENT}
+        currentMetrics: current-usage
+        totalMetrics: total-usage
+        service: discount
+
+    # Discount service object
+    - classPath: com.fujitsu.measures.DiscountService
+      oid: discount
+      stage: 1
+      parameters:
+        simulator: return-discount,lowbattery-discount
+        isBatteryBasedDiscountEnabled: ${USECASE_BATTERY_ENABLED}
+        batteryBasedDiscountAmount: ${USECASE_BATTERY_DISCOUNT}
+        lowBatteryPercent: ${USECASE_BATTERY_LOW_PERCENT}
+        isNumberBasedDiscountEnabled: ${USECASE_NUMBER_ENABLED}
+        numberBasedDiscountAmount: ${USECASE_NUMBER_DISCOUNT}
+        scooterNumberThreshold: ${USECASE_NUMBER_THRESHOLD}
+
+    # Parking object (use CSV)
+    - classPath: com.fujitsu.measures.Parking
+      csv: ${INPUTS_PATH}/${PARKING_FILE}
+      oidKey: name
+      parameters:
+        simulator: parking
+        currentMetrics: current-usage
+        totalMetrics: total-usage
+
+  # metrics settings
+  metrics:
+    states:
+      classPath: com.fujitsu.assimil.metrics.ThrottleDump
+      throttle: 60
+    output:
+      classPath: com.fujitsu.assimil.metrics.Pass
+      ignoreEmpty: true
+    current-usage:
+      classPath: com.fujitsu.assimil.metrics.ThrottleDump
+      throttle: 60
+    total-usage:
+      classPath: com.fujitsu.assimil.metrics.Pass
+      ignoreEmpty: true
+
+  # annotation settings (false to speed up)
+  annotation:
+    metrics: false
+    state: false
+
+# Settings for each simulator
+simulators:
+  sumo-v2:
+    sumocfg: ${INPUTS_PATH}/configs/sumo/reacsim-v2.sumocfg
+    net: ${INPUTS_PATH}/${SUMO_NET_FILE}
+    gui: false
+    stepLength: 10 # Simulation step interval (seconds)
+    findRouteDistance: 50 # allowable distance (m)
+
+  parking:
+    parkingPeriod: ${PARKING_PERIOD}
+
+  dmm:
+    modelInfoFile: ${DMM_MODEL_INFO_FILE}
+    serverHost: sdt-dmm-service
+    serverPort: 8140
+    accessToken: 1234567asdfgh
+    currencyRate: ${CURRENCY_RATE}
+
+  otp:
+    otp_server_host: opentripplanner
+    otp_server_port: 8080
+    stepLength: 10 # Step to wait OTP response (seconds)
+    park_charge_dst: ${PARK_CHARGE_DST}               # default charge for destination parking
+    car_time_multiply: ${CAR_TIME_MULTIPLY}           # multiply factor to extend car travel time
+
+  flow-provider:
+    vTypes: ${VTYPES}
+    detour: ${DETOUR_VTYPES}
+    planners: car,otp-planner,pedestrian,otp-planner,bicycle,otp-planner,pt,otp-planner,escooter,vehicle-planner
+    simulators: car,traffic-simple,pedestrian,traffic-simple,bicycle,traffic-simple,escooter,sumo-v2,station,station,parking,parking,traffic-simple,traffic-simple
+
+  otp-planner:
+    assimilStep: 10
+    date: "${DATE}"
+    startTime: ${ASSIMIL_ALIGNER_START_TIME}
+    timeZone: "${TIMEZONE}"
+    fuelCost: car,fuelcost-calculator
+    toll:
+    parkCharge:
+    feeMeasures:
+    parkChargeMeasures:
+    fareMeasures:
+
+  vehicle-planner:
+    assimilStep: 10
+    fee: escooter,fee-calculator
+    fuelCost: car,fuelcost-calculator
+    toll:
+    parkCharge:
+    feeMeasures: escooter,return-discount,escooter,lowbattery-discount
+    planNumber: 4 # shared mobility max plan number
+
+  fee-calculator:
+    currencyRate: ${CURRENCY_RATE}
+
+  fuelcost-calculator:
+    currencyRate: ${CURRENCY_RATE}
+
+  parkcharge-calculator:
+    currencyRate: ${CURRENCY_RATE}

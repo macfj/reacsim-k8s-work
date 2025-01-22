@@ -1,0 +1,64 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: /home/mac/kompose -f ./docker-compose/docker-compose.yml -f docker-compose/docker-compose-initial-location.yml -f docker-compose/docker-compose-initial-location-deploy.yml convert
+    kompose.version: 1.35.0 (9532ceef3)
+  labels:
+    io.kompose.service: fee-calculator
+  name: fee-calculator
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: fee-calculator
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: /home/mac/kompose -f ./docker-compose/docker-compose.yml -f docker-compose/docker-compose-initial-location.yml -f docker-compose/docker-compose-initial-location-deploy.yml convert
+        kompose.version: 1.35.0 (9532ceef3)
+      labels:
+        io.kompose.service: fee-calculator
+    spec:
+      containers:
+        - env:
+            - name: CLASSPATH
+              value: /opt/jars/domain-simulator/calculator/fee-calculator/fee-calculator-1.0.0-jar-with-dependencies.jar
+            - name: INPUTS_PATH
+              value: /opt/inputs
+            - name: REACSIM_CONFIG_FILE
+              value: /opt/inputs/%SIMULATION_ID%/config.yml
+            - name: REACSIM_SIMULATOR_NAME
+              value: fee-calculator
+            - name: SIMULATION_ID
+              value: %SIMULATION_ID%
+          image: macfltechdev.azurecr.io/javaruntime:2024-3q
+          name: fee-calculator
+          resources:
+            limits:
+              memory: "268435456"
+          volumeMounts:
+            - mountPath: /opt/inputs
+              name: fee-calculator-inputs
+            - mountPath: /opt/jars
+              name: fee-calculator-jars
+      restartPolicy: Always
+      volumes:
+        - name: fee-calculator-inputs
+          persistentVolumeClaim:
+            claimName: reacsim-inputs
+            readOnly: true
+        - name: fee-calculator-jars
+          persistentVolumeClaim:
+            claimName: reacsim-jars
+            readOnly: true
+      initContainers:
+        - name: wait-for-kafka
+          image: bitnami/kubectl:1.24
+          imagePullPolicy: IfNotPresent
+          command:
+            - /bin/sh
+            - -exc
+            - kubectl wait --for condition=ready kafka/my-cluster

@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/sumoConfiguration.xsd">
+  <input>
+    <additional-files value="./vehicle.add.xml"/>
+  </input>
+  <time>
+    <begin value="0"/>
+    <end value="57600"/>
+  </time>
+  <processing>
+    <route-steps value="20"/>
+    <time-to-teleport value="100"/>
+    <ignore-route-errors value="True"/>
+    <no-internal-links value="True"/>
+  </processing>
+  <routing>
+    <routing-algorithm value="astar"/>
+    <device.rerouting.probability value="1"/>
+    <device.rerouting.period value="30"/>
+    <device.rerouting.adaptation-interval value="1"/>
+    <device.rerouting.with-taz value="False"/>
+    <device.rerouting.explicit value=""/>
+    <device.rerouting.bike-speeds value="True"/>
+  </routing>
+  <report>
+    <no-step-log value="True"/>
+    <duration-log.disable value="True"/>
+  </report>
+  <output>
+    <vehroute-output.last-route value="False"/>
+    <vehroute-output.exit-times value="False"/>
+    <vehroute-output.sorted value="False"/>
+  </output>
+  <mesoscopic>
+    <mesosim value="True"/>
+    <meso-jam-threshold value="1"/>
+    <meso-overtaking value="True"/>
+    <meso-lane-queue value="True"/>
+    <meso-ignore-lanes-by-vclass value="pedestrian"/>
+    <meso-junction-control value="True"/>
+  </mesoscopic>
+</configuration>

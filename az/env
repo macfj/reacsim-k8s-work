@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+CLUSTER=macdk
+RESOURCE_GROUP=mac
+LOCATION=japaneast
+# LOCATION=southeastasia
+
+AKS_NODE_COUNT=1
+
+ACR=${USER}fltechdev
+
+# STORAGE_ACCOUNT="${CLUSTER}"
+# STORAGE_CONTAINER=dracena
+
+# EVENTHUBS_NAMESPACE="${CLUSTER}EvHub"
+
+# KEYVAULT=$CLUSTER
+# SECRETNAME=BlobStrorageKey

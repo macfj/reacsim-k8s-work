@@ -1,0 +1,37 @@
+[
+  {
+    "env": "",
+    "src": "",
+    "default": "configs/config-initial-location.yml",
+    "dst": "config.yml",
+    "replace": true
+  },
+  {
+    "env": "ASSIMIL_PERSON_FILE",
+    "src": "simulations/",
+    "default": "",
+    "dst": "",
+    "replace": false
+  },
+  {
+    "env": "SOARS_STATIONS_FILE",
+    "src": "simulations/",
+    "default": "",
+    "dst": "",
+    "replace": false
+  },
+  {
+    "env": "SUMO_NET_FILE",
+    "src": "simulations/",
+    "default": "",
+    "dst": "",
+    "replace": false
+  },
+  {
+    "env": "DMM_MODEL_INFO_FILE",
+    "src": "simulations/",
+    "default": "",
+    "dst": "",
+    "replace": false
+  }
+]

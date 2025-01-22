@@ -1,0 +1,52 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  annotations:
+    kompose.cmd: /home/mac/kompose -f ./docker-compose/docker-compose.yml -f docker-compose/docker-compose-initial-location.yml -f docker-compose/docker-compose-initial-location-deploy.yml convert
+    kompose.version: 1.35.0 (9532ceef3)
+  labels:
+    io.kompose.service: start
+  name: start
+spec:
+  # replicas: 1
+  # selector:
+  #   matchLabels:
+  #     io.kompose.service: start
+  # strategy:
+  #   type: Recreate
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: /home/mac/kompose -f ./docker-compose/docker-compose.yml -f docker-compose/docker-compose-initial-location.yml -f docker-compose/docker-compose-initial-location-deploy.yml convert
+        kompose.version: 1.35.0 (9532ceef3)
+      labels:
+        io.kompose.service: start
+    spec:
+      containers:
+        - env:
+            - name: ENV_JSON
+              value: /opt/inputs/%SIMULATION_ID%/env.json
+            - name: INPUTS_PATH
+              value: /opt/inputs
+            - name: SERVER
+              value: http://mac-work-fltechdev.japaneast.cloudapp.azure.com:40203
+            - name: SIMULATION_ID
+              value: %SIMULATION_ID%
+          image: macfltechdev.azurecr.io/start:2024-3q
+          name: start
+          volumeMounts:
+            - mountPath: /opt/inputs
+              name: start-inputs
+              readOnly: true
+            - mountPath: /opt/outputs
+              name: start-outputs
+              readOnly: false
+          # command: ["sleep", "infinity"]
+      restartPolicy: Never
+      volumes:
+        - name: start-inputs
+          persistentVolumeClaim:
+            claimName: reacsim-simulations
+        - name: start-outputs
+          persistentVolumeClaim:
+            claimName: reacsim-inputs

@@ -1,0 +1,2943 @@
+ Network sim-e230fda3-9850-4173-97e4-05d2d8e00d1b_default  Creating
+ Network sim-e230fda3-9850-4173-97e4-05d2d8e00d1b_default  Created
+ Container sim-e230fda3-9850-4173-97e4-05d2d8e00d1b-start-1  Creating
+ Container sim-e230fda3-9850-4173-97e4-05d2d8e00d1b-start-1  Created
+ Container sim-e230fda3-9850-4173-97e4-05d2d8e00d1b-progress-1  Creating
+ Container sim-e230fda3-9850-4173-97e4-05d2d8e00d1b-prepare-1  Creating
+ Container sim-e230fda3-9850-4173-97e4-05d2d8e00d1b-kafka-1  Creating
+ Container sim-e230fda3-9850-4173-97e4-05d2d8e00d1b-prepare-1  Created
+ Container sim-e230fda3-9850-4173-97e4-05d2d8e00d1b-kafka-1  Created
+ Container sim-e230fda3-9850-4173-97e4-05d2d8e00d1b-parkcharge-calculator-1  Creating
+ Container sim-e230fda3-9850-4173-97e4-05d2d8e00d1b-progress-1  Created
+ Container sim-e230fda3-9850-4173-97e4-05d2d8e00d1b-dumperjs-1  Creating
+ Container sim-e230fda3-9850-4173-97e4-05d2d8e00d1b-action-selector-1  Creating
+ Container sim-e230fda3-9850-4173-97e4-05d2d8e00d1b-vehicle-planner-1  Creating
+ Container sim-e230fda3-9850-4173-97e4-05d2d8e00d1b-sdt-dmm-service-1  Creating
+ Container sim-e230fda3-9850-4173-97e4-05d2d8e00d1b-fuelcost-calculator-1  Creating
+ Container sim-e230fda3-9850-4173-97e4-05d2d8e00d1b-station-1  Creating
+ Container sim-e230fda3-9850-4173-97e4-05d2d8e00d1b-fee-calculator-1  Creating
+ Container sim-e230fda3-9850-4173-97e4-05d2d8e00d1b-sumo-v2-1  Creating
+ Container sim-e230fda3-9850-4173-97e4-05d2d8e00d1b-dumperjs-1  Created
+ Container sim-e230fda3-9850-4173-97e4-05d2d8e00d1b-end-1  Creating
+ Container sim-e230fda3-9850-4173-97e4-05d2d8e00d1b-station-1  Created
+ Container sim-e230fda3-9850-4173-97e4-05d2d8e00d1b-parkcharge-calculator-1  Created
+ Container sim-e230fda3-9850-4173-97e4-05d2d8e00d1b-action-selector-1  Created
+ Container sim-e230fda3-9850-4173-97e4-05d2d8e00d1b-sumo-v2-1  Created
+ Container sim-e230fda3-9850-4173-97e4-05d2d8e00d1b-vehicle-planner-1  Created
+ Container sim-e230fda3-9850-4173-97e4-05d2d8e00d1b-fee-calculator-1  Created
+ Container sim-e230fda3-9850-4173-97e4-05d2d8e00d1b-sdt-dmm-service-1  Created
+ Container sim-e230fda3-9850-4173-97e4-05d2d8e00d1b-dmm-1  Creating
+ Container sim-e230fda3-9850-4173-97e4-05d2d8e00d1b-fuelcost-calculator-1  Created
+ Container sim-e230fda3-9850-4173-97e4-05d2d8e00d1b-end-1  Created
+ Container sim-e230fda3-9850-4173-97e4-05d2d8e00d1b-dmm-1  Created
+ Container sim-e230fda3-9850-4173-97e4-05d2d8e00d1b-flow-provider-1  Creating
+ Container sim-e230fda3-9850-4173-97e4-05d2d8e00d1b-flow-provider-1  Created
+ Container sim-e230fda3-9850-4173-97e4-05d2d8e00d1b-assimil-1  Creating
+ Container sim-e230fda3-9850-4173-97e4-05d2d8e00d1b-assimil-1  Created
+Attaching to action-selector-1, assimil-1, dmm-1, dumperjs-1, end-1, fee-calculator-1, flow-provider-1, fuelcost-calculator-1, parkcharge-calculator-1, prepare-1, progress-1, sdt-dmm-service-1, start-1, station-1, sumo-v2-1, vehicle-planner-1
+start-1                  | {
+start-1                  |   env: '',
+start-1                  |   src: '',
+start-1                  |   default: 'configs/config-initial-location.yml',
+start-1                  |   dst: 'config.yml',
+start-1                  |   replace: true
+start-1                  | }
+start-1                  | copyFileWithReplace: from /opt/outputs/configs/config-initial-location.yml to /opt/outputs/sim-e230fda3-9850-4173-97e4-05d2d8e00d1b/config.yml
+start-1                  | {
+start-1                  |   env: 'ASSIMIL_PERSON_FILE',
+start-1                  |   src: 'simulations/',
+start-1                  |   default: '',
+start-1                  |   dst: '',
+start-1                  |   replace: false
+start-1                  | }
+start-1                  | {
+start-1                  |   env: 'SOARS_STATIONS_FILE',
+start-1                  |   src: 'simulations/',
+start-1                  |   default: '',
+start-1                  |   dst: '',
+start-1                  |   replace: false
+start-1                  | }
+start-1                  | copyFile: from /opt/inputs/simdata-179095db-08f3-42a9-80bb-0294f32fd69d/stations.csv to /opt/outputs/simdata-179095db-08f3-42a9-80bb-0294f32fd69d/stations.csv
+start-1                  | from /opt/inputs/simdata-179095db-08f3-42a9-80bb-0294f32fd69d/stations.csv to /opt/outputs/simdata-179095db-08f3-42a9-80bb-0294f32fd69d/stations.csv
+start-1                  | {
+start-1                  |   env: 'SUMO_NET_FILE',
+start-1                  |   src: 'simulations/',
+start-1                  |   default: '',
+start-1                  |   dst: '',
+start-1                  |   replace: false
+start-1                  | }
+start-1                  | {
+start-1                  |   env: 'DMM_MODEL_INFO_FILE',
+start-1                  |   src: 'simulations/',
+start-1                  |   default: '',
+start-1                  |   dst: '',
+start-1                  |   replace: false
+start-1                  | }
+start-1                  | {
+start-1                  |   status: 200,
+start-1                  |   statusText: 'OK',
+start-1                  |   headers: Object [AxiosHeaders] {
+start-1                  |     'content-security-policy': "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests",
+start-1                  |     'cross-origin-opener-policy': 'same-origin',
+start-1                  |     'cross-origin-resource-policy': 'same-origin',
+start-1                  |     'origin-agent-cluster': '?1',
+start-1                  |     'referrer-policy': 'no-referrer',
+start-1                  |     'strict-transport-security': 'max-age=15552000; includeSubDomains',
+start-1                  |     'x-content-type-options': 'nosniff',
+start-1                  |     'x-dns-prefetch-control': 'off',
+start-1                  |     'x-download-options': 'noopen',
+start-1                  |     'x-frame-options': 'DENY',
+start-1                  |     'x-permitted-cross-domain-policies': 'none',
+start-1                  |     'x-xss-protection': '0',
+start-1                  |     vary: 'Origin',
+start-1                  |     'access-control-allow-origin': '*',
+start-1                  |     'access-control-expose-headers': 'content-disposition',
+start-1                  |     'content-type': 'text/plain; charset=utf-8',
+start-1                  |     'content-length': '7',
+start-1                  |     date: 'Wed, 08 Jan 2025 08:57:21 GMT',
+start-1                  |     connection: 'keep-alive',
+start-1                  |     'keep-alive': 'timeout=72'
+start-1                  |   },
+start-1                  |   config: {
+start-1                  |     transitional: {
+start-1                  |       silentJSONParsing: true,
+start-1                  |       forcedJSONParsing: true,
+start-1                  |       clarifyTimeoutError: false
+start-1                  |     },
+start-1                  |     adapter: [ 'xhr', 'http', 'fetch' ],
+start-1                  |     transformRequest: [ [Function: transformRequest] ],
+start-1                  |     transformResponse: [ [Function: transformResponse] ],
+start-1                  |     timeout: 0,
+start-1                  |     xsrfCookieName: 'XSRF-TOKEN',
+start-1                  |     xsrfHeaderName: 'X-XSRF-TOKEN',
+start-1                  |     maxContentLength: -1,
+start-1                  |     maxBodyLength: -1,
+start-1                  |     env: { FormData: [Function], Blob: [class Blob] },
+start-1                  |     validateStatus: [Function: validateStatus],
+start-1                  |     headers: Object [AxiosHeaders] {
+start-1                  |       Accept: 'application/json, text/plain, */*',
+start-1                  |       'Content-Type': 'application/json',
+start-1                  |       'User-Agent': 'axios/1.7.7',
+start-1                  |       'Content-Length': '33',
+start-1                  |       'Accept-Encoding': 'gzip, compress, deflate, br'
+start-1                  |     },
+start-1                  |     method: 'put',
+start-1                  |     url: 'http://10.0.0.4:40203/api/simulations/sim-e230fda3-9850-4173-97e4-05d2d8e00d1b',
+start-1                  |     data: '{"status":"started","progress":0}'
+start-1                  |   },
+start-1                  |   request: <ref *1> ClientRequest {
+start-1                  |     _events: [Object: null prototype] {
+start-1                  |       abort: [Function (anonymous)],
+start-1                  |       aborted: [Function (anonymous)],
+start-1                  |       connect: [Function (anonymous)],
+start-1                  |       error: [Function (anonymous)],
+start-1                  |       socket: [Function (anonymous)],
+start-1                  |       timeout: [Function (anonymous)],
+start-1                  |       finish: [Function: requestOnFinish]
+start-1                  |     },
+start-1                  |     _eventsCount: 7,
+start-1                  |     _maxListeners: undefined,
+start-1                  |     outputData: [],
+start-1                  |     outputSize: 0,
+start-1                  |     writable: true,
+start-1                  |     destroyed: true,
+start-1                  |     _last: false,
+start-1                  |     chunkedEncoding: false,
+start-1                  |     shouldKeepAlive: true,
+start-1                  |     maxRequestsOnConnectionReached: false,
+start-1                  |     _defaultKeepAlive: true,
+start-1                  |     useChunkedEncodingByDefault: true,
+start-1                  |     sendDate: false,
+start-1                  |     _removedConnection: false,
+start-1                  |     _removedContLen: false,
+start-1                  |     _removedTE: false,
+start-1                  |     strictContentLength: false,
+start-1                  |     _contentLength: '33',
+start-1                  |     _hasBody: true,
+start-1                  |     _trailer: '',
+start-1                  |     finished: true,
+start-1                  |     _headerSent: true,
+start-1                  |     _closed: true,
+start-1                  |     socket: Socket {
+start-1                  |       connecting: false,
+start-1                  |       _hadError: false,
+start-1                  |       _parent: null,
+start-1                  |       _host: null,
+start-1                  |       _closeAfterHandlingError: false,
+start-1                  |       _events: [Object],
+start-1                  |       _readableState: [ReadableState],
+start-1                  |       _writableState: [WritableState],
+start-1                  |       allowHalfOpen: false,
+start-1                  |       _maxListeners: undefined,
+start-1                  |       _eventsCount: 6,
+start-1                  |       _sockname: null,
+start-1                  |       _pendingData: null,
+start-1                  |       _pendingEncoding: '',
+start-1                  |       server: null,
+start-1                  |       _server: null,
+start-1                  |       timeout: 5000,
+start-1                  |       parser: null,
+start-1                  |       _httpMessage: null,
+start-1                  |       [Symbol(async_id_symbol)]: -1,
+start-1                  |       [Symbol(kHandle)]: [TCP],
+start-1                  |       [Symbol(lastWriteQueueSize)]: 0,
+start-1                  |       [Symbol(timeout)]: Timeout {
+start-1                  |         _idleTimeout: 5000,
+start-1                  |         _idlePrev: [TimersList],
+start-1                  |         _idleNext: [TimersList],
+start-1                  |         _idleStart: 203,
+start-1                  |         _onTimeout: [Function: bound ],
+start-1                  |         _timerArgs: undefined,
+start-1                  |         _repeat: null,
+start-1                  |         _destroyed: false,
+start-1                  |         [Symbol(refed)]: false,
+start-1                  |         [Symbol(kHasPrimitive)]: false,
+start-1                  |         [Symbol(asyncId)]: 22,
+start-1                  |         [Symbol(triggerId)]: 20
+start-1                  |       },
+start-1                  |       [Symbol(kBuffer)]: null,
+start-1                  |       [Symbol(kBufferCb)]: null,
+start-1                  |       [Symbol(kBufferGen)]: null,
+start-1                  |       [Symbol(shapeMode)]: true,
+start-1                  |       [Symbol(kCapture)]: false,
+start-1                  |       [Symbol(kSetNoDelay)]: true,
+start-1                  |       [Symbol(kSetKeepAlive)]: true,
+start-1                  |       [Symbol(kSetKeepAliveInitialDelay)]: 1,
+start-1                  |       [Symbol(kBytesRead)]: 0,
+start-1                  |       [Symbol(kBytesWritten)]: 0
+start-1                  |     },
+start-1                  |     _header: 'PUT /api/simulations/sim-e230fda3-9850-4173-97e4-05d2d8e00d1b HTTP/1.1\r\n' +
+start-1                  |       'Accept: application/json, text/plain, */*\r\n' +
+start-1                  |       'Content-Type: application/json\r\n' +
+start-1                  |       'User-Agent: axios/1.7.7\r\n' +
+start-1                  |       'Content-Length: 33\r\n' +
+start-1                  |       'Accept-Encoding: gzip, compress, deflate, br\r\n' +
+start-1                  |       'Host: 10.0.0.4:40203\r\n' +
+start-1                  |       'Connection: keep-alive\r\n' +
+start-1                  |       '\r\n',
+start-1                  |     _keepAliveTimeout: 0,
+start-1                  |     _onPendingData: [Function: nop],
+start-1                  |     agent: Agent {
+start-1                  |       _events: [Object: null prototype],
+start-1                  |       _eventsCount: 2,
+start-1                  |       _maxListeners: undefined,
+start-1                  |       defaultPort: 80,
+start-1                  |       protocol: 'http:',
+start-1                  |       options: [Object: null prototype],
+start-1                  |       requests: [Object: null prototype] {},
+start-1                  |       sockets: [Object: null prototype] {},
+start-1                  |       freeSockets: [Object: null prototype],
+start-1                  |       keepAliveMsecs: 1000,
+start-1                  |       keepAlive: true,
+start-1                  |       maxSockets: Infinity,
+start-1                  |       maxFreeSockets: 256,
+start-1                  |       scheduling: 'lifo',
+start-1                  |       maxTotalSockets: Infinity,
+start-1                  |       totalSocketCount: 1,
+start-1                  |       [Symbol(shapeMode)]: false,
+start-1                  |       [Symbol(kCapture)]: false
+start-1                  |     },
+start-1                  |     socketPath: undefined,
+start-1                  |     method: 'PUT',
+start-1                  |     maxHeaderSize: undefined,
+start-1                  |     insecureHTTPParser: undefined,
+start-1                  |     joinDuplicateHeaders: undefined,
+start-1                  |     path: '/api/simulations/sim-e230fda3-9850-4173-97e4-05d2d8e00d1b',
+start-1                  |     _ended: true,
+start-1                  |     res: IncomingMessage {
+start-1                  |       _events: [Object],
+start-1                  |       _readableState: [ReadableState],
+start-1                  |       _maxListeners: undefined,
+start-1                  |       socket: null,
+start-1                  |       httpVersionMajor: 1,
+start-1                  |       httpVersionMinor: 1,
+start-1                  |       httpVersion: '1.1',
+start-1                  |       complete: true,
+start-1                  |       rawHeaders: [Array],
+start-1                  |       rawTrailers: [],
+start-1                  |       joinDuplicateHeaders: undefined,
+start-1                  |       aborted: false,
+start-1                  |       upgrade: false,
+start-1                  |       url: '',
+start-1                  |       method: null,
+start-1                  |       statusCode: 200,
+start-1                  |       statusMessage: 'OK',
+start-1                  |       client: [Socket],
+start-1                  |       _consuming: false,
+start-1                  |       _dumped: false,
+start-1                  |       req: [Circular *1],
+start-1                  |       _eventsCount: 4,
+start-1                  |       responseUrl: 'http://10.0.0.4:40203/api/simulations/sim-e230fda3-9850-4173-97e4-05d2d8e00d1b',
+start-1                  |       redirects: [],
+start-1                  |       [Symbol(shapeMode)]: true,
+start-1                  |       [Symbol(kCapture)]: false,
+start-1                  |       [Symbol(kHeaders)]: [Object],
+start-1                  |       [Symbol(kHeadersCount)]: 40,
+start-1                  |       [Symbol(kTrailers)]: null,
+start-1                  |       [Symbol(kTrailersCount)]: 0
+start-1                  |     },
+start-1                  |     aborted: false,
+start-1                  |     timeoutCb: null,
+start-1                  |     upgradeOrConnect: false,
+start-1                  |     parser: null,
+start-1                  |     maxHeadersCount: null,
+start-1                  |     reusedSocket: false,
+start-1                  |     host: '10.0.0.4',
+start-1                  |     protocol: 'http:',
+start-1                  |     _redirectable: Writable {
+start-1                  |       _events: [Object],
+start-1                  |       _writableState: [WritableState],
+start-1                  |       _maxListeners: undefined,
+start-1                  |       _options: [Object],
+start-1                  |       _ended: true,
+start-1                  |       _ending: true,
+start-1                  |       _redirectCount: 0,
+start-1                  |       _redirects: [],
+start-1                  |       _requestBodyLength: 33,
+start-1                  |       _requestBodyBuffers: [],
+start-1                  |       _eventsCount: 3,
+start-1                  |       _onNativeResponse: [Function (anonymous)],
+start-1                  |       _currentRequest: [Circular *1],
+start-1                  |       _currentUrl: 'http://10.0.0.4:40203/api/simulations/sim-e230fda3-9850-4173-97e4-05d2d8e00d1b',
+start-1                  |       [Symbol(shapeMode)]: true,
+start-1                  |       [Symbol(kCapture)]: false
+start-1                  |     },
+start-1                  |     [Symbol(shapeMode)]: false,
+start-1                  |     [Symbol(kCapture)]: false,
+start-1                  |     [Symbol(kBytesWritten)]: 0,
+start-1                  |     [Symbol(kNeedDrain)]: false,
+start-1                  |     [Symbol(corked)]: 0,
+start-1                  |     [Symbol(kOutHeaders)]: [Object: null prototype] {
+start-1                  |       accept: [Array],
+start-1                  |       'content-type': [Array],
+start-1                  |       'user-agent': [Array],
+start-1                  |       'content-length': [Array],
+start-1                  |       'accept-encoding': [Array],
+start-1                  |       host: [Array]
+start-1                  |     },
+start-1                  |     [Symbol(errored)]: null,
+start-1                  |     [Symbol(kHighWaterMark)]: 16384,
+start-1                  |     [Symbol(kRejectNonStandardBodyWrites)]: false,
+start-1                  |     [Symbol(kUniqueHeaders)]: null
+start-1                  |   },
+start-1                  |   data: 'started'
+start-1                  | }
+[Kstart-1 exited with code 0
+prepare-1                | {"last_updated":"2025-01-08T08:57:24.345Z","last_downloaded":"2025-01-08T08:57:24.345Z","data_source":"http://example.com","lots":[]}
+prepare-1                | {"last_updated":"2025-01-08T08:57:24.345Z","last_downloaded":"2025-01-08T08:57:24.345Z","data_source":"http://example.com","lots":[]}
+[Kprepare-1 exited with code 0
+sumo-v2-1                | INFO:src.sumo_loader:sumo command:sumo -c /opt/inputs/configs/sumo/reacsim.sumocfg --net-file /opt/inputs/configs/sumo/map_kawasaki.net.xml.gz -W --step-length 10 --seed 0
+dumperjs-1               | /opt/outputs/sim-e230fda3-9850-4173-97e4-05d2d8e00d1b/states.txt
+dumperjs-1               | /opt/outputs/sim-e230fda3-9850-4173-97e4-05d2d8e00d1b/output.txt
+dumperjs-1               | /opt/outputs/sim-e230fda3-9850-4173-97e4-05d2d8e00d1b/current-usage.txt
+dumperjs-1               | /opt/outputs/sim-e230fda3-9850-4173-97e4-05d2d8e00d1b/total-usage.txt
+dumperjs-1               | /opt/outputs/sim-e230fda3-9850-4173-97e4-05d2d8e00d1b/choice.txt
+progress-1               | 
+progress-1               | 
+progress-1               | 
+progress-1               | 
+assimil-1                | 08:58:16,085 INFO  com.fujitsu.assimil.Assimil                                   - simulation start
+progress-1               | 
+progress-1               | 
+progress-1               | 
+progress-1               | 
+progress-1               | 
+progress-1               | 
+progress-1               | 
+progress-1               | 
+progress-1               | 
+progress-1               | 
+assimil-1                | 08:58:40,490 INFO  com.fujitsu.assimil.Assimil                                   - object loaded
+assimil-1                | 08:58:40,525 INFO  com.fujitsu.assimil.Assimil                                   - simulation started
+progress-1               | 
+progress-1               | 
+progress-1               | 
+progress-1               | 
+progress-1               | 
+progress-1               | 
+progress-1               | {"name":"states","time":60,"data":null}
+progress-1               | {"name":"current-usage","time":60,"data":{"oid":"station-17","value":{"minBattery":100.0,"reserved":0,"available":4,"low":0,"type":"station"}}}
+progress-1               | 
+progress-1               | {"name":"states","time":60,"data":null}
+progress-1               | { name: 'states', time: 60, data: null }
+progress-1               | {"name":"current-usage","time":60,"data":{"oid":"station-17","value":{"minBattery":100.0,"reserved":0,"available":4,"low":0,"type":"station"}}}
+progress-1               | {
+progress-1               |   name: 'current-usage',
+progress-1               |   time: 60,
+progress-1               |   data: {
+progress-1               |     oid: 'station-17',
+progress-1               |     value: {
+progress-1               |       minBattery: 100,
+progress-1               |       reserved: 0,
+progress-1               |       available: 4,
+progress-1               |       low: 0,
+progress-1               |       type: 'station'
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | 
+progress-1               | 60
+progress-1               | {"name":"states","time":120,"data":null}
+progress-1               | {"name":"current-usage","time":120,"data":{"oid":"station-17","value":{"minBattery":100.0,"reserved":0,"available":4,"low":0,"type":"station"}}}
+progress-1               | 
+progress-1               | {"name":"states","time":120,"data":null}
+progress-1               | { name: 'states', time: 120, data: null }
+progress-1               | {"name":"current-usage","time":120,"data":{"oid":"station-17","value":{"minBattery":100.0,"reserved":0,"available":4,"low":0,"type":"station"}}}
+progress-1               | {
+progress-1               |   name: 'current-usage',
+progress-1               |   time: 120,
+progress-1               |   data: {
+progress-1               |     oid: 'station-17',
+progress-1               |     value: {
+progress-1               |       minBattery: 100,
+progress-1               |       reserved: 0,
+progress-1               |       available: 4,
+progress-1               |       low: 0,
+progress-1               |       type: 'station'
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | 
+progress-1               | 120
+progress-1               | {"name":"states","time":120,"data":null}
+progress-1               | {"name":"current-usage","time":120,"data":{"oid":"station-17","value":{"minBattery":100.0,"reserved":0,"available":4,"low":0,"type":"station"}}}
+progress-1               | 
+progress-1               | {"name":"states","time":120,"data":null}
+progress-1               | { name: 'states', time: 120, data: null }
+progress-1               | {"name":"current-usage","time":120,"data":{"oid":"station-17","value":{"minBattery":100.0,"reserved":0,"available":4,"low":0,"type":"station"}}}
+progress-1               | {
+progress-1               |   name: 'current-usage',
+progress-1               |   time: 120,
+progress-1               |   data: {
+progress-1               |     oid: 'station-17',
+progress-1               |     value: {
+progress-1               |       minBattery: 100,
+progress-1               |       reserved: 0,
+progress-1               |       available: 4,
+progress-1               |       low: 0,
+progress-1               |       type: 'station'
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | 
+progress-1               | {"name":"states","time":180,"data":{"oid":"person-4","value":{"co2":2214.294829334608,"lon":139.63025540772185,"type":"car","lat":35.568087843668806,"speed":12.266259,"ec":0.0}}}
+progress-1               | {"name":"current-usage","time":180,"data":{"oid":"station-17","value":{"minBattery":100.0,"reserved":0,"available":4,"low":0,"type":"station"}}}
+progress-1               | 
+progress-1               | {"name":"states","time":180,"data":{"oid":"person-4","value":{"co2":2214.294829334608,"lon":139.63025540772185,"type":"car","lat":35.568087843668806,"speed":12.266259,"ec":0.0}}}
+progress-1               | {
+progress-1               |   name: 'states',
+progress-1               |   time: 180,
+progress-1               |   data: {
+progress-1               |     oid: 'person-4',
+progress-1               |     value: {
+progress-1               |       co2: 2214.294829334608,
+progress-1               |       lon: 139.63025540772185,
+progress-1               |       type: 'car',
+progress-1               |       lat: 35.568087843668806,
+progress-1               |       speed: 12.266259,
+progress-1               |       ec: 0
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | {"name":"current-usage","time":180,"data":{"oid":"station-17","value":{"minBattery":100.0,"reserved":0,"available":4,"low":0,"type":"station"}}}
+progress-1               | {
+progress-1               |   name: 'current-usage',
+progress-1               |   time: 180,
+progress-1               |   data: {
+progress-1               |     oid: 'station-17',
+progress-1               |     value: {
+progress-1               |       minBattery: 100,
+progress-1               |       reserved: 0,
+progress-1               |       available: 4,
+progress-1               |       low: 0,
+progress-1               |       type: 'station'
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | 
+progress-1               | 180
+progress-1               | {"name":"states","time":240,"data":{"oid":"person-9","value":{"co2":0.0,"lon":139.6757418432538,"type":"pedestrian","lat":35.603941723471095,"speed":1.389975855465823,"ec":0.0}}}
+progress-1               | {"name":"current-usage","time":240,"data":{"oid":"station-17","value":{"minBattery":100.0,"reserved":0,"available":4,"low":0,"type":"station"}}}
+progress-1               | 
+progress-1               | {"name":"states","time":240,"data":{"oid":"person-9","value":{"co2":0.0,"lon":139.6757418432538,"type":"pedestrian","lat":35.603941723471095,"speed":1.389975855465823,"ec":0.0}}}
+progress-1               | {
+progress-1               |   name: 'states',
+progress-1               |   time: 240,
+progress-1               |   data: {
+progress-1               |     oid: 'person-9',
+progress-1               |     value: {
+progress-1               |       co2: 0,
+progress-1               |       lon: 139.6757418432538,
+progress-1               |       type: 'pedestrian',
+progress-1               |       lat: 35.603941723471095,
+progress-1               |       speed: 1.389975855465823,
+progress-1               |       ec: 0
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | {"name":"current-usage","time":240,"data":{"oid":"station-17","value":{"minBattery":100.0,"reserved":0,"available":4,"low":0,"type":"station"}}}
+progress-1               | {
+progress-1               |   name: 'current-usage',
+progress-1               |   time: 240,
+progress-1               |   data: {
+progress-1               |     oid: 'station-17',
+progress-1               |     value: {
+progress-1               |       minBattery: 100,
+progress-1               |       reserved: 0,
+progress-1               |       available: 4,
+progress-1               |       low: 0,
+progress-1               |       type: 'station'
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | 
+progress-1               | 240
+progress-1               | {"name":"states","time":300,"data":{"oid":"person-5","value":{"co2":2274.5019787968286,"lon":139.659087490985,"type":"car","lat":35.60004421106421,"speed":13.131067961165048,"ec":0.0}}}
+progress-1               | {"name":"current-usage","time":300,"data":{"oid":"station-17","value":{"minBattery":100.0,"reserved":0,"available":4,"low":0,"type":"station"}}}
+progress-1               | 
+progress-1               | {"name":"states","time":300,"data":{"oid":"person-5","value":{"co2":2274.5019787968286,"lon":139.659087490985,"type":"car","lat":35.60004421106421,"speed":13.131067961165048,"ec":0.0}}}
+progress-1               | {
+progress-1               |   name: 'states',
+progress-1               |   time: 300,
+progress-1               |   data: {
+progress-1               |     oid: 'person-5',
+progress-1               |     value: {
+progress-1               |       co2: 2274.5019787968286,
+progress-1               |       lon: 139.659087490985,
+progress-1               |       type: 'car',
+progress-1               |       lat: 35.60004421106421,
+progress-1               |       speed: 13.131067961165048,
+progress-1               |       ec: 0
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | {"name":"current-usage","time":300,"data":{"oid":"station-17","value":{"minBattery":100.0,"reserved":0,"available":4,"low":0,"type":"station"}}}
+progress-1               | {
+progress-1               |   name: 'current-usage',
+progress-1               |   time: 300,
+progress-1               |   data: {
+progress-1               |     oid: 'station-17',
+progress-1               |     value: {
+progress-1               |       minBattery: 100,
+progress-1               |       reserved: 0,
+progress-1               |       available: 4,
+progress-1               |       low: 0,
+progress-1               |       type: 'station'
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | 
+progress-1               | 300
+progress-1               | {"name":"states","time":300,"data":{"oid":"person-5","value":{"co2":2274.5019787968286,"lon":139.659087490985,"type":"car","lat":35.60004421106421,"speed":13.131067961165048,"ec":0.0}}}
+progress-1               | {"name":"current-usage","time":300,"data":{"oid":"station-17","value":{"minBattery":100.0,"reserved":0,"available":4,"low":0,"type":"station"}}}
+progress-1               | 
+progress-1               | {"name":"states","time":300,"data":{"oid":"person-5","value":{"co2":2274.5019787968286,"lon":139.659087490985,"type":"car","lat":35.60004421106421,"speed":13.131067961165048,"ec":0.0}}}
+progress-1               | {
+progress-1               |   name: 'states',
+progress-1               |   time: 300,
+progress-1               |   data: {
+progress-1               |     oid: 'person-5',
+progress-1               |     value: {
+progress-1               |       co2: 2274.5019787968286,
+progress-1               |       lon: 139.659087490985,
+progress-1               |       type: 'car',
+progress-1               |       lat: 35.60004421106421,
+progress-1               |       speed: 13.131067961165048,
+progress-1               |       ec: 0
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | {"name":"current-usage","time":300,"data":{"oid":"station-17","value":{"minBattery":100.0,"reserved":0,"available":4,"low":0,"type":"station"}}}
+progress-1               | {
+progress-1               |   name: 'current-usage',
+progress-1               |   time: 300,
+progress-1               |   data: {
+progress-1               |     oid: 'station-17',
+progress-1               |     value: {
+progress-1               |       minBattery: 100,
+progress-1               |       reserved: 0,
+progress-1               |       available: 4,
+progress-1               |       low: 0,
+progress-1               |       type: 'station'
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | 
+progress-1               | {"name":"states","time":360,"data":{"oid":"person-5","value":{"co2":3363.13424515959,"lon":139.662796235676,"type":"car","lat":35.59583098558976,"speed":21.006560065600656,"ec":0.0}}}
+progress-1               | {"name":"current-usage","time":360,"data":{"oid":"station-17","value":{"minBattery":100.0,"reserved":0,"available":4,"low":0,"type":"station"}}}
+progress-1               | 
+progress-1               | {"name":"states","time":360,"data":{"oid":"person-5","value":{"co2":3363.13424515959,"lon":139.662796235676,"type":"car","lat":35.59583098558976,"speed":21.006560065600656,"ec":0.0}}}
+progress-1               | {
+progress-1               |   name: 'states',
+progress-1               |   time: 360,
+progress-1               |   data: {
+progress-1               |     oid: 'person-5',
+progress-1               |     value: {
+progress-1               |       co2: 3363.13424515959,
+progress-1               |       lon: 139.662796235676,
+progress-1               |       type: 'car',
+progress-1               |       lat: 35.59583098558976,
+progress-1               |       speed: 21.006560065600656,
+progress-1               |       ec: 0
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | {"name":"current-usage","time":360,"data":{"oid":"station-17","value":{"minBattery":100.0,"reserved":0,"available":4,"low":0,"type":"station"}}}
+progress-1               | {
+progress-1               |   name: 'current-usage',
+progress-1               |   time: 360,
+progress-1               |   data: {
+progress-1               |     oid: 'station-17',
+progress-1               |     value: {
+progress-1               |       minBattery: 100,
+progress-1               |       reserved: 0,
+progress-1               |       available: 4,
+progress-1               |       low: 0,
+progress-1               |       type: 'station'
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | 
+progress-1               | 360
+progress-1               | {"name":"states","time":360,"data":{"oid":"person-5","value":{"co2":3363.13424515959,"lon":139.662796235676,"type":"car","lat":35.59583098558976,"speed":21.006560065600656,"ec":0.0}}}
+progress-1               | {"name":"current-usage","time":360,"data":{"oid":"station-17","value":{"minBattery":100.0,"reserved":0,"available":4,"low":0,"type":"station"}}}
+progress-1               | 
+progress-1               | {"name":"states","time":360,"data":{"oid":"person-5","value":{"co2":3363.13424515959,"lon":139.662796235676,"type":"car","lat":35.59583098558976,"speed":21.006560065600656,"ec":0.0}}}
+progress-1               | {
+progress-1               |   name: 'states',
+progress-1               |   time: 360,
+progress-1               |   data: {
+progress-1               |     oid: 'person-5',
+progress-1               |     value: {
+progress-1               |       co2: 3363.13424515959,
+progress-1               |       lon: 139.662796235676,
+progress-1               |       type: 'car',
+progress-1               |       lat: 35.59583098558976,
+progress-1               |       speed: 21.006560065600656,
+progress-1               |       ec: 0
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | {"name":"current-usage","time":360,"data":{"oid":"station-17","value":{"minBattery":100.0,"reserved":0,"available":4,"low":0,"type":"station"}}}
+progress-1               | {
+progress-1               |   name: 'current-usage',
+progress-1               |   time: 360,
+progress-1               |   data: {
+progress-1               |     oid: 'station-17',
+progress-1               |     value: {
+progress-1               |       minBattery: 100,
+progress-1               |       reserved: 0,
+progress-1               |       available: 4,
+progress-1               |       low: 0,
+progress-1               |       type: 'station'
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | 
+progress-1               | {"name":"states","time":420,"data":{"oid":"person-19","value":{"co2":2612.4150776567076,"lon":139.63108714076304,"type":"car","lat":35.584218521853316,"speed":16.433259,"ec":0.0}}}
+progress-1               | {"name":"current-usage","time":420,"data":{"oid":"station-17","value":{"minBattery":100.0,"reserved":0,"available":4,"low":0,"type":"station"}}}
+progress-1               | 
+progress-1               | {"name":"states","time":420,"data":{"oid":"person-19","value":{"co2":2612.4150776567076,"lon":139.63108714076304,"type":"car","lat":35.584218521853316,"speed":16.433259,"ec":0.0}}}
+progress-1               | {
+progress-1               |   name: 'states',
+progress-1               |   time: 420,
+progress-1               |   data: {
+progress-1               |     oid: 'person-19',
+progress-1               |     value: {
+progress-1               |       co2: 2612.4150776567076,
+progress-1               |       lon: 139.63108714076304,
+progress-1               |       type: 'car',
+progress-1               |       lat: 35.584218521853316,
+progress-1               |       speed: 16.433259,
+progress-1               |       ec: 0
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | {"name":"current-usage","time":420,"data":{"oid":"station-17","value":{"minBattery":100.0,"reserved":0,"available":4,"low":0,"type":"station"}}}
+progress-1               | {
+progress-1               |   name: 'current-usage',
+progress-1               |   time: 420,
+progress-1               |   data: {
+progress-1               |     oid: 'station-17',
+progress-1               |     value: {
+progress-1               |       minBattery: 100,
+progress-1               |       reserved: 0,
+progress-1               |       available: 4,
+progress-1               |       low: 0,
+progress-1               |       type: 'station'
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | 
+progress-1               | 420
+progress-1               | {"name":"states","time":480,"data":{"oid":"person-19","value":{"co2":2612.4150776567076,"lon":139.6373365943282,"type":"car","lat":35.586867758784926,"speed":16.433259,"ec":0.0}}}
+progress-1               | {"name":"current-usage","time":480,"data":{"oid":"station-17","value":{"minBattery":100.0,"reserved":0,"available":4,"low":0,"type":"station"}}}
+progress-1               | 
+progress-1               | {"name":"states","time":480,"data":{"oid":"person-19","value":{"co2":2612.4150776567076,"lon":139.6373365943282,"type":"car","lat":35.586867758784926,"speed":16.433259,"ec":0.0}}}
+progress-1               | {
+progress-1               |   name: 'states',
+progress-1               |   time: 480,
+progress-1               |   data: {
+progress-1               |     oid: 'person-19',
+progress-1               |     value: {
+progress-1               |       co2: 2612.4150776567076,
+progress-1               |       lon: 139.6373365943282,
+progress-1               |       type: 'car',
+progress-1               |       lat: 35.586867758784926,
+progress-1               |       speed: 16.433259,
+progress-1               |       ec: 0
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | {"name":"current-usage","time":480,"data":{"oid":"station-17","value":{"minBattery":100.0,"reserved":0,"available":4,"low":0,"type":"station"}}}
+progress-1               | {
+progress-1               |   name: 'current-usage',
+progress-1               |   time: 480,
+progress-1               |   data: {
+progress-1               |     oid: 'station-17',
+progress-1               |     value: {
+progress-1               |       minBattery: 100,
+progress-1               |       reserved: 0,
+progress-1               |       available: 4,
+progress-1               |       low: 0,
+progress-1               |       type: 'station'
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | 
+progress-1               | 480
+progress-1               | {"name":"states","time":540,"data":{"oid":"person-19","value":{"co2":2612.4150776567076,"lon":139.6423821976797,"type":"car","lat":35.58592630367896,"speed":16.433259,"ec":0.0}}}
+progress-1               | {"name":"current-usage","time":540,"data":{"oid":"station-17","value":{"minBattery":100.0,"reserved":0,"available":4,"low":0,"type":"station"}}}
+progress-1               | 
+progress-1               | {"name":"states","time":540,"data":{"oid":"person-19","value":{"co2":2612.4150776567076,"lon":139.6423821976797,"type":"car","lat":35.58592630367896,"speed":16.433259,"ec":0.0}}}
+progress-1               | {
+progress-1               |   name: 'states',
+progress-1               |   time: 540,
+progress-1               |   data: {
+progress-1               |     oid: 'person-19',
+progress-1               |     value: {
+progress-1               |       co2: 2612.4150776567076,
+progress-1               |       lon: 139.6423821976797,
+progress-1               |       type: 'car',
+progress-1               |       lat: 35.58592630367896,
+progress-1               |       speed: 16.433259,
+progress-1               |       ec: 0
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | {"name":"current-usage","time":540,"data":{"oid":"station-17","value":{"minBattery":100.0,"reserved":0,"available":4,"low":0,"type":"station"}}}
+progress-1               | {
+progress-1               |   name: 'current-usage',
+progress-1               |   time: 540,
+progress-1               |   data: {
+progress-1               |     oid: 'station-17',
+progress-1               |     value: {
+progress-1               |       minBattery: 100,
+progress-1               |       reserved: 0,
+progress-1               |       available: 4,
+progress-1               |       low: 0,
+progress-1               |       type: 'station'
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | 
+progress-1               | 540
+progress-1               | {"name":"states","time":600,"data":{"oid":"person-19","value":{"co2":2108.4415879530948,"lon":139.6512681006343,"type":"car","lat":35.58208051594218,"speed":9.855223,"ec":0.0}}}
+progress-1               | {"name":"current-usage","time":600,"data":{"oid":"station-17","value":{"minBattery":100.0,"reserved":0,"available":4,"low":0,"type":"station"}}}
+progress-1               | 
+progress-1               | {"name":"states","time":600,"data":{"oid":"person-19","value":{"co2":2108.4415879530948,"lon":139.6512681006343,"type":"car","lat":35.58208051594218,"speed":9.855223,"ec":0.0}}}
+progress-1               | {
+progress-1               |   name: 'states',
+progress-1               |   time: 600,
+progress-1               |   data: {
+progress-1               |     oid: 'person-19',
+progress-1               |     value: {
+progress-1               |       co2: 2108.4415879530948,
+progress-1               |       lon: 139.6512681006343,
+progress-1               |       type: 'car',
+progress-1               |       lat: 35.58208051594218,
+progress-1               |       speed: 9.855223,
+progress-1               |       ec: 0
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | {"name":"current-usage","time":600,"data":{"oid":"station-17","value":{"minBattery":100.0,"reserved":0,"available":4,"low":0,"type":"station"}}}
+progress-1               | {
+progress-1               |   name: 'current-usage',
+progress-1               |   time: 600,
+progress-1               |   data: {
+progress-1               |     oid: 'station-17',
+progress-1               |     value: {
+progress-1               |       minBattery: 100,
+progress-1               |       reserved: 0,
+progress-1               |       available: 4,
+progress-1               |       low: 0,
+progress-1               |       type: 'station'
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | 
+progress-1               | 600
+progress-1               | {"name":"states","time":600,"data":{"oid":"person-19","value":{"co2":2108.4415879530948,"lon":139.6512681006343,"type":"car","lat":35.58208051594218,"speed":9.855223,"ec":0.0}}}
+progress-1               | {"name":"current-usage","time":600,"data":{"oid":"station-17","value":{"minBattery":100.0,"reserved":0,"available":4,"low":0,"type":"station"}}}
+progress-1               | 
+progress-1               | {"name":"states","time":600,"data":{"oid":"person-19","value":{"co2":2108.4415879530948,"lon":139.6512681006343,"type":"car","lat":35.58208051594218,"speed":9.855223,"ec":0.0}}}
+progress-1               | {
+progress-1               |   name: 'states',
+progress-1               |   time: 600,
+progress-1               |   data: {
+progress-1               |     oid: 'person-19',
+progress-1               |     value: {
+progress-1               |       co2: 2108.4415879530948,
+progress-1               |       lon: 139.6512681006343,
+progress-1               |       type: 'car',
+progress-1               |       lat: 35.58208051594218,
+progress-1               |       speed: 9.855223,
+progress-1               |       ec: 0
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | {"name":"current-usage","time":600,"data":{"oid":"station-17","value":{"minBattery":100.0,"reserved":0,"available":4,"low":0,"type":"station"}}}
+progress-1               | {
+progress-1               |   name: 'current-usage',
+progress-1               |   time: 600,
+progress-1               |   data: {
+progress-1               |     oid: 'station-17',
+progress-1               |     value: {
+progress-1               |       minBattery: 100,
+progress-1               |       reserved: 0,
+progress-1               |       available: 4,
+progress-1               |       low: 0,
+progress-1               |       type: 'station'
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | 
+progress-1               | {"name":"states","time":660,"data":{"oid":"person-19","value":{"co2":2612.3021467317985,"lon":139.65620360790513,"type":"car","lat":35.58154493689045,"speed":16.432378414390406,"ec":0.0}}}
+progress-1               | {"name":"current-usage","time":660,"data":{"oid":"station-17","value":{"minBattery":100.0,"reserved":0,"available":4,"low":0,"type":"station"}}}
+progress-1               | 
+progress-1               | {"name":"states","time":660,"data":{"oid":"person-19","value":{"co2":2612.3021467317985,"lon":139.65620360790513,"type":"car","lat":35.58154493689045,"speed":16.432378414390406,"ec":0.0}}}
+progress-1               | {
+progress-1               |   name: 'states',
+progress-1               |   time: 660,
+progress-1               |   data: {
+progress-1               |     oid: 'person-19',
+progress-1               |     value: {
+progress-1               |       co2: 2612.3021467317985,
+progress-1               |       lon: 139.65620360790513,
+progress-1               |       type: 'car',
+progress-1               |       lat: 35.58154493689045,
+progress-1               |       speed: 16.432378414390406,
+progress-1               |       ec: 0
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | {"name":"current-usage","time":660,"data":{"oid":"station-17","value":{"minBattery":100.0,"reserved":0,"available":4,"low":0,"type":"station"}}}
+progress-1               | {
+progress-1               |   name: 'current-usage',
+progress-1               |   time: 660,
+progress-1               |   data: {
+progress-1               |     oid: 'station-17',
+progress-1               |     value: {
+progress-1               |       minBattery: 100,
+progress-1               |       reserved: 0,
+progress-1               |       available: 4,
+progress-1               |       low: 0,
+progress-1               |       type: 'station'
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | 
+progress-1               | 660
+progress-1               | {"name":"states","time":720,"data":{"oid":"person-19","value":{"co2":2612.4150776567076,"lon":139.6634333823987,"type":"car","lat":35.58225175009444,"speed":16.433259,"ec":0.0}}}
+progress-1               | {"name":"current-usage","time":720,"data":{"oid":"station-17","value":{"minBattery":100.0,"reserved":0,"available":4,"low":0,"type":"station"}}}
+progress-1               | 
+progress-1               | {"name":"states","time":720,"data":{"oid":"person-19","value":{"co2":2612.4150776567076,"lon":139.6634333823987,"type":"car","lat":35.58225175009444,"speed":16.433259,"ec":0.0}}}
+progress-1               | {
+progress-1               |   name: 'states',
+progress-1               |   time: 720,
+progress-1               |   data: {
+progress-1               |     oid: 'person-19',
+progress-1               |     value: {
+progress-1               |       co2: 2612.4150776567076,
+progress-1               |       lon: 139.6634333823987,
+progress-1               |       type: 'car',
+progress-1               |       lat: 35.58225175009444,
+progress-1               |       speed: 16.433259,
+progress-1               |       ec: 0
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | {"name":"current-usage","time":720,"data":{"oid":"station-17","value":{"minBattery":100.0,"reserved":0,"available":4,"low":0,"type":"station"}}}
+progress-1               | {
+progress-1               |   name: 'current-usage',
+progress-1               |   time: 720,
+progress-1               |   data: {
+progress-1               |     oid: 'station-17',
+progress-1               |     value: {
+progress-1               |       minBattery: 100,
+progress-1               |       reserved: 0,
+progress-1               |       available: 4,
+progress-1               |       low: 0,
+progress-1               |       type: 'station'
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | 
+progress-1               | 720
+progress-1               | {"name":"states","time":780,"data":{"oid":"person-19","value":{"co2":2624.722222222222,"lon":139.6639018710272,"type":"car","lat":35.58233871796675,"speed":0.0,"ec":0.0}}}
+progress-1               | {"name":"current-usage","time":780,"data":{"oid":"station-17","value":{"minBattery":100.0,"reserved":0,"available":4,"low":0,"type":"station"}}}
+progress-1               | 
+progress-1               | {"name":"states","time":780,"data":{"oid":"person-19","value":{"co2":2624.722222222222,"lon":139.6639018710272,"type":"car","lat":35.58233871796675,"speed":0.0,"ec":0.0}}}
+progress-1               | {
+progress-1               |   name: 'states',
+progress-1               |   time: 780,
+progress-1               |   data: {
+progress-1               |     oid: 'person-19',
+progress-1               |     value: {
+progress-1               |       co2: 2624.722222222222,
+progress-1               |       lon: 139.6639018710272,
+progress-1               |       type: 'car',
+progress-1               |       lat: 35.58233871796675,
+progress-1               |       speed: 0,
+progress-1               |       ec: 0
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | {"name":"current-usage","time":780,"data":{"oid":"station-17","value":{"minBattery":100.0,"reserved":0,"available":4,"low":0,"type":"station"}}}
+progress-1               | {
+progress-1               |   name: 'current-usage',
+progress-1               |   time: 780,
+progress-1               |   data: {
+progress-1               |     oid: 'station-17',
+progress-1               |     value: {
+progress-1               |       minBattery: 100,
+progress-1               |       reserved: 0,
+progress-1               |       available: 4,
+progress-1               |       low: 0,
+progress-1               |       type: 'station'
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | 
+progress-1               | 780
+progress-1               | {"name":"states","time":840,"data":{"oid":"person-19","value":{"co2":2624.722222222222,"lon":139.6697975972165,"type":"car","lat":35.5858867317042,"speed":0.0,"ec":0.0}}}
+progress-1               | {"name":"current-usage","time":840,"data":{"oid":"station-17","value":{"minBattery":100.0,"reserved":0,"available":4,"low":0,"type":"station"}}}
+progress-1               | 
+progress-1               | {"name":"states","time":840,"data":{"oid":"person-19","value":{"co2":2624.722222222222,"lon":139.6697975972165,"type":"car","lat":35.5858867317042,"speed":0.0,"ec":0.0}}}
+progress-1               | {
+progress-1               |   name: 'states',
+progress-1               |   time: 840,
+progress-1               |   data: {
+progress-1               |     oid: 'person-19',
+progress-1               |     value: {
+progress-1               |       co2: 2624.722222222222,
+progress-1               |       lon: 139.6697975972165,
+progress-1               |       type: 'car',
+progress-1               |       lat: 35.5858867317042,
+progress-1               |       speed: 0,
+progress-1               |       ec: 0
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | {"name":"current-usage","time":840,"data":{"oid":"station-17","value":{"minBattery":100.0,"reserved":0,"available":4,"low":0,"type":"station"}}}
+progress-1               | {
+progress-1               |   name: 'current-usage',
+progress-1               |   time: 840,
+progress-1               |   data: {
+progress-1               |     oid: 'station-17',
+progress-1               |     value: {
+progress-1               |       minBattery: 100,
+progress-1               |       reserved: 0,
+progress-1               |       available: 4,
+progress-1               |       low: 0,
+progress-1               |       type: 'station'
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | 
+progress-1               | 840
+progress-1               | {"name":"states","time":900,"data":{"oid":"person-19","value":{"co2":6838.548929191516,"lon":139.66682618978965,"type":"car","lat":35.588551824524195,"speed":32.86295681063123,"ec":0.0}}}
+progress-1               | {"name":"current-usage","time":900,"data":{"oid":"station-17","value":{"minBattery":100.0,"reserved":0,"available":4,"low":0,"type":"station"}}}
+progress-1               | 
+progress-1               | {"name":"states","time":900,"data":{"oid":"person-19","value":{"co2":6838.548929191516,"lon":139.66682618978965,"type":"car","lat":35.588551824524195,"speed":32.86295681063123,"ec":0.0}}}
+progress-1               | {
+progress-1               |   name: 'states',
+progress-1               |   time: 900,
+progress-1               |   data: {
+progress-1               |     oid: 'person-19',
+progress-1               |     value: {
+progress-1               |       co2: 6838.548929191516,
+progress-1               |       lon: 139.66682618978965,
+progress-1               |       type: 'car',
+progress-1               |       lat: 35.588551824524195,
+progress-1               |       speed: 32.86295681063123,
+progress-1               |       ec: 0
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | {"name":"current-usage","time":900,"data":{"oid":"station-17","value":{"minBattery":100.0,"reserved":0,"available":4,"low":0,"type":"station"}}}
+progress-1               | {
+progress-1               |   name: 'current-usage',
+progress-1               |   time: 900,
+progress-1               |   data: {
+progress-1               |     oid: 'station-17',
+progress-1               |     value: {
+progress-1               |       minBattery: 100,
+progress-1               |       reserved: 0,
+progress-1               |       available: 4,
+progress-1               |       low: 0,
+progress-1               |       type: 'station'
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | 
+progress-1               | 900
+progress-1               | {"name":"states","time":960,"data":{"oid":"person-19","value":{"co2":6839.924354460165,"lon":139.6541578037038,"type":"car","lat":35.593565803589065,"speed":32.866518,"ec":0.0}}}
+progress-1               | {"name":"current-usage","time":960,"data":{"oid":"station-17","value":{"minBattery":100.0,"reserved":0,"available":4,"low":0,"type":"station"}}}
+progress-1               | 
+progress-1               | {"name":"states","time":960,"data":{"oid":"person-19","value":{"co2":6839.924354460165,"lon":139.6541578037038,"type":"car","lat":35.593565803589065,"speed":32.866518,"ec":0.0}}}
+progress-1               | {
+progress-1               |   name: 'states',
+progress-1               |   time: 960,
+progress-1               |   data: {
+progress-1               |     oid: 'person-19',
+progress-1               |     value: {
+progress-1               |       co2: 6839.924354460165,
+progress-1               |       lon: 139.6541578037038,
+progress-1               |       type: 'car',
+progress-1               |       lat: 35.593565803589065,
+progress-1               |       speed: 32.866518,
+progress-1               |       ec: 0
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | {"name":"current-usage","time":960,"data":{"oid":"station-17","value":{"minBattery":100.0,"reserved":0,"available":4,"low":0,"type":"station"}}}
+progress-1               | {
+progress-1               |   name: 'current-usage',
+progress-1               |   time: 960,
+progress-1               |   data: {
+progress-1               |     oid: 'station-17',
+progress-1               |     value: {
+progress-1               |       minBattery: 100,
+progress-1               |       reserved: 0,
+progress-1               |       available: 4,
+progress-1               |       low: 0,
+progress-1               |       type: 'station'
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | 
+progress-1               | 960
+progress-1               | {"name":"states","time":960,"data":{"oid":"person-19","value":{"co2":6839.924354460165,"lon":139.6541578037038,"type":"car","lat":35.593565803589065,"speed":32.866518,"ec":0.0}}}
+progress-1               | {"name":"current-usage","time":960,"data":{"oid":"station-17","value":{"minBattery":100.0,"reserved":0,"available":4,"low":0,"type":"station"}}}
+progress-1               | 
+progress-1               | {"name":"states","time":960,"data":{"oid":"person-19","value":{"co2":6839.924354460165,"lon":139.6541578037038,"type":"car","lat":35.593565803589065,"speed":32.866518,"ec":0.0}}}
+progress-1               | {
+progress-1               |   name: 'states',
+progress-1               |   time: 960,
+progress-1               |   data: {
+progress-1               |     oid: 'person-19',
+progress-1               |     value: {
+progress-1               |       co2: 6839.924354460165,
+progress-1               |       lon: 139.6541578037038,
+progress-1               |       type: 'car',
+progress-1               |       lat: 35.593565803589065,
+progress-1               |       speed: 32.866518,
+progress-1               |       ec: 0
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | {"name":"current-usage","time":960,"data":{"oid":"station-17","value":{"minBattery":100.0,"reserved":0,"available":4,"low":0,"type":"station"}}}
+progress-1               | {
+progress-1               |   name: 'current-usage',
+progress-1               |   time: 960,
+progress-1               |   data: {
+progress-1               |     oid: 'station-17',
+progress-1               |     value: {
+progress-1               |       minBattery: 100,
+progress-1               |       reserved: 0,
+progress-1               |       available: 4,
+progress-1               |       low: 0,
+progress-1               |       type: 'station'
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | 
+progress-1               | {"name":"states","time":1020,"data":{"oid":"person-19","value":{"co2":2624.722222222222,"lon":139.64720851319865,"type":"car","lat":35.60142832286704,"speed":0.0,"ec":0.0}}}
+progress-1               | {"name":"current-usage","time":1020,"data":{"oid":"station-17","value":{"minBattery":100.0,"reserved":0,"available":4,"low":0,"type":"station"}}}
+progress-1               | 
+progress-1               | {"name":"states","time":1020,"data":{"oid":"person-19","value":{"co2":2624.722222222222,"lon":139.64720851319865,"type":"car","lat":35.60142832286704,"speed":0.0,"ec":0.0}}}
+progress-1               | {
+progress-1               |   name: 'states',
+progress-1               |   time: 1020,
+progress-1               |   data: {
+progress-1               |     oid: 'person-19',
+progress-1               |     value: {
+progress-1               |       co2: 2624.722222222222,
+progress-1               |       lon: 139.64720851319865,
+progress-1               |       type: 'car',
+progress-1               |       lat: 35.60142832286704,
+progress-1               |       speed: 0,
+progress-1               |       ec: 0
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | {"name":"current-usage","time":1020,"data":{"oid":"station-17","value":{"minBattery":100.0,"reserved":0,"available":4,"low":0,"type":"station"}}}
+progress-1               | {
+progress-1               |   name: 'current-usage',
+progress-1               |   time: 1020,
+progress-1               |   data: {
+progress-1               |     oid: 'station-17',
+progress-1               |     value: {
+progress-1               |       minBattery: 100,
+progress-1               |       reserved: 0,
+progress-1               |       available: 4,
+progress-1               |       low: 0,
+progress-1               |       type: 'station'
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | 
+progress-1               | 1020
+progress-1               | {"name":"states","time":1080,"data":{"oid":"person-19","value":{"co2":2275.509863480958,"lon":139.64741773463592,"type":"car","lat":35.60280763795644,"speed":13.144241,"ec":0.0}}}
+progress-1               | {"name":"current-usage","time":1080,"data":{"oid":"station-17","value":{"minBattery":100.0,"reserved":0,"available":4,"low":0,"type":"station"}}}
+progress-1               | 
+progress-1               | {"name":"states","time":1080,"data":{"oid":"person-19","value":{"co2":2275.509863480958,"lon":139.64741773463592,"type":"car","lat":35.60280763795644,"speed":13.144241,"ec":0.0}}}
+progress-1               | {
+progress-1               |   name: 'states',
+progress-1               |   time: 1080,
+progress-1               |   data: {
+progress-1               |     oid: 'person-19',
+progress-1               |     value: {
+progress-1               |       co2: 2275.509863480958,
+progress-1               |       lon: 139.64741773463592,
+progress-1               |       type: 'car',
+progress-1               |       lat: 35.60280763795644,
+progress-1               |       speed: 13.144241,
+progress-1               |       ec: 0
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | {"name":"current-usage","time":1080,"data":{"oid":"station-17","value":{"minBattery":100.0,"reserved":0,"available":4,"low":0,"type":"station"}}}
+progress-1               | {
+progress-1               |   name: 'current-usage',
+progress-1               |   time: 1080,
+progress-1               |   data: {
+progress-1               |     oid: 'station-17',
+progress-1               |     value: {
+progress-1               |       minBattery: 100,
+progress-1               |       reserved: 0,
+progress-1               |       available: 4,
+progress-1               |       low: 0,
+progress-1               |       type: 'station'
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | 
+progress-1               | 1080
+progress-1               | {"name":"states","time":1200,"data":{"oid":"person-21","value":{"co2":0.0,"lon":139.65412428490424,"type":"escooter","lat":35.58225480550147,"speed":4.975,"ec":0.30053373015622564}}}
+progress-1               | {"name":"current-usage","time":1200,"data":{"oid":"station-17","value":{"minBattery":100.0,"reserved":0,"available":4,"low":0,"type":"station"}}}
+progress-1               | 
+progress-1               | {"name":"states","time":1200,"data":{"oid":"person-21","value":{"co2":0.0,"lon":139.65412428490424,"type":"escooter","lat":35.58225480550147,"speed":4.975,"ec":0.30053373015622564}}}
+progress-1               | {
+progress-1               |   name: 'states',
+progress-1               |   time: 1200,
+progress-1               |   data: {
+progress-1               |     oid: 'person-21',
+progress-1               |     value: {
+progress-1               |       co2: 0,
+progress-1               |       lon: 139.65412428490424,
+progress-1               |       type: 'escooter',
+progress-1               |       lat: 35.58225480550147,
+progress-1               |       speed: 4.975,
+progress-1               |       ec: 0.30053373015622564
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | {"name":"current-usage","time":1200,"data":{"oid":"station-17","value":{"minBattery":100.0,"reserved":0,"available":4,"low":0,"type":"station"}}}
+progress-1               | {
+progress-1               |   name: 'current-usage',
+progress-1               |   time: 1200,
+progress-1               |   data: {
+progress-1               |     oid: 'station-17',
+progress-1               |     value: {
+progress-1               |       minBattery: 100,
+progress-1               |       reserved: 0,
+progress-1               |       available: 4,
+progress-1               |       low: 0,
+progress-1               |       type: 'station'
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | 
+progress-1               | 1200
+progress-1               | {"name":"states","time":1260,"data":{"oid":"person-86","value":{"co2":2624.722222222222,"lon":139.63282487880633,"type":"car","lat":35.58731450609963,"speed":0.0,"ec":0.0}}}
+progress-1               | {"name":"current-usage","time":1260,"data":{"oid":"station-17","value":{"minBattery":100.0,"reserved":0,"available":4,"low":0,"type":"station"}}}
+progress-1               | 
+progress-1               | {"name":"states","time":1260,"data":{"oid":"person-86","value":{"co2":2624.722222222222,"lon":139.63282487880633,"type":"car","lat":35.58731450609963,"speed":0.0,"ec":0.0}}}
+progress-1               | {
+progress-1               |   name: 'states',
+progress-1               |   time: 1260,
+progress-1               |   data: {
+progress-1               |     oid: 'person-86',
+progress-1               |     value: {
+progress-1               |       co2: 2624.722222222222,
+progress-1               |       lon: 139.63282487880633,
+progress-1               |       type: 'car',
+progress-1               |       lat: 35.58731450609963,
+progress-1               |       speed: 0,
+progress-1               |       ec: 0
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | {"name":"current-usage","time":1260,"data":{"oid":"station-17","value":{"minBattery":100.0,"reserved":0,"available":4,"low":0,"type":"station"}}}
+progress-1               | {
+progress-1               |   name: 'current-usage',
+progress-1               |   time: 1260,
+progress-1               |   data: {
+progress-1               |     oid: 'station-17',
+progress-1               |     value: {
+progress-1               |       minBattery: 100,
+progress-1               |       reserved: 0,
+progress-1               |       available: 4,
+progress-1               |       low: 0,
+progress-1               |       type: 'station'
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | 
+progress-1               | 1260
+progress-1               | {"name":"states","time":1320,"data":{"oid":"person-86","value":{"co2":2624.722222222222,"lon":139.63327350921003,"type":"car","lat":35.586400621681534,"speed":0.0,"ec":0.0}}}
+progress-1               | {"name":"current-usage","time":1320,"data":{"oid":"station-17","value":{"minBattery":100.0,"reserved":0,"available":4,"low":0,"type":"station"}}}
+progress-1               | 
+progress-1               | {"name":"states","time":1320,"data":{"oid":"person-86","value":{"co2":2624.722222222222,"lon":139.63327350921003,"type":"car","lat":35.586400621681534,"speed":0.0,"ec":0.0}}}
+progress-1               | {
+progress-1               |   name: 'states',
+progress-1               |   time: 1320,
+progress-1               |   data: {
+progress-1               |     oid: 'person-86',
+progress-1               |     value: {
+progress-1               |       co2: 2624.722222222222,
+progress-1               |       lon: 139.63327350921003,
+progress-1               |       type: 'car',
+progress-1               |       lat: 35.586400621681534,
+progress-1               |       speed: 0,
+progress-1               |       ec: 0
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | {"name":"current-usage","time":1320,"data":{"oid":"station-17","value":{"minBattery":100.0,"reserved":0,"available":4,"low":0,"type":"station"}}}
+progress-1               | {
+progress-1               |   name: 'current-usage',
+progress-1               |   time: 1320,
+progress-1               |   data: {
+progress-1               |     oid: 'station-17',
+progress-1               |     value: {
+progress-1               |       minBattery: 100,
+progress-1               |       reserved: 0,
+progress-1               |       available: 4,
+progress-1               |       low: 0,
+progress-1               |       type: 'station'
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | 
+progress-1               | 1320
+progress-1               | {"name":"states","time":1380,"data":{"oid":"person-86","value":{"co2":2624.722222222222,"lon":139.63325122977898,"type":"car","lat":35.58249042576182,"speed":0.0,"ec":0.0}}}
+progress-1               | {"name":"current-usage","time":1380,"data":{"oid":"station-17","value":{"minBattery":100.0,"reserved":0,"available":4,"low":0,"type":"station"}}}
+progress-1               | 
+progress-1               | {"name":"states","time":1380,"data":{"oid":"person-86","value":{"co2":2624.722222222222,"lon":139.63325122977898,"type":"car","lat":35.58249042576182,"speed":0.0,"ec":0.0}}}
+progress-1               | {
+progress-1               |   name: 'states',
+progress-1               |   time: 1380,
+progress-1               |   data: {
+progress-1               |     oid: 'person-86',
+progress-1               |     value: {
+progress-1               |       co2: 2624.722222222222,
+progress-1               |       lon: 139.63325122977898,
+progress-1               |       type: 'car',
+progress-1               |       lat: 35.58249042576182,
+progress-1               |       speed: 0,
+progress-1               |       ec: 0
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | {"name":"current-usage","time":1380,"data":{"oid":"station-17","value":{"minBattery":100.0,"reserved":0,"available":4,"low":0,"type":"station"}}}
+progress-1               | {
+progress-1               |   name: 'current-usage',
+progress-1               |   time: 1380,
+progress-1               |   data: {
+progress-1               |     oid: 'station-17',
+progress-1               |     value: {
+progress-1               |       minBattery: 100,
+progress-1               |       reserved: 0,
+progress-1               |       available: 4,
+progress-1               |       low: 0,
+progress-1               |       type: 'station'
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | 
+progress-1               | 1380
+progress-1               | {"name":"states","time":1440,"data":{"oid":"person-86","value":{"co2":2252.1238679749877,"lon":139.63330931728993,"type":"car","lat":35.580786749519035,"speed":12.828804,"ec":0.0}}}
+progress-1               | {"name":"current-usage","time":1440,"data":{"oid":"station-17","value":{"minBattery":100.0,"reserved":0,"available":4,"low":0,"type":"station"}}}
+progress-1               | 
+progress-1               | {"name":"states","time":1440,"data":{"oid":"person-86","value":{"co2":2252.1238679749877,"lon":139.63330931728993,"type":"car","lat":35.580786749519035,"speed":12.828804,"ec":0.0}}}
+progress-1               | {
+progress-1               |   name: 'states',
+progress-1               |   time: 1440,
+progress-1               |   data: {
+progress-1               |     oid: 'person-86',
+progress-1               |     value: {
+progress-1               |       co2: 2252.1238679749877,
+progress-1               |       lon: 139.63330931728993,
+progress-1               |       type: 'car',
+progress-1               |       lat: 35.580786749519035,
+progress-1               |       speed: 12.828804,
+progress-1               |       ec: 0
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | {"name":"current-usage","time":1440,"data":{"oid":"station-17","value":{"minBattery":100.0,"reserved":0,"available":4,"low":0,"type":"station"}}}
+progress-1               | {
+progress-1               |   name: 'current-usage',
+progress-1               |   time: 1440,
+progress-1               |   data: {
+progress-1               |     oid: 'station-17',
+progress-1               |     value: {
+progress-1               |       minBattery: 100,
+progress-1               |       reserved: 0,
+progress-1               |       available: 4,
+progress-1               |       low: 0,
+progress-1               |       type: 'station'
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | 
+progress-1               | 1440
+progress-1               | {"name":"states","time":1500,"data":{"oid":"person-86","value":{"co2":2624.722222222222,"lon":139.63344397542838,"type":"car","lat":35.5774210774992,"speed":0.0,"ec":0.0}}}
+progress-1               | {"name":"current-usage","time":1500,"data":{"oid":"station-17","value":{"minBattery":100.0,"reserved":0,"available":4,"low":0,"type":"station"}}}
+progress-1               | 
+progress-1               | {"name":"states","time":1500,"data":{"oid":"person-86","value":{"co2":2624.722222222222,"lon":139.63344397542838,"type":"car","lat":35.5774210774992,"speed":0.0,"ec":0.0}}}
+progress-1               | {
+progress-1               |   name: 'states',
+progress-1               |   time: 1500,
+progress-1               |   data: {
+progress-1               |     oid: 'person-86',
+progress-1               |     value: {
+progress-1               |       co2: 2624.722222222222,
+progress-1               |       lon: 139.63344397542838,
+progress-1               |       type: 'car',
+progress-1               |       lat: 35.5774210774992,
+progress-1               |       speed: 0,
+progress-1               |       ec: 0
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | {"name":"current-usage","time":1500,"data":{"oid":"station-17","value":{"minBattery":100.0,"reserved":0,"available":4,"low":0,"type":"station"}}}
+progress-1               | {
+progress-1               |   name: 'current-usage',
+progress-1               |   time: 1500,
+progress-1               |   data: {
+progress-1               |     oid: 'station-17',
+progress-1               |     value: {
+progress-1               |       minBattery: 100,
+progress-1               |       reserved: 0,
+progress-1               |       available: 4,
+progress-1               |       low: 0,
+progress-1               |       type: 'station'
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | 
+progress-1               | 1500
+progress-1               | {"name":"states","time":1560,"data":{"oid":"person-112","value":{"co2":2172.8020708327367,"lon":139.67306072683525,"type":"car","lat":35.5687311245455,"speed":11.539957,"ec":0.0}}}
+progress-1               | {"name":"current-usage","time":1560,"data":{"oid":"station-17","value":{"minBattery":100.0,"reserved":0,"available":4,"low":0,"type":"station"}}}
+progress-1               | 
+progress-1               | {"name":"states","time":1560,"data":{"oid":"person-112","value":{"co2":2172.8020708327367,"lon":139.67306072683525,"type":"car","lat":35.5687311245455,"speed":11.539957,"ec":0.0}}}
+progress-1               | {
+progress-1               |   name: 'states',
+progress-1               |   time: 1560,
+progress-1               |   data: {
+progress-1               |     oid: 'person-112',
+progress-1               |     value: {
+progress-1               |       co2: 2172.8020708327367,
+progress-1               |       lon: 139.67306072683525,
+progress-1               |       type: 'car',
+progress-1               |       lat: 35.5687311245455,
+progress-1               |       speed: 11.539957,
+progress-1               |       ec: 0
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | {"name":"current-usage","time":1560,"data":{"oid":"station-17","value":{"minBattery":100.0,"reserved":0,"available":4,"low":0,"type":"station"}}}
+progress-1               | {
+progress-1               |   name: 'current-usage',
+progress-1               |   time: 1560,
+progress-1               |   data: {
+progress-1               |     oid: 'station-17',
+progress-1               |     value: {
+progress-1               |       minBattery: 100,
+progress-1               |       reserved: 0,
+progress-1               |       available: 4,
+progress-1               |       low: 0,
+progress-1               |       type: 'station'
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | 
+progress-1               | 1560
+progress-1               | {"name":"states","time":1620,"data":{"oid":"person-116","value":{"co2":2363.442545082607,"lon":139.66581173489448,"type":"car","lat":35.604313612916904,"speed":14.18169,"ec":0.0}}}
+progress-1               | {"name":"current-usage","time":1620,"data":{"oid":"station-17","value":{"minBattery":100.0,"reserved":0,"available":4,"low":0,"type":"station"}}}
+progress-1               | 
+progress-1               | {"name":"states","time":1620,"data":{"oid":"person-116","value":{"co2":2363.442545082607,"lon":139.66581173489448,"type":"car","lat":35.604313612916904,"speed":14.18169,"ec":0.0}}}
+progress-1               | {
+progress-1               |   name: 'states',
+progress-1               |   time: 1620,
+progress-1               |   data: {
+progress-1               |     oid: 'person-116',
+progress-1               |     value: {
+progress-1               |       co2: 2363.442545082607,
+progress-1               |       lon: 139.66581173489448,
+progress-1               |       type: 'car',
+progress-1               |       lat: 35.604313612916904,
+progress-1               |       speed: 14.18169,
+progress-1               |       ec: 0
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | {"name":"current-usage","time":1620,"data":{"oid":"station-17","value":{"minBattery":100.0,"reserved":0,"available":4,"low":0,"type":"station"}}}
+progress-1               | {
+progress-1               |   name: 'current-usage',
+progress-1               |   time: 1620,
+progress-1               |   data: {
+progress-1               |     oid: 'station-17',
+progress-1               |     value: {
+progress-1               |       minBattery: 100,
+progress-1               |       reserved: 0,
+progress-1               |       available: 4,
+progress-1               |       low: 0,
+progress-1               |       type: 'station'
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | 
+progress-1               | 1620
+progress-1               | {"name":"states","time":1620,"data":{"oid":"person-116","value":{"co2":2363.442545082607,"lon":139.66581173489448,"type":"car","lat":35.604313612916904,"speed":14.18169,"ec":0.0}}}
+progress-1               | {"name":"current-usage","time":1620,"data":{"oid":"station-17","value":{"minBattery":100.0,"reserved":0,"available":4,"low":0,"type":"station"}}}
+progress-1               | 
+progress-1               | {"name":"states","time":1620,"data":{"oid":"person-116","value":{"co2":2363.442545082607,"lon":139.66581173489448,"type":"car","lat":35.604313612916904,"speed":14.18169,"ec":0.0}}}
+progress-1               | {
+progress-1               |   name: 'states',
+progress-1               |   time: 1620,
+progress-1               |   data: {
+progress-1               |     oid: 'person-116',
+progress-1               |     value: {
+progress-1               |       co2: 2363.442545082607,
+progress-1               |       lon: 139.66581173489448,
+progress-1               |       type: 'car',
+progress-1               |       lat: 35.604313612916904,
+progress-1               |       speed: 14.18169,
+progress-1               |       ec: 0
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | {"name":"current-usage","time":1620,"data":{"oid":"station-17","value":{"minBattery":100.0,"reserved":0,"available":4,"low":0,"type":"station"}}}
+progress-1               | {
+progress-1               |   name: 'current-usage',
+progress-1               |   time: 1620,
+progress-1               |   data: {
+progress-1               |     oid: 'station-17',
+progress-1               |     value: {
+progress-1               |       minBattery: 100,
+progress-1               |       reserved: 0,
+progress-1               |       available: 4,
+progress-1               |       low: 0,
+progress-1               |       type: 'station'
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | 
+progress-1               | {"name":"states","time":1680,"data":{"oid":"person-116","value":{"co2":2089.0260291194973,"lon":139.67069122239386,"type":"car","lat":35.60814956311733,"speed":8.504366812227074,"ec":0.0}}}
+progress-1               | {"name":"current-usage","time":1680,"data":{"oid":"station-17","value":{"minBattery":100.0,"reserved":0,"available":4,"low":0,"type":"station"}}}
+progress-1               | 
+progress-1               | {"name":"states","time":1680,"data":{"oid":"person-116","value":{"co2":2089.0260291194973,"lon":139.67069122239386,"type":"car","lat":35.60814956311733,"speed":8.504366812227074,"ec":0.0}}}
+progress-1               | {
+progress-1               |   name: 'states',
+progress-1               |   time: 1680,
+progress-1               |   data: {
+progress-1               |     oid: 'person-116',
+progress-1               |     value: {
+progress-1               |       co2: 2089.0260291194973,
+progress-1               |       lon: 139.67069122239386,
+progress-1               |       type: 'car',
+progress-1               |       lat: 35.60814956311733,
+progress-1               |       speed: 8.504366812227074,
+progress-1               |       ec: 0
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | {"name":"current-usage","time":1680,"data":{"oid":"station-17","value":{"minBattery":100.0,"reserved":0,"available":4,"low":0,"type":"station"}}}
+progress-1               | {
+progress-1               |   name: 'current-usage',
+progress-1               |   time: 1680,
+progress-1               |   data: {
+progress-1               |     oid: 'station-17',
+progress-1               |     value: {
+progress-1               |       minBattery: 100,
+progress-1               |       reserved: 0,
+progress-1               |       available: 4,
+progress-1               |       low: 0,
+progress-1               |       type: 'station'
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | 
+progress-1               | 1680
+progress-1               | {"name":"states","time":1800,"data":{"oid":"person-117","value":{"co2":2326.406823175103,"lon":139.6448889899612,"type":"car","lat":35.605591322256785,"speed":13.768621236133121,"ec":0.0}}}
+progress-1               | {"name":"current-usage","time":1800,"data":{"oid":"station-17","value":{"minBattery":100.0,"reserved":0,"available":4,"low":0,"type":"station"}}}
+progress-1               | 
+progress-1               | {"name":"states","time":1800,"data":{"oid":"person-117","value":{"co2":2326.406823175103,"lon":139.6448889899612,"type":"car","lat":35.605591322256785,"speed":13.768621236133121,"ec":0.0}}}
+progress-1               | {
+progress-1               |   name: 'states',
+progress-1               |   time: 1800,
+progress-1               |   data: {
+progress-1               |     oid: 'person-117',
+progress-1               |     value: {
+progress-1               |       co2: 2326.406823175103,
+progress-1               |       lon: 139.6448889899612,
+progress-1               |       type: 'car',
+progress-1               |       lat: 35.605591322256785,
+progress-1               |       speed: 13.768621236133121,
+progress-1               |       ec: 0
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | {"name":"current-usage","time":1800,"data":{"oid":"station-17","value":{"minBattery":100.0,"reserved":0,"available":4,"low":0,"type":"station"}}}
+progress-1               | {
+progress-1               |   name: 'current-usage',
+progress-1               |   time: 1800,
+progress-1               |   data: {
+progress-1               |     oid: 'station-17',
+progress-1               |     value: {
+progress-1               |       minBattery: 100,
+progress-1               |       reserved: 0,
+progress-1               |       available: 4,
+progress-1               |       low: 0,
+progress-1               |       type: 'station'
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | 
+progress-1               | 1800
+progress-1               | {"name":"states","time":1860,"data":{"oid":"person-114","value":{"co2":2624.722222222222,"lon":139.6682897505489,"type":"car","lat":35.587354711963954,"speed":0.0,"ec":0.0}}}
+progress-1               | {"name":"current-usage","time":1860,"data":{"oid":"station-17","value":{"minBattery":100.0,"reserved":0,"available":4,"low":0,"type":"station"}}}
+progress-1               | 
+progress-1               | {"name":"states","time":1860,"data":{"oid":"person-114","value":{"co2":2624.722222222222,"lon":139.6682897505489,"type":"car","lat":35.587354711963954,"speed":0.0,"ec":0.0}}}
+progress-1               | {
+progress-1               |   name: 'states',
+progress-1               |   time: 1860,
+progress-1               |   data: {
+progress-1               |     oid: 'person-114',
+progress-1               |     value: {
+progress-1               |       co2: 2624.722222222222,
+progress-1               |       lon: 139.6682897505489,
+progress-1               |       type: 'car',
+progress-1               |       lat: 35.587354711963954,
+progress-1               |       speed: 0,
+progress-1               |       ec: 0
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | {"name":"current-usage","time":1860,"data":{"oid":"station-17","value":{"minBattery":100.0,"reserved":0,"available":4,"low":0,"type":"station"}}}
+progress-1               | {
+progress-1               |   name: 'current-usage',
+progress-1               |   time: 1860,
+progress-1               |   data: {
+progress-1               |     oid: 'station-17',
+progress-1               |     value: {
+progress-1               |       minBattery: 100,
+progress-1               |       reserved: 0,
+progress-1               |       available: 4,
+progress-1               |       low: 0,
+progress-1               |       type: 'station'
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | 
+progress-1               | 1860
+progress-1               | {"name":"states","time":1920,"data":{"oid":"person-114","value":{"co2":2289.0808575524857,"lon":139.67460615977154,"type":"car","lat":35.582165525438185,"speed":13.31827111984283,"ec":0.0}}}
+progress-1               | {"name":"current-usage","time":1920,"data":{"oid":"station-17","value":{"minBattery":100.0,"reserved":0,"available":4,"low":0,"type":"station"}}}
+progress-1               | 
+progress-1               | {"name":"states","time":1920,"data":{"oid":"person-114","value":{"co2":2289.0808575524857,"lon":139.67460615977154,"type":"car","lat":35.582165525438185,"speed":13.31827111984283,"ec":0.0}}}
+progress-1               | {
+progress-1               |   name: 'states',
+progress-1               |   time: 1920,
+progress-1               |   data: {
+progress-1               |     oid: 'person-114',
+progress-1               |     value: {
+progress-1               |       co2: 2289.0808575524857,
+progress-1               |       lon: 139.67460615977154,
+progress-1               |       type: 'car',
+progress-1               |       lat: 35.582165525438185,
+progress-1               |       speed: 13.31827111984283,
+progress-1               |       ec: 0
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | {"name":"current-usage","time":1920,"data":{"oid":"station-17","value":{"minBattery":100.0,"reserved":0,"available":4,"low":0,"type":"station"}}}
+progress-1               | {
+progress-1               |   name: 'current-usage',
+progress-1               |   time: 1920,
+progress-1               |   data: {
+progress-1               |     oid: 'station-17',
+progress-1               |     value: {
+progress-1               |       minBattery: 100,
+progress-1               |       reserved: 0,
+progress-1               |       available: 4,
+progress-1               |       low: 0,
+progress-1               |       type: 'station'
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | 
+progress-1               | 1920
+progress-1               | {"name":"states","time":1980,"data":{"oid":"person-138","value":{"co2":2282.805830484598,"lon":139.65514027895492,"type":"car","lat":35.59885170375677,"speed":13.238559,"ec":0.0}}}
+progress-1               | {"name":"current-usage","time":1980,"data":{"oid":"station-17","value":{"minBattery":100.0,"reserved":0,"available":4,"low":0,"type":"station"}}}
+progress-1               | 
+progress-1               | {"name":"states","time":1980,"data":{"oid":"person-138","value":{"co2":2282.805830484598,"lon":139.65514027895492,"type":"car","lat":35.59885170375677,"speed":13.238559,"ec":0.0}}}
+progress-1               | {
+progress-1               |   name: 'states',
+progress-1               |   time: 1980,
+progress-1               |   data: {
+progress-1               |     oid: 'person-138',
+progress-1               |     value: {
+progress-1               |       co2: 2282.805830484598,
+progress-1               |       lon: 139.65514027895492,
+progress-1               |       type: 'car',
+progress-1               |       lat: 35.59885170375677,
+progress-1               |       speed: 13.238559,
+progress-1               |       ec: 0
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | {"name":"current-usage","time":1980,"data":{"oid":"station-17","value":{"minBattery":100.0,"reserved":0,"available":4,"low":0,"type":"station"}}}
+progress-1               | {
+progress-1               |   name: 'current-usage',
+progress-1               |   time: 1980,
+progress-1               |   data: {
+progress-1               |     oid: 'station-17',
+progress-1               |     value: {
+progress-1               |       minBattery: 100,
+progress-1               |       reserved: 0,
+progress-1               |       available: 4,
+progress-1               |       low: 0,
+progress-1               |       type: 'station'
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | 
+progress-1               | 1980
+progress-1               | {"name":"states","time":2040,"data":{"oid":"person-138","value":{"co2":2282.80373051277,"lon":139.6545072256048,"type":"car","lat":35.59407612017262,"speed":13.238532110091741,"ec":0.0}}}
+progress-1               | {"name":"current-usage","time":2040,"data":{"oid":"station-17","value":{"minBattery":100.0,"reserved":0,"available":4,"low":0,"type":"station"}}}
+progress-1               | 
+progress-1               | {"name":"states","time":2040,"data":{"oid":"person-138","value":{"co2":2282.80373051277,"lon":139.6545072256048,"type":"car","lat":35.59407612017262,"speed":13.238532110091741,"ec":0.0}}}
+progress-1               | {
+progress-1               |   name: 'states',
+progress-1               |   time: 2040,
+progress-1               |   data: {
+progress-1               |     oid: 'person-138',
+progress-1               |     value: {
+progress-1               |       co2: 2282.80373051277,
+progress-1               |       lon: 139.6545072256048,
+progress-1               |       type: 'car',
+progress-1               |       lat: 35.59407612017262,
+progress-1               |       speed: 13.238532110091741,
+progress-1               |       ec: 0
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | {"name":"current-usage","time":2040,"data":{"oid":"station-17","value":{"minBattery":100.0,"reserved":0,"available":4,"low":0,"type":"station"}}}
+progress-1               | {
+progress-1               |   name: 'current-usage',
+progress-1               |   time: 2040,
+progress-1               |   data: {
+progress-1               |     oid: 'station-17',
+progress-1               |     value: {
+progress-1               |       minBattery: 100,
+progress-1               |       reserved: 0,
+progress-1               |       available: 4,
+progress-1               |       low: 0,
+progress-1               |       type: 'station'
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | 
+progress-1               | 2040
+progress-1               | {"name":"states","time":2100,"data":{"oid":"person-138","value":{"co2":2624.722222222222,"lon":139.66300622287196,"type":"car","lat":35.59135493903282,"speed":0.0,"ec":0.0}}}
+progress-1               | {"name":"current-usage","time":2100,"data":{"oid":"station-17","value":{"minBattery":100.0,"reserved":0,"available":4,"low":0,"type":"station"}}}
+progress-1               | 
+progress-1               | {"name":"states","time":2100,"data":{"oid":"person-138","value":{"co2":2624.722222222222,"lon":139.66300622287196,"type":"car","lat":35.59135493903282,"speed":0.0,"ec":0.0}}}
+progress-1               | {
+progress-1               |   name: 'states',
+progress-1               |   time: 2100,
+progress-1               |   data: {
+progress-1               |     oid: 'person-138',
+progress-1               |     value: {
+progress-1               |       co2: 2624.722222222222,
+progress-1               |       lon: 139.66300622287196,
+progress-1               |       type: 'car',
+progress-1               |       lat: 35.59135493903282,
+progress-1               |       speed: 0,
+progress-1               |       ec: 0
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | {"name":"current-usage","time":2100,"data":{"oid":"station-17","value":{"minBattery":100.0,"reserved":0,"available":4,"low":0,"type":"station"}}}
+progress-1               | {
+progress-1               |   name: 'current-usage',
+progress-1               |   time: 2100,
+progress-1               |   data: {
+progress-1               |     oid: 'station-17',
+progress-1               |     value: {
+progress-1               |       minBattery: 100,
+progress-1               |       reserved: 0,
+progress-1               |       available: 4,
+progress-1               |       low: 0,
+progress-1               |       type: 'station'
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | 
+progress-1               | 2100
+progress-1               | {"name":"states","time":2220,"data":{"oid":"person-138","value":{"co2":2282.779675714727,"lon":139.66593346079284,"type":"car","lat":35.583902741223326,"speed":13.238224080678883,"ec":0.0}}}
+progress-1               | {"name":"current-usage","time":2220,"data":{"oid":"station-17","value":{"minBattery":100.0,"reserved":0,"available":4,"low":0,"type":"station"}}}
+progress-1               | 
+progress-1               | {"name":"states","time":2220,"data":{"oid":"person-138","value":{"co2":2282.779675714727,"lon":139.66593346079284,"type":"car","lat":35.583902741223326,"speed":13.238224080678883,"ec":0.0}}}
+progress-1               | {
+progress-1               |   name: 'states',
+progress-1               |   time: 2220,
+progress-1               |   data: {
+progress-1               |     oid: 'person-138',
+progress-1               |     value: {
+progress-1               |       co2: 2282.779675714727,
+progress-1               |       lon: 139.66593346079284,
+progress-1               |       type: 'car',
+progress-1               |       lat: 35.583902741223326,
+progress-1               |       speed: 13.238224080678883,
+progress-1               |       ec: 0
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | {"name":"current-usage","time":2220,"data":{"oid":"station-17","value":{"minBattery":100.0,"reserved":0,"available":4,"low":0,"type":"station"}}}
+progress-1               | {
+progress-1               |   name: 'current-usage',
+progress-1               |   time: 2220,
+progress-1               |   data: {
+progress-1               |     oid: 'station-17',
+progress-1               |     value: {
+progress-1               |       minBattery: 100,
+progress-1               |       reserved: 0,
+progress-1               |       available: 4,
+progress-1               |       low: 0,
+progress-1               |       type: 'station'
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | 
+progress-1               | 2220
+progress-1               | {"name":"states","time":2280,"data":{"oid":"person-138","value":{"co2":2130.983093384859,"lon":139.66081397757128,"type":"car","lat":35.58324632184689,"speed":10.588651764943865,"ec":0.0}}}
+progress-1               | {"name":"current-usage","time":2280,"data":{"oid":"station-17","value":{"minBattery":100.0,"reserved":0,"available":4,"low":0,"type":"station"}}}
+progress-1               | 
+progress-1               | {"name":"states","time":2280,"data":{"oid":"person-138","value":{"co2":2130.983093384859,"lon":139.66081397757128,"type":"car","lat":35.58324632184689,"speed":10.588651764943865,"ec":0.0}}}
+progress-1               | {
+progress-1               |   name: 'states',
+progress-1               |   time: 2280,
+progress-1               |   data: {
+progress-1               |     oid: 'person-138',
+progress-1               |     value: {
+progress-1               |       co2: 2130.983093384859,
+progress-1               |       lon: 139.66081397757128,
+progress-1               |       type: 'car',
+progress-1               |       lat: 35.58324632184689,
+progress-1               |       speed: 10.588651764943865,
+progress-1               |       ec: 0
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | {"name":"current-usage","time":2280,"data":{"oid":"station-17","value":{"minBattery":100.0,"reserved":0,"available":4,"low":0,"type":"station"}}}
+progress-1               | {
+progress-1               |   name: 'current-usage',
+progress-1               |   time: 2280,
+progress-1               |   data: {
+progress-1               |     oid: 'station-17',
+progress-1               |     value: {
+progress-1               |       minBattery: 100,
+progress-1               |       reserved: 0,
+progress-1               |       available: 4,
+progress-1               |       low: 0,
+progress-1               |       type: 'station'
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | 
+progress-1               | 2280
+progress-1               | {"name":"states","time":2280,"data":{"oid":"person-138","value":{"co2":2130.983093384859,"lon":139.66081397757128,"type":"car","lat":35.58324632184689,"speed":10.588651764943865,"ec":0.0}}}
+progress-1               | {"name":"current-usage","time":2280,"data":{"oid":"station-17","value":{"minBattery":100.0,"reserved":0,"available":4,"low":0,"type":"station"}}}
+progress-1               | 
+progress-1               | {"name":"states","time":2280,"data":{"oid":"person-138","value":{"co2":2130.983093384859,"lon":139.66081397757128,"type":"car","lat":35.58324632184689,"speed":10.588651764943865,"ec":0.0}}}
+progress-1               | {
+progress-1               |   name: 'states',
+progress-1               |   time: 2280,
+progress-1               |   data: {
+progress-1               |     oid: 'person-138',
+progress-1               |     value: {
+progress-1               |       co2: 2130.983093384859,
+progress-1               |       lon: 139.66081397757128,
+progress-1               |       type: 'car',
+progress-1               |       lat: 35.58324632184689,
+progress-1               |       speed: 10.588651764943865,
+progress-1               |       ec: 0
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | {"name":"current-usage","time":2280,"data":{"oid":"station-17","value":{"minBattery":100.0,"reserved":0,"available":4,"low":0,"type":"station"}}}
+progress-1               | {
+progress-1               |   name: 'current-usage',
+progress-1               |   time: 2280,
+progress-1               |   data: {
+progress-1               |     oid: 'station-17',
+progress-1               |     value: {
+progress-1               |       minBattery: 100,
+progress-1               |       reserved: 0,
+progress-1               |       available: 4,
+progress-1               |       low: 0,
+progress-1               |       type: 'station'
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | 
+progress-1               | {"name":"states","time":2340,"data":{"oid":"person-138","value":{"co2":2282.805830484598,"lon":139.65909796833327,"type":"car","lat":35.58279177936368,"speed":13.238559,"ec":0.0}}}
+progress-1               | {"name":"current-usage","time":2340,"data":{"oid":"station-17","value":{"minBattery":100.0,"reserved":0,"available":4,"low":0,"type":"station"}}}
+progress-1               | 
+progress-1               | {"name":"states","time":2340,"data":{"oid":"person-138","value":{"co2":2282.805830484598,"lon":139.65909796833327,"type":"car","lat":35.58279177936368,"speed":13.238559,"ec":0.0}}}
+progress-1               | {
+progress-1               |   name: 'states',
+progress-1               |   time: 2340,
+progress-1               |   data: {
+progress-1               |     oid: 'person-138',
+progress-1               |     value: {
+progress-1               |       co2: 2282.805830484598,
+progress-1               |       lon: 139.65909796833327,
+progress-1               |       type: 'car',
+progress-1               |       lat: 35.58279177936368,
+progress-1               |       speed: 13.238559,
+progress-1               |       ec: 0
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | {"name":"current-usage","time":2340,"data":{"oid":"station-17","value":{"minBattery":100.0,"reserved":0,"available":4,"low":0,"type":"station"}}}
+progress-1               | {
+progress-1               |   name: 'current-usage',
+progress-1               |   time: 2340,
+progress-1               |   data: {
+progress-1               |     oid: 'station-17',
+progress-1               |     value: {
+progress-1               |       minBattery: 100,
+progress-1               |       reserved: 0,
+progress-1               |       available: 4,
+progress-1               |       low: 0,
+progress-1               |       type: 'station'
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | 
+progress-1               | 2340
+progress-1               | {"name":"states","time":2340,"data":{"oid":"person-138","value":{"co2":2282.805830484598,"lon":139.65909796833327,"type":"car","lat":35.58279177936368,"speed":13.238559,"ec":0.0}}}
+progress-1               | {"name":"current-usage","time":2340,"data":{"oid":"station-17","value":{"minBattery":100.0,"reserved":0,"available":4,"low":0,"type":"station"}}}
+progress-1               | 
+progress-1               | {"name":"states","time":2340,"data":{"oid":"person-138","value":{"co2":2282.805830484598,"lon":139.65909796833327,"type":"car","lat":35.58279177936368,"speed":13.238559,"ec":0.0}}}
+progress-1               | {
+progress-1               |   name: 'states',
+progress-1               |   time: 2340,
+progress-1               |   data: {
+progress-1               |     oid: 'person-138',
+progress-1               |     value: {
+progress-1               |       co2: 2282.805830484598,
+progress-1               |       lon: 139.65909796833327,
+progress-1               |       type: 'car',
+progress-1               |       lat: 35.58279177936368,
+progress-1               |       speed: 13.238559,
+progress-1               |       ec: 0
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | {"name":"current-usage","time":2340,"data":{"oid":"station-17","value":{"minBattery":100.0,"reserved":0,"available":4,"low":0,"type":"station"}}}
+progress-1               | {
+progress-1               |   name: 'current-usage',
+progress-1               |   time: 2340,
+progress-1               |   data: {
+progress-1               |     oid: 'station-17',
+progress-1               |     value: {
+progress-1               |       minBattery: 100,
+progress-1               |       reserved: 0,
+progress-1               |       available: 4,
+progress-1               |       low: 0,
+progress-1               |       type: 'station'
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | 
+progress-1               | {"name":"states","time":2400,"data":{"oid":"person-115","value":{"co2":0.0,"lon":139.64621734315844,"type":"pedestrian","lat":35.57601785863003,"speed":1.39,"ec":0.0}}}
+progress-1               | {"name":"current-usage","time":2400,"data":{"oid":"station-17","value":{"minBattery":100.0,"reserved":0,"available":4,"low":0,"type":"station"}}}
+progress-1               | 
+progress-1               | {"name":"states","time":2400,"data":{"oid":"person-115","value":{"co2":0.0,"lon":139.64621734315844,"type":"pedestrian","lat":35.57601785863003,"speed":1.39,"ec":0.0}}}
+progress-1               | {
+progress-1               |   name: 'states',
+progress-1               |   time: 2400,
+progress-1               |   data: {
+progress-1               |     oid: 'person-115',
+progress-1               |     value: {
+progress-1               |       co2: 0,
+progress-1               |       lon: 139.64621734315844,
+progress-1               |       type: 'pedestrian',
+progress-1               |       lat: 35.57601785863003,
+progress-1               |       speed: 1.39,
+progress-1               |       ec: 0
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | {"name":"current-usage","time":2400,"data":{"oid":"station-17","value":{"minBattery":100.0,"reserved":0,"available":4,"low":0,"type":"station"}}}
+progress-1               | {
+progress-1               |   name: 'current-usage',
+progress-1               |   time: 2400,
+progress-1               |   data: {
+progress-1               |     oid: 'station-17',
+progress-1               |     value: {
+progress-1               |       minBattery: 100,
+progress-1               |       reserved: 0,
+progress-1               |       available: 4,
+progress-1               |       low: 0,
+progress-1               |       type: 'station'
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | 
+progress-1               | 2400
+progress-1               | {"name":"states","time":2460,"data":{"oid":"person-115","value":{"co2":0.0,"lon":139.6462389824874,"type":"pedestrian","lat":35.57515168699292,"speed":1.3899870552426268,"ec":0.0}}}
+progress-1               | {"name":"current-usage","time":2460,"data":{"oid":"station-17","value":{"minBattery":100.0,"reserved":0,"available":4,"low":0,"type":"station"}}}
+progress-1               | 
+progress-1               | {"name":"states","time":2460,"data":{"oid":"person-115","value":{"co2":0.0,"lon":139.6462389824874,"type":"pedestrian","lat":35.57515168699292,"speed":1.3899870552426268,"ec":0.0}}}
+progress-1               | {
+progress-1               |   name: 'states',
+progress-1               |   time: 2460,
+progress-1               |   data: {
+progress-1               |     oid: 'person-115',
+progress-1               |     value: {
+progress-1               |       co2: 0,
+progress-1               |       lon: 139.6462389824874,
+progress-1               |       type: 'pedestrian',
+progress-1               |       lat: 35.57515168699292,
+progress-1               |       speed: 1.3899870552426268,
+progress-1               |       ec: 0
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | {"name":"current-usage","time":2460,"data":{"oid":"station-17","value":{"minBattery":100.0,"reserved":0,"available":4,"low":0,"type":"station"}}}
+progress-1               | {
+progress-1               |   name: 'current-usage',
+progress-1               |   time: 2460,
+progress-1               |   data: {
+progress-1               |     oid: 'station-17',
+progress-1               |     value: {
+progress-1               |       minBattery: 100,
+progress-1               |       reserved: 0,
+progress-1               |       available: 4,
+progress-1               |       low: 0,
+progress-1               |       type: 'station'
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | 
+progress-1               | 2460
+progress-1               | {"name":"states","time":2580,"data":{"oid":"person-115","value":{"co2":0.0,"lon":139.65018334553025,"type":"escooter","lat":35.575989944736726,"speed":0.0,"ec":0.02834467120181406}}}
+progress-1               | {"name":"current-usage","time":2580,"data":{"oid":"station-17","value":{"minBattery":79.99999999999996,"reserved":0,"available":5,"low":0,"type":"station"}}}
+progress-1               | 
+progress-1               | {"name":"states","time":2580,"data":{"oid":"person-115","value":{"co2":0.0,"lon":139.65018334553025,"type":"escooter","lat":35.575989944736726,"speed":0.0,"ec":0.02834467120181406}}}
+progress-1               | {
+progress-1               |   name: 'states',
+progress-1               |   time: 2580,
+progress-1               |   data: {
+progress-1               |     oid: 'person-115',
+progress-1               |     value: {
+progress-1               |       co2: 0,
+progress-1               |       lon: 139.65018334553025,
+progress-1               |       type: 'escooter',
+progress-1               |       lat: 35.575989944736726,
+progress-1               |       speed: 0,
+progress-1               |       ec: 0.02834467120181406
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | {"name":"current-usage","time":2580,"data":{"oid":"station-17","value":{"minBattery":79.99999999999996,"reserved":0,"available":5,"low":0,"type":"station"}}}
+progress-1               | {
+progress-1               |   name: 'current-usage',
+progress-1               |   time: 2580,
+progress-1               |   data: {
+progress-1               |     oid: 'station-17',
+progress-1               |     value: {
+progress-1               |       minBattery: 79.99999999999996,
+progress-1               |       reserved: 0,
+progress-1               |       available: 5,
+progress-1               |       low: 0,
+progress-1               |       type: 'station'
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | 
+progress-1               | 2580
+progress-1               | {"name":"states","time":2700,"data":{"oid":"person-115","value":{"co2":0.0,"lon":139.6520521871483,"type":"escooter","lat":35.57856060928032,"speed":5.332222222222222,"ec":0.32312668045734266}}}
+progress-1               | {"name":"current-usage","time":2700,"data":{"oid":"station-17","value":{"minBattery":79.99999999999996,"reserved":0,"available":5,"low":0,"type":"station"}}}
+progress-1               | 
+progress-1               | {"name":"states","time":2700,"data":{"oid":"person-115","value":{"co2":0.0,"lon":139.6520521871483,"type":"escooter","lat":35.57856060928032,"speed":5.332222222222222,"ec":0.32312668045734266}}}
+progress-1               | {
+progress-1               |   name: 'states',
+progress-1               |   time: 2700,
+progress-1               |   data: {
+progress-1               |     oid: 'person-115',
+progress-1               |     value: {
+progress-1               |       co2: 0,
+progress-1               |       lon: 139.6520521871483,
+progress-1               |       type: 'escooter',
+progress-1               |       lat: 35.57856060928032,
+progress-1               |       speed: 5.332222222222222,
+progress-1               |       ec: 0.32312668045734266
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | {"name":"current-usage","time":2700,"data":{"oid":"station-17","value":{"minBattery":79.99999999999996,"reserved":0,"available":5,"low":0,"type":"station"}}}
+progress-1               | {
+progress-1               |   name: 'current-usage',
+progress-1               |   time: 2700,
+progress-1               |   data: {
+progress-1               |     oid: 'station-17',
+progress-1               |     value: {
+progress-1               |       minBattery: 79.99999999999996,
+progress-1               |       reserved: 0,
+progress-1               |       available: 5,
+progress-1               |       low: 0,
+progress-1               |       type: 'station'
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | 
+progress-1               | 2700
+progress-1               | {"name":"states","time":2700,"data":{"oid":"person-115","value":{"co2":0.0,"lon":139.6520521871483,"type":"escooter","lat":35.57856060928032,"speed":5.332222222222222,"ec":0.32312668045734266}}}
+progress-1               | {"name":"current-usage","time":2700,"data":{"oid":"station-17","value":{"minBattery":79.99999999999996,"reserved":0,"available":5,"low":0,"type":"station"}}}
+progress-1               | 
+progress-1               | {"name":"states","time":2700,"data":{"oid":"person-115","value":{"co2":0.0,"lon":139.6520521871483,"type":"escooter","lat":35.57856060928032,"speed":5.332222222222222,"ec":0.32312668045734266}}}
+progress-1               | {
+progress-1               |   name: 'states',
+progress-1               |   time: 2700,
+progress-1               |   data: {
+progress-1               |     oid: 'person-115',
+progress-1               |     value: {
+progress-1               |       co2: 0,
+progress-1               |       lon: 139.6520521871483,
+progress-1               |       type: 'escooter',
+progress-1               |       lat: 35.57856060928032,
+progress-1               |       speed: 5.332222222222222,
+progress-1               |       ec: 0.32312668045734266
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | {"name":"current-usage","time":2700,"data":{"oid":"station-17","value":{"minBattery":79.99999999999996,"reserved":0,"available":5,"low":0,"type":"station"}}}
+progress-1               | {
+progress-1               |   name: 'current-usage',
+progress-1               |   time: 2700,
+progress-1               |   data: {
+progress-1               |     oid: 'station-17',
+progress-1               |     value: {
+progress-1               |       minBattery: 79.99999999999996,
+progress-1               |       reserved: 0,
+progress-1               |       available: 5,
+progress-1               |       low: 0,
+progress-1               |       type: 'station'
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | 
+progress-1               | {"name":"states","time":2760,"data":{"oid":"person-115","value":{"co2":0.0,"lon":139.65377845129117,"type":"escooter","lat":35.57937049660785,"speed":5.332060258858476,"ec":0.3231162964394545}}}
+progress-1               | {"name":"current-usage","time":2760,"data":{"oid":"station-17","value":{"minBattery":79.99999999999996,"reserved":0,"available":5,"low":0,"type":"station"}}}
+progress-1               | 
+progress-1               | {"name":"states","time":2760,"data":{"oid":"person-115","value":{"co2":0.0,"lon":139.65377845129117,"type":"escooter","lat":35.57937049660785,"speed":5.332060258858476,"ec":0.3231162964394545}}}
+progress-1               | {
+progress-1               |   name: 'states',
+progress-1               |   time: 2760,
+progress-1               |   data: {
+progress-1               |     oid: 'person-115',
+progress-1               |     value: {
+progress-1               |       co2: 0,
+progress-1               |       lon: 139.65377845129117,
+progress-1               |       type: 'escooter',
+progress-1               |       lat: 35.57937049660785,
+progress-1               |       speed: 5.332060258858476,
+progress-1               |       ec: 0.3231162964394545
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | {"name":"current-usage","time":2760,"data":{"oid":"station-17","value":{"minBattery":79.99999999999996,"reserved":0,"available":5,"low":0,"type":"station"}}}
+progress-1               | {
+progress-1               |   name: 'current-usage',
+progress-1               |   time: 2760,
+progress-1               |   data: {
+progress-1               |     oid: 'station-17',
+progress-1               |     value: {
+progress-1               |       minBattery: 79.99999999999996,
+progress-1               |       reserved: 0,
+progress-1               |       available: 5,
+progress-1               |       low: 0,
+progress-1               |       type: 'station'
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | 
+progress-1               | 2760
+progress-1               | {"name":"states","time":2820,"data":{"oid":"person-115","value":{"co2":0.0,"lon":139.6561179182357,"type":"escooter","lat":35.58022677796669,"speed":5.332222222222222,"ec":0.32312668045734266}}}
+progress-1               | {"name":"current-usage","time":2820,"data":{"oid":"station-17","value":{"minBattery":79.99999999999996,"reserved":0,"available":5,"low":0,"type":"station"}}}
+progress-1               | 
+progress-1               | {"name":"states","time":2820,"data":{"oid":"person-115","value":{"co2":0.0,"lon":139.6561179182357,"type":"escooter","lat":35.58022677796669,"speed":5.332222222222222,"ec":0.32312668045734266}}}
+progress-1               | {
+progress-1               |   name: 'states',
+progress-1               |   time: 2820,
+progress-1               |   data: {
+progress-1               |     oid: 'person-115',
+progress-1               |     value: {
+progress-1               |       co2: 0,
+progress-1               |       lon: 139.6561179182357,
+progress-1               |       type: 'escooter',
+progress-1               |       lat: 35.58022677796669,
+progress-1               |       speed: 5.332222222222222,
+progress-1               |       ec: 0.32312668045734266
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | {"name":"current-usage","time":2820,"data":{"oid":"station-17","value":{"minBattery":79.99999999999996,"reserved":0,"available":5,"low":0,"type":"station"}}}
+progress-1               | {
+progress-1               |   name: 'current-usage',
+progress-1               |   time: 2820,
+progress-1               |   data: {
+progress-1               |     oid: 'station-17',
+progress-1               |     value: {
+progress-1               |       minBattery: 79.99999999999996,
+progress-1               |       reserved: 0,
+progress-1               |       available: 5,
+progress-1               |       low: 0,
+progress-1               |       type: 'station'
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | 
+progress-1               | 2820
+progress-1               | {"name":"states","time":2820,"data":{"oid":"person-115","value":{"co2":0.0,"lon":139.6561179182357,"type":"escooter","lat":35.58022677796669,"speed":5.332222222222222,"ec":0.32312668045734266}}}
+progress-1               | {"name":"current-usage","time":2820,"data":{"oid":"station-17","value":{"minBattery":79.99999999999996,"reserved":0,"available":5,"low":0,"type":"station"}}}
+progress-1               | 
+progress-1               | {"name":"states","time":2820,"data":{"oid":"person-115","value":{"co2":0.0,"lon":139.6561179182357,"type":"escooter","lat":35.58022677796669,"speed":5.332222222222222,"ec":0.32312668045734266}}}
+progress-1               | {
+progress-1               |   name: 'states',
+progress-1               |   time: 2820,
+progress-1               |   data: {
+progress-1               |     oid: 'person-115',
+progress-1               |     value: {
+progress-1               |       co2: 0,
+progress-1               |       lon: 139.6561179182357,
+progress-1               |       type: 'escooter',
+progress-1               |       lat: 35.58022677796669,
+progress-1               |       speed: 5.332222222222222,
+progress-1               |       ec: 0.32312668045734266
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | {"name":"current-usage","time":2820,"data":{"oid":"station-17","value":{"minBattery":79.99999999999996,"reserved":0,"available":5,"low":0,"type":"station"}}}
+progress-1               | {
+progress-1               |   name: 'current-usage',
+progress-1               |   time: 2820,
+progress-1               |   data: {
+progress-1               |     oid: 'station-17',
+progress-1               |     value: {
+progress-1               |       minBattery: 79.99999999999996,
+progress-1               |       reserved: 0,
+progress-1               |       available: 5,
+progress-1               |       low: 0,
+progress-1               |       type: 'station'
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | 
+progress-1               | {"name":"states","time":2880,"data":{"oid":"person-115","value":{"co2":0.0,"lon":139.65704992615213,"type":"escooter","lat":35.58222938100738,"speed":5.332222222222222,"ec":0.32312668045734266}}}
+progress-1               | {"name":"current-usage","time":2880,"data":{"oid":"station-17","value":{"minBattery":79.99999999999996,"reserved":0,"available":5,"low":0,"type":"station"}}}
+progress-1               | 
+progress-1               | {"name":"states","time":2880,"data":{"oid":"person-115","value":{"co2":0.0,"lon":139.65704992615213,"type":"escooter","lat":35.58222938100738,"speed":5.332222222222222,"ec":0.32312668045734266}}}
+progress-1               | {
+progress-1               |   name: 'states',
+progress-1               |   time: 2880,
+progress-1               |   data: {
+progress-1               |     oid: 'person-115',
+progress-1               |     value: {
+progress-1               |       co2: 0,
+progress-1               |       lon: 139.65704992615213,
+progress-1               |       type: 'escooter',
+progress-1               |       lat: 35.58222938100738,
+progress-1               |       speed: 5.332222222222222,
+progress-1               |       ec: 0.32312668045734266
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | {"name":"current-usage","time":2880,"data":{"oid":"station-17","value":{"minBattery":79.99999999999996,"reserved":0,"available":5,"low":0,"type":"station"}}}
+progress-1               | {
+progress-1               |   name: 'current-usage',
+progress-1               |   time: 2880,
+progress-1               |   data: {
+progress-1               |     oid: 'station-17',
+progress-1               |     value: {
+progress-1               |       minBattery: 79.99999999999996,
+progress-1               |       reserved: 0,
+progress-1               |       available: 5,
+progress-1               |       low: 0,
+progress-1               |       type: 'station'
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | 
+progress-1               | 2880
+progress-1               | {"name":"states","time":2880,"data":{"oid":"person-115","value":{"co2":0.0,"lon":139.65704992615213,"type":"escooter","lat":35.58222938100738,"speed":5.332222222222222,"ec":0.32312668045734266}}}
+progress-1               | {"name":"current-usage","time":2880,"data":{"oid":"station-17","value":{"minBattery":79.99999999999996,"reserved":0,"available":5,"low":0,"type":"station"}}}
+progress-1               | 
+progress-1               | {"name":"states","time":2880,"data":{"oid":"person-115","value":{"co2":0.0,"lon":139.65704992615213,"type":"escooter","lat":35.58222938100738,"speed":5.332222222222222,"ec":0.32312668045734266}}}
+progress-1               | {
+progress-1               |   name: 'states',
+progress-1               |   time: 2880,
+progress-1               |   data: {
+progress-1               |     oid: 'person-115',
+progress-1               |     value: {
+progress-1               |       co2: 0,
+progress-1               |       lon: 139.65704992615213,
+progress-1               |       type: 'escooter',
+progress-1               |       lat: 35.58222938100738,
+progress-1               |       speed: 5.332222222222222,
+progress-1               |       ec: 0.32312668045734266
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | {"name":"current-usage","time":2880,"data":{"oid":"station-17","value":{"minBattery":79.99999999999996,"reserved":0,"available":5,"low":0,"type":"station"}}}
+progress-1               | {
+progress-1               |   name: 'current-usage',
+progress-1               |   time: 2880,
+progress-1               |   data: {
+progress-1               |     oid: 'station-17',
+progress-1               |     value: {
+progress-1               |       minBattery: 79.99999999999996,
+progress-1               |       reserved: 0,
+progress-1               |       available: 5,
+progress-1               |       low: 0,
+progress-1               |       type: 'station'
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | 
+progress-1               | {"name":"states","time":2940,"data":{"oid":"person-115","value":{"co2":0.0,"lon":139.65704992615213,"type":"pedestrian","lat":35.58222938100738,"speed":1.3899934983443458,"ec":0.0}}}
+progress-1               | {"name":"current-usage","time":2940,"data":{"oid":"station-17","value":{"minBattery":79.99999999999996,"reserved":0,"available":5,"low":0,"type":"station"}}}
+progress-1               | 
+progress-1               | {"name":"states","time":2940,"data":{"oid":"person-115","value":{"co2":0.0,"lon":139.65704992615213,"type":"pedestrian","lat":35.58222938100738,"speed":1.3899934983443458,"ec":0.0}}}
+progress-1               | {
+progress-1               |   name: 'states',
+progress-1               |   time: 2940,
+progress-1               |   data: {
+progress-1               |     oid: 'person-115',
+progress-1               |     value: {
+progress-1               |       co2: 0,
+progress-1               |       lon: 139.65704992615213,
+progress-1               |       type: 'pedestrian',
+progress-1               |       lat: 35.58222938100738,
+progress-1               |       speed: 1.3899934983443458,
+progress-1               |       ec: 0
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | {"name":"current-usage","time":2940,"data":{"oid":"station-17","value":{"minBattery":79.99999999999996,"reserved":0,"available":5,"low":0,"type":"station"}}}
+progress-1               | {
+progress-1               |   name: 'current-usage',
+progress-1               |   time: 2940,
+progress-1               |   data: {
+progress-1               |     oid: 'station-17',
+progress-1               |     value: {
+progress-1               |       minBattery: 79.99999999999996,
+progress-1               |       reserved: 0,
+progress-1               |       available: 5,
+progress-1               |       low: 0,
+progress-1               |       type: 'station'
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | 
+progress-1               | 2940
+progress-1               | {"name":"states","time":2940,"data":{"oid":"person-115","value":{"co2":0.0,"lon":139.65704992615213,"type":"pedestrian","lat":35.58222938100738,"speed":1.3899934983443458,"ec":0.0}}}
+progress-1               | {"name":"current-usage","time":2940,"data":{"oid":"station-17","value":{"minBattery":79.99999999999996,"reserved":0,"available":5,"low":0,"type":"station"}}}
+progress-1               | 
+progress-1               | {"name":"states","time":2940,"data":{"oid":"person-115","value":{"co2":0.0,"lon":139.65704992615213,"type":"pedestrian","lat":35.58222938100738,"speed":1.3899934983443458,"ec":0.0}}}
+progress-1               | {
+progress-1               |   name: 'states',
+progress-1               |   time: 2940,
+progress-1               |   data: {
+progress-1               |     oid: 'person-115',
+progress-1               |     value: {
+progress-1               |       co2: 0,
+progress-1               |       lon: 139.65704992615213,
+progress-1               |       type: 'pedestrian',
+progress-1               |       lat: 35.58222938100738,
+progress-1               |       speed: 1.3899934983443458,
+progress-1               |       ec: 0
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | {"name":"current-usage","time":2940,"data":{"oid":"station-17","value":{"minBattery":79.99999999999996,"reserved":0,"available":5,"low":0,"type":"station"}}}
+progress-1               | {
+progress-1               |   name: 'current-usage',
+progress-1               |   time: 2940,
+progress-1               |   data: {
+progress-1               |     oid: 'station-17',
+progress-1               |     value: {
+progress-1               |       minBattery: 79.99999999999996,
+progress-1               |       reserved: 0,
+progress-1               |       available: 5,
+progress-1               |       low: 0,
+progress-1               |       type: 'station'
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | 
+progress-1               | {"name":"states","time":2940,"data":{"oid":"person-115","value":{"co2":0.0,"lon":139.65704992615213,"type":"pedestrian","lat":35.58222938100738,"speed":1.3899934983443458,"ec":0.0}}}
+progress-1               | {"name":"current-usage","time":2940,"data":{"oid":"station-17","value":{"minBattery":79.99999999999996,"reserved":0,"available":5,"low":0,"type":"station"}}}
+progress-1               | 
+progress-1               | {"name":"states","time":2940,"data":{"oid":"person-115","value":{"co2":0.0,"lon":139.65704992615213,"type":"pedestrian","lat":35.58222938100738,"speed":1.3899934983443458,"ec":0.0}}}
+progress-1               | {
+progress-1               |   name: 'states',
+progress-1               |   time: 2940,
+progress-1               |   data: {
+progress-1               |     oid: 'person-115',
+progress-1               |     value: {
+progress-1               |       co2: 0,
+progress-1               |       lon: 139.65704992615213,
+progress-1               |       type: 'pedestrian',
+progress-1               |       lat: 35.58222938100738,
+progress-1               |       speed: 1.3899934983443458,
+progress-1               |       ec: 0
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | {"name":"current-usage","time":2940,"data":{"oid":"station-17","value":{"minBattery":79.99999999999996,"reserved":0,"available":5,"low":0,"type":"station"}}}
+progress-1               | {
+progress-1               |   name: 'current-usage',
+progress-1               |   time: 2940,
+progress-1               |   data: {
+progress-1               |     oid: 'station-17',
+progress-1               |     value: {
+progress-1               |       minBattery: 79.99999999999996,
+progress-1               |       reserved: 0,
+progress-1               |       available: 5,
+progress-1               |       low: 0,
+progress-1               |       type: 'station'
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | 
+progress-1               | {"name":"states","time":3060,"data":{"oid":"person-115","value":{"co2":0.0,"lon":139.65619667303292,"type":"pedestrian","lat":35.58225061362999,"speed":1.3899934983443458,"ec":0.0}}}
+progress-1               | {"name":"current-usage","time":3060,"data":{"oid":"station-17","value":{"minBattery":79.99999999999996,"reserved":0,"available":5,"low":0,"type":"station"}}}
+progress-1               | 
+progress-1               | {"name":"states","time":3060,"data":{"oid":"person-115","value":{"co2":0.0,"lon":139.65619667303292,"type":"pedestrian","lat":35.58225061362999,"speed":1.3899934983443458,"ec":0.0}}}
+progress-1               | {
+progress-1               |   name: 'states',
+progress-1               |   time: 3060,
+progress-1               |   data: {
+progress-1               |     oid: 'person-115',
+progress-1               |     value: {
+progress-1               |       co2: 0,
+progress-1               |       lon: 139.65619667303292,
+progress-1               |       type: 'pedestrian',
+progress-1               |       lat: 35.58225061362999,
+progress-1               |       speed: 1.3899934983443458,
+progress-1               |       ec: 0
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | {"name":"current-usage","time":3060,"data":{"oid":"station-17","value":{"minBattery":79.99999999999996,"reserved":0,"available":5,"low":0,"type":"station"}}}
+progress-1               | {
+progress-1               |   name: 'current-usage',
+progress-1               |   time: 3060,
+progress-1               |   data: {
+progress-1               |     oid: 'station-17',
+progress-1               |     value: {
+progress-1               |       minBattery: 79.99999999999996,
+progress-1               |       reserved: 0,
+progress-1               |       available: 5,
+progress-1               |       low: 0,
+progress-1               |       type: 'station'
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | 
+progress-1               | 3060
+progress-1               | {"name":"states","time":3120,"data":{"oid":"person-237","value":{"co2":2275.3931976782856,"lon":139.6413858863268,"type":"car","lat":35.601967311987906,"speed":13.142718,"ec":0.0}}}
+progress-1               | {"name":"current-usage","time":3120,"data":{"oid":"station-17","value":{"minBattery":79.99999999999996,"reserved":0,"available":5,"low":0,"type":"station"}}}
+progress-1               | 
+progress-1               | {"name":"states","time":3120,"data":{"oid":"person-237","value":{"co2":2275.3931976782856,"lon":139.6413858863268,"type":"car","lat":35.601967311987906,"speed":13.142718,"ec":0.0}}}
+progress-1               | {
+progress-1               |   name: 'states',
+progress-1               |   time: 3120,
+progress-1               |   data: {
+progress-1               |     oid: 'person-237',
+progress-1               |     value: {
+progress-1               |       co2: 2275.3931976782856,
+progress-1               |       lon: 139.6413858863268,
+progress-1               |       type: 'car',
+progress-1               |       lat: 35.601967311987906,
+progress-1               |       speed: 13.142718,
+progress-1               |       ec: 0
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | {"name":"current-usage","time":3120,"data":{"oid":"station-17","value":{"minBattery":79.99999999999996,"reserved":0,"available":5,"low":0,"type":"station"}}}
+progress-1               | {
+progress-1               |   name: 'current-usage',
+progress-1               |   time: 3120,
+progress-1               |   data: {
+progress-1               |     oid: 'station-17',
+progress-1               |     value: {
+progress-1               |       minBattery: 79.99999999999996,
+progress-1               |       reserved: 0,
+progress-1               |       available: 5,
+progress-1               |       low: 0,
+progress-1               |       type: 'station'
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | 
+progress-1               | 3120
+progress-1               | {"name":"states","time":3180,"data":{"oid":"person-237","value":{"co2":2275.303714185711,"lon":139.64622376541703,"type":"car","lat":35.602369052518085,"speed":13.141549525988886,"ec":0.0}}}
+progress-1               | {"name":"current-usage","time":3180,"data":{"oid":"station-17","value":{"minBattery":79.99999999999996,"reserved":0,"available":5,"low":0,"type":"station"}}}
+progress-1               | 
+progress-1               | {"name":"states","time":3180,"data":{"oid":"person-237","value":{"co2":2275.303714185711,"lon":139.64622376541703,"type":"car","lat":35.602369052518085,"speed":13.141549525988886,"ec":0.0}}}
+progress-1               | {
+progress-1               |   name: 'states',
+progress-1               |   time: 3180,
+progress-1               |   data: {
+progress-1               |     oid: 'person-237',
+progress-1               |     value: {
+progress-1               |       co2: 2275.303714185711,
+progress-1               |       lon: 139.64622376541703,
+progress-1               |       type: 'car',
+progress-1               |       lat: 35.602369052518085,
+progress-1               |       speed: 13.141549525988886,
+progress-1               |       ec: 0
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | {"name":"current-usage","time":3180,"data":{"oid":"station-17","value":{"minBattery":79.99999999999996,"reserved":0,"available":5,"low":0,"type":"station"}}}
+progress-1               | {
+progress-1               |   name: 'current-usage',
+progress-1               |   time: 3180,
+progress-1               |   data: {
+progress-1               |     oid: 'station-17',
+progress-1               |     value: {
+progress-1               |       minBattery: 79.99999999999996,
+progress-1               |       reserved: 0,
+progress-1               |       available: 5,
+progress-1               |       low: 0,
+progress-1               |       type: 'station'
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | 
+progress-1               | 3180
+progress-1               | {"name":"states","time":3240,"data":{"oid":"person-238","value":{"co2":2220.2099890747418,"lon":139.65087894387185,"type":"car","lat":35.59963711970963,"speed":12.359322,"ec":0.0}}}
+progress-1               | {"name":"current-usage","time":3240,"data":{"oid":"station-17","value":{"minBattery":79.99999999999996,"reserved":0,"available":5,"low":0,"type":"station"}}}
+progress-1               | 
+progress-1               | {"name":"states","time":3240,"data":{"oid":"person-238","value":{"co2":2220.2099890747418,"lon":139.65087894387185,"type":"car","lat":35.59963711970963,"speed":12.359322,"ec":0.0}}}
+progress-1               | {
+progress-1               |   name: 'states',
+progress-1               |   time: 3240,
+progress-1               |   data: {
+progress-1               |     oid: 'person-238',
+progress-1               |     value: {
+progress-1               |       co2: 2220.2099890747418,
+progress-1               |       lon: 139.65087894387185,
+progress-1               |       type: 'car',
+progress-1               |       lat: 35.59963711970963,
+progress-1               |       speed: 12.359322,
+progress-1               |       ec: 0
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | {"name":"current-usage","time":3240,"data":{"oid":"station-17","value":{"minBattery":79.99999999999996,"reserved":0,"available":5,"low":0,"type":"station"}}}
+progress-1               | {
+progress-1               |   name: 'current-usage',
+progress-1               |   time: 3240,
+progress-1               |   data: {
+progress-1               |     oid: 'station-17',
+progress-1               |     value: {
+progress-1               |       minBattery: 79.99999999999996,
+progress-1               |       reserved: 0,
+progress-1               |       available: 5,
+progress-1               |       low: 0,
+progress-1               |       type: 'station'
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | 
+progress-1               | 3240
+progress-1               | {"name":"states","time":3300,"data":{"oid":"person-238","value":{"co2":4213.688894312191,"lon":139.65540080402076,"type":"car","lat":35.593052429826486,"speed":24.717759634799403,"ec":0.0}}}
+progress-1               | {"name":"current-usage","time":3300,"data":{"oid":"station-17","value":{"minBattery":79.99999999999996,"reserved":0,"available":5,"low":0,"type":"station"}}}
+progress-1               | 
+progress-1               | {"name":"states","time":3300,"data":{"oid":"person-238","value":{"co2":4213.688894312191,"lon":139.65540080402076,"type":"car","lat":35.593052429826486,"speed":24.717759634799403,"ec":0.0}}}
+progress-1               | {
+progress-1               |   name: 'states',
+progress-1               |   time: 3300,
+progress-1               |   data: {
+progress-1               |     oid: 'person-238',
+progress-1               |     value: {
+progress-1               |       co2: 4213.688894312191,
+progress-1               |       lon: 139.65540080402076,
+progress-1               |       type: 'car',
+progress-1               |       lat: 35.593052429826486,
+progress-1               |       speed: 24.717759634799403,
+progress-1               |       ec: 0
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | {"name":"current-usage","time":3300,"data":{"oid":"station-17","value":{"minBattery":79.99999999999996,"reserved":0,"available":5,"low":0,"type":"station"}}}
+progress-1               | {
+progress-1               |   name: 'current-usage',
+progress-1               |   time: 3300,
+progress-1               |   data: {
+progress-1               |     oid: 'station-17',
+progress-1               |     value: {
+progress-1               |       minBattery: 79.99999999999996,
+progress-1               |       reserved: 0,
+progress-1               |       available: 5,
+progress-1               |       low: 0,
+progress-1               |       type: 'station'
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | 
+progress-1               | 3300
+progress-1               | {"name":"states","time":3300,"data":{"oid":"person-238","value":{"co2":4213.688894312191,"lon":139.65540080402076,"type":"car","lat":35.593052429826486,"speed":24.717759634799403,"ec":0.0}}}
+progress-1               | {"name":"current-usage","time":3300,"data":{"oid":"station-17","value":{"minBattery":79.99999999999996,"reserved":0,"available":5,"low":0,"type":"station"}}}
+progress-1               | 
+progress-1               | {"name":"states","time":3300,"data":{"oid":"person-238","value":{"co2":4213.688894312191,"lon":139.65540080402076,"type":"car","lat":35.593052429826486,"speed":24.717759634799403,"ec":0.0}}}
+progress-1               | {
+progress-1               |   name: 'states',
+progress-1               |   time: 3300,
+progress-1               |   data: {
+progress-1               |     oid: 'person-238',
+progress-1               |     value: {
+progress-1               |       co2: 4213.688894312191,
+progress-1               |       lon: 139.65540080402076,
+progress-1               |       type: 'car',
+progress-1               |       lat: 35.593052429826486,
+progress-1               |       speed: 24.717759634799403,
+progress-1               |       ec: 0
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | {"name":"current-usage","time":3300,"data":{"oid":"station-17","value":{"minBattery":79.99999999999996,"reserved":0,"available":5,"low":0,"type":"station"}}}
+progress-1               | {
+progress-1               |   name: 'current-usage',
+progress-1               |   time: 3300,
+progress-1               |   data: {
+progress-1               |     oid: 'station-17',
+progress-1               |     value: {
+progress-1               |       minBattery: 79.99999999999996,
+progress-1               |       reserved: 0,
+progress-1               |       available: 5,
+progress-1               |       low: 0,
+progress-1               |       type: 'station'
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | 
+progress-1               | {"name":"states","time":3360,"data":{"oid":"person-238","value":{"co2":2624.722222222222,"lon":139.66300622287196,"type":"car","lat":35.59135493903282,"speed":0.0,"ec":0.0}}}
+progress-1               | {"name":"current-usage","time":3360,"data":{"oid":"station-17","value":{"minBattery":79.99999999999996,"reserved":0,"available":5,"low":0,"type":"station"}}}
+progress-1               | 
+progress-1               | {"name":"states","time":3360,"data":{"oid":"person-238","value":{"co2":2624.722222222222,"lon":139.66300622287196,"type":"car","lat":35.59135493903282,"speed":0.0,"ec":0.0}}}
+progress-1               | {
+progress-1               |   name: 'states',
+progress-1               |   time: 3360,
+progress-1               |   data: {
+progress-1               |     oid: 'person-238',
+progress-1               |     value: {
+progress-1               |       co2: 2624.722222222222,
+progress-1               |       lon: 139.66300622287196,
+progress-1               |       type: 'car',
+progress-1               |       lat: 35.59135493903282,
+progress-1               |       speed: 0,
+progress-1               |       ec: 0
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | {"name":"current-usage","time":3360,"data":{"oid":"station-17","value":{"minBattery":79.99999999999996,"reserved":0,"available":5,"low":0,"type":"station"}}}
+progress-1               | {
+progress-1               |   name: 'current-usage',
+progress-1               |   time: 3360,
+progress-1               |   data: {
+progress-1               |     oid: 'station-17',
+progress-1               |     value: {
+progress-1               |       minBattery: 79.99999999999996,
+progress-1               |       reserved: 0,
+progress-1               |       available: 5,
+progress-1               |       low: 0,
+progress-1               |       type: 'station'
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | 
+progress-1               | 3360
+progress-1               | {"name":"states","time":3420,"data":{"oid":"person-238","value":{"co2":2624.722222222222,"lon":139.6695836821405,"type":"car","lat":35.58624806667144,"speed":0.0,"ec":0.0}}}
+progress-1               | {"name":"current-usage","time":3420,"data":{"oid":"station-17","value":{"minBattery":79.99999999999996,"reserved":0,"available":5,"low":0,"type":"station"}}}
+progress-1               | 
+progress-1               | {"name":"states","time":3420,"data":{"oid":"person-238","value":{"co2":2624.722222222222,"lon":139.6695836821405,"type":"car","lat":35.58624806667144,"speed":0.0,"ec":0.0}}}
+progress-1               | {
+progress-1               |   name: 'states',
+progress-1               |   time: 3420,
+progress-1               |   data: {
+progress-1               |     oid: 'person-238',
+progress-1               |     value: {
+progress-1               |       co2: 2624.722222222222,
+progress-1               |       lon: 139.6695836821405,
+progress-1               |       type: 'car',
+progress-1               |       lat: 35.58624806667144,
+progress-1               |       speed: 0,
+progress-1               |       ec: 0
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | {"name":"current-usage","time":3420,"data":{"oid":"station-17","value":{"minBattery":79.99999999999996,"reserved":0,"available":5,"low":0,"type":"station"}}}
+progress-1               | {
+progress-1               |   name: 'current-usage',
+progress-1               |   time: 3420,
+progress-1               |   data: {
+progress-1               |     oid: 'station-17',
+progress-1               |     value: {
+progress-1               |       minBattery: 79.99999999999996,
+progress-1               |       reserved: 0,
+progress-1               |       available: 5,
+progress-1               |       low: 0,
+progress-1               |       type: 'station'
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | 
+progress-1               | 3420
+progress-1               | {"name":"states","time":3480,"data":{"oid":"person-238","value":{"co2":2220.2099890747418,"lon":139.66593346079284,"type":"car","lat":35.583902741223326,"speed":12.359322,"ec":0.0}}}
+progress-1               | {"name":"current-usage","time":3480,"data":{"oid":"station-17","value":{"minBattery":79.99999999999996,"reserved":0,"available":5,"low":0,"type":"station"}}}
+progress-1               | 
+progress-1               | {"name":"states","time":3480,"data":{"oid":"person-238","value":{"co2":2220.2099890747418,"lon":139.66593346079284,"type":"car","lat":35.583902741223326,"speed":12.359322,"ec":0.0}}}
+progress-1               | {
+progress-1               |   name: 'states',
+progress-1               |   time: 3480,
+progress-1               |   data: {
+progress-1               |     oid: 'person-238',
+progress-1               |     value: {
+progress-1               |       co2: 2220.2099890747418,
+progress-1               |       lon: 139.66593346079284,
+progress-1               |       type: 'car',
+progress-1               |       lat: 35.583902741223326,
+progress-1               |       speed: 12.359322,
+progress-1               |       ec: 0
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | {"name":"current-usage","time":3480,"data":{"oid":"station-17","value":{"minBattery":79.99999999999996,"reserved":0,"available":5,"low":0,"type":"station"}}}
+progress-1               | {
+progress-1               |   name: 'current-usage',
+progress-1               |   time: 3480,
+progress-1               |   data: {
+progress-1               |     oid: 'station-17',
+progress-1               |     value: {
+progress-1               |       minBattery: 79.99999999999996,
+progress-1               |       reserved: 0,
+progress-1               |       available: 5,
+progress-1               |       low: 0,
+progress-1               |       type: 'station'
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | 
+progress-1               | 3480
+progress-1               | {"name":"states","time":3480,"data":{"oid":"person-238","value":{"co2":2220.2099890747418,"lon":139.66593346079284,"type":"car","lat":35.583902741223326,"speed":12.359322,"ec":0.0}}}
+progress-1               | {"name":"current-usage","time":3480,"data":{"oid":"station-17","value":{"minBattery":79.99999999999996,"reserved":0,"available":5,"low":0,"type":"station"}}}
+progress-1               | 
+progress-1               | {"name":"states","time":3480,"data":{"oid":"person-238","value":{"co2":2220.2099890747418,"lon":139.66593346079284,"type":"car","lat":35.583902741223326,"speed":12.359322,"ec":0.0}}}
+progress-1               | {
+progress-1               |   name: 'states',
+progress-1               |   time: 3480,
+progress-1               |   data: {
+progress-1               |     oid: 'person-238',
+progress-1               |     value: {
+progress-1               |       co2: 2220.2099890747418,
+progress-1               |       lon: 139.66593346079284,
+progress-1               |       type: 'car',
+progress-1               |       lat: 35.583902741223326,
+progress-1               |       speed: 12.359322,
+progress-1               |       ec: 0
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | {"name":"current-usage","time":3480,"data":{"oid":"station-17","value":{"minBattery":79.99999999999996,"reserved":0,"available":5,"low":0,"type":"station"}}}
+progress-1               | {
+progress-1               |   name: 'current-usage',
+progress-1               |   time: 3480,
+progress-1               |   data: {
+progress-1               |     oid: 'station-17',
+progress-1               |     value: {
+progress-1               |       minBattery: 79.99999999999996,
+progress-1               |       reserved: 0,
+progress-1               |       available: 5,
+progress-1               |       low: 0,
+progress-1               |       type: 'station'
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | 
+progress-1               | {"name":"states","time":3540,"data":{"oid":"person-238","value":{"co2":2220.2099890747418,"lon":139.66204446886928,"type":"car","lat":35.58273436969414,"speed":12.359322,"ec":0.0}}}
+progress-1               | {"name":"current-usage","time":3540,"data":{"oid":"station-17","value":{"minBattery":79.99999999999996,"reserved":0,"available":5,"low":0,"type":"station"}}}
+progress-1               | 
+progress-1               | {"name":"states","time":3540,"data":{"oid":"person-238","value":{"co2":2220.2099890747418,"lon":139.66204446886928,"type":"car","lat":35.58273436969414,"speed":12.359322,"ec":0.0}}}
+progress-1               | {
+progress-1               |   name: 'states',
+progress-1               |   time: 3540,
+progress-1               |   data: {
+progress-1               |     oid: 'person-238',
+progress-1               |     value: {
+progress-1               |       co2: 2220.2099890747418,
+progress-1               |       lon: 139.66204446886928,
+progress-1               |       type: 'car',
+progress-1               |       lat: 35.58273436969414,
+progress-1               |       speed: 12.359322,
+progress-1               |       ec: 0
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | {"name":"current-usage","time":3540,"data":{"oid":"station-17","value":{"minBattery":79.99999999999996,"reserved":0,"available":5,"low":0,"type":"station"}}}
+progress-1               | {
+progress-1               |   name: 'current-usage',
+progress-1               |   time: 3540,
+progress-1               |   data: {
+progress-1               |     oid: 'station-17',
+progress-1               |     value: {
+progress-1               |       minBattery: 79.99999999999996,
+progress-1               |       reserved: 0,
+progress-1               |       available: 5,
+progress-1               |       low: 0,
+progress-1               |       type: 'station'
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | 
+dmm-1                    | INFO:src.dmm_connector:simulation finished
+assimil-1                | 09:04:38,247 INFO  com.fujitsu.assimil.Assimil                                   - assimilated objects have finished
+assimil-1                | 09:04:38,406 INFO  com.fujitsu.assimil.Assimil                                   - simulator dmm has finished
+assimil-1                | 09:04:38,862 INFO  com.fujitsu.assimil.Assimil                                   - simulator flow-provider has finished
+assimil-1                | 09:04:38,989 INFO  com.fujitsu.assimil.Assimil                                   - simulator fuelcost-calculator has finished
+assimil-1                | 09:04:38,989 INFO  com.fujitsu.assimil.Assimil                                   - simulator vehicle-planner has finished
+assimil-1                | 09:04:38,989 INFO  com.fujitsu.assimil.Assimil                                   - simulator fee-calculator has finished
+assimil-1                | 09:04:38,989 INFO  com.fujitsu.assimil.Assimil                                   - simulator station has finished
+assimil-1                | 09:04:38,989 INFO  com.fujitsu.assimil.Assimil                                   - simulator parkcharge-calculator has finished
+assimil-1                | 09:04:38,997 INFO  com.fujitsu.assimil.Assimil                                   - simulator action-selector has finished
+progress-1               | 3540
+progress-1               | {"name":"states","time":3600,"data":{"oid":"person-238","value":{"co2":2220.187962001723,"lon":139.65604399881465,"type":"car","lat":35.58144064784538,"speed":12.358979372372668,"ec":0.0}}}
+progress-1               | {"name":"current-usage","time":3600,"data":{"oid":"station-17","value":{"minBattery":79.99999999999996,"reserved":0,"available":5,"low":0,"type":"station"}}}
+progress-1               | 
+progress-1               | {"name":"states","time":3600,"data":{"oid":"person-238","value":{"co2":2220.187962001723,"lon":139.65604399881465,"type":"car","lat":35.58144064784538,"speed":12.358979372372668,"ec":0.0}}}
+progress-1               | {
+progress-1               |   name: 'states',
+progress-1               |   time: 3600,
+progress-1               |   data: {
+progress-1               |     oid: 'person-238',
+progress-1               |     value: {
+progress-1               |       co2: 2220.187962001723,
+progress-1               |       lon: 139.65604399881465,
+progress-1               |       type: 'car',
+progress-1               |       lat: 35.58144064784538,
+progress-1               |       speed: 12.358979372372668,
+progress-1               |       ec: 0
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | {"name":"current-usage","time":3600,"data":{"oid":"station-17","value":{"minBattery":79.99999999999996,"reserved":0,"available":5,"low":0,"type":"station"}}}
+progress-1               | {
+progress-1               |   name: 'current-usage',
+progress-1               |   time: 3600,
+progress-1               |   data: {
+progress-1               |     oid: 'station-17',
+progress-1               |     value: {
+progress-1               |       minBattery: 79.99999999999996,
+progress-1               |       reserved: 0,
+progress-1               |       available: 5,
+progress-1               |       low: 0,
+progress-1               |       type: 'station'
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | 
+assimil-1                | 09:04:41,898 INFO  com.fujitsu.assimil.Assimil                                   - simulator sumo-v2 has finished
+assimil-1                | 09:04:41,901 INFO  com.fujitsu.assimil.Assimil                                   - all simulators have finished
+sumo-v2-1                |  Retrying in 1 seconds
+sumo-v2-1                | Could not connect to TraCI server at localhost:35813 [Errno 111] Connection refused
+sumo-v2-1                |  Retrying in 1 seconds
+dumperjs-1               | topic metrics-pos closed
+assimil-1                | 09:04:41,935 INFO  com.fujitsu.assimil.Assimil                                   - metrics topics have finalized
+dumperjs-1               | topic metrics-choice closed
+dumperjs-1               | topic metrics-travel closed
+dumperjs-1               | topic metrics-escooter-usage closed
+[Kstation-1 exited with code 0
+[Kflow-provider-1 exited with code 0
+[Kaction-selector-1 exited with code 0
+assimil-1                | 09:04:42,640 INFO  com.fujitsu.assimil.Assimil                                   - simulation finished
+[Kparkcharge-calculator-1 exited with code 0
+[Kdmm-1 exited with code 0
+[Kfuelcost-calculator-1 exited with code 0
+[Kvehicle-planner-1 exited with code 0
+[Kfee-calculator-1 exited with code 0
+[Kassimil-1 exited with code 0
+[Ksumo-v2-1 exited with code 0
+progress-1               | 3600
+progress-1               | {"name":"states","time":3600,"data":{"oid":"person-238","value":{"co2":2220.187962001723,"lon":139.65604399881465,"type":"car","lat":35.58144064784538,"speed":12.358979372372668,"ec":0.0}}}
+progress-1               | {"name":"current-usage","time":3600,"data":{"oid":"station-17","value":{"minBattery":79.99999999999996,"reserved":0,"available":5,"low":0,"type":"station"}}}
+progress-1               | 
+progress-1               | {"name":"states","time":3600,"data":{"oid":"person-238","value":{"co2":2220.187962001723,"lon":139.65604399881465,"type":"car","lat":35.58144064784538,"speed":12.358979372372668,"ec":0.0}}}
+progress-1               | {
+progress-1               |   name: 'states',
+progress-1               |   time: 3600,
+progress-1               |   data: {
+progress-1               |     oid: 'person-238',
+progress-1               |     value: {
+progress-1               |       co2: 2220.187962001723,
+progress-1               |       lon: 139.65604399881465,
+progress-1               |       type: 'car',
+progress-1               |       lat: 35.58144064784538,
+progress-1               |       speed: 12.358979372372668,
+progress-1               |       ec: 0
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | {"name":"current-usage","time":3600,"data":{"oid":"station-17","value":{"minBattery":79.99999999999996,"reserved":0,"available":5,"low":0,"type":"station"}}}
+progress-1               | {
+progress-1               |   name: 'current-usage',
+progress-1               |   time: 3600,
+progress-1               |   data: {
+progress-1               |     oid: 'station-17',
+progress-1               |     value: {
+progress-1               |       minBattery: 79.99999999999996,
+progress-1               |       reserved: 0,
+progress-1               |       available: 5,
+progress-1               |       low: 0,
+progress-1               |       type: 'station'
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | 
+progress-1               | {"name":"states","time":3600,"data":{"oid":"person-238","value":{"co2":2220.187962001723,"lon":139.65604399881465,"type":"car","lat":35.58144064784538,"speed":12.358979372372668,"ec":0.0}}}
+progress-1               | {"name":"current-usage","time":3600,"data":{"oid":"station-17","value":{"minBattery":79.99999999999996,"reserved":0,"available":5,"low":0,"type":"station"}}}
+progress-1               | 
+progress-1               | {"name":"states","time":3600,"data":{"oid":"person-238","value":{"co2":2220.187962001723,"lon":139.65604399881465,"type":"car","lat":35.58144064784538,"speed":12.358979372372668,"ec":0.0}}}
+progress-1               | {
+progress-1               |   name: 'states',
+progress-1               |   time: 3600,
+progress-1               |   data: {
+progress-1               |     oid: 'person-238',
+progress-1               |     value: {
+progress-1               |       co2: 2220.187962001723,
+progress-1               |       lon: 139.65604399881465,
+progress-1               |       type: 'car',
+progress-1               |       lat: 35.58144064784538,
+progress-1               |       speed: 12.358979372372668,
+progress-1               |       ec: 0
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | {"name":"current-usage","time":3600,"data":{"oid":"station-17","value":{"minBattery":79.99999999999996,"reserved":0,"available":5,"low":0,"type":"station"}}}
+progress-1               | {
+progress-1               |   name: 'current-usage',
+progress-1               |   time: 3600,
+progress-1               |   data: {
+progress-1               |     oid: 'station-17',
+progress-1               |     value: {
+progress-1               |       minBattery: 79.99999999999996,
+progress-1               |       reserved: 0,
+progress-1               |       available: 5,
+progress-1               |       low: 0,
+progress-1               |       type: 'station'
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | 
+dumperjs-1               | topic metrics-escooter-total closed
+dumperjs-1               | simulation finished
+[Kdumperjs-1 exited with code 0
+end-1                    | choice.txt
+end-1                    | from /opt/inputs/sim-e230fda3-9850-4173-97e4-05d2d8e00d1b/choice.txt to /opt/outputs/sim-e230fda3-9850-4173-97e4-05d2d8e00d1b/choice.txt
+end-1                    | containers.log
+end-1                    | from /opt/inputs/sim-e230fda3-9850-4173-97e4-05d2d8e00d1b/containers.log to /opt/outputs/sim-e230fda3-9850-4173-97e4-05d2d8e00d1b/containers.log
+end-1                    | current-usage.txt
+end-1                    | from /opt/inputs/sim-e230fda3-9850-4173-97e4-05d2d8e00d1b/current-usage.txt to /opt/outputs/sim-e230fda3-9850-4173-97e4-05d2d8e00d1b/current-usage.txt
+end-1                    | output.txt
+end-1                    | from /opt/inputs/sim-e230fda3-9850-4173-97e4-05d2d8e00d1b/output.txt to /opt/outputs/sim-e230fda3-9850-4173-97e4-05d2d8e00d1b/output.txt
+end-1                    | period.txt
+end-1                    | from /opt/inputs/sim-e230fda3-9850-4173-97e4-05d2d8e00d1b/period.txt to /opt/outputs/sim-e230fda3-9850-4173-97e4-05d2d8e00d1b/period.txt
+end-1                    | states.txt
+end-1                    | from /opt/inputs/sim-e230fda3-9850-4173-97e4-05d2d8e00d1b/states.txt to /opt/outputs/sim-e230fda3-9850-4173-97e4-05d2d8e00d1b/states.txt
+end-1                    | total-usage.txt
+end-1                    | from /opt/inputs/sim-e230fda3-9850-4173-97e4-05d2d8e00d1b/total-usage.txt to /opt/outputs/sim-e230fda3-9850-4173-97e4-05d2d8e00d1b/total-usage.txt
+progress-1               | {"name":"states","time":3600,"data":{"oid":"person-238","value":{"co2":2220.187962001723,"lon":139.65604399881465,"type":"car","lat":35.58144064784538,"speed":12.358979372372668,"ec":0.0}}}
+progress-1               | {"name":"current-usage","time":3600,"data":{"oid":"station-17","value":{"minBattery":79.99999999999996,"reserved":0,"available":5,"low":0,"type":"station"}}}
+progress-1               | 
+progress-1               | {"name":"states","time":3600,"data":{"oid":"person-238","value":{"co2":2220.187962001723,"lon":139.65604399881465,"type":"car","lat":35.58144064784538,"speed":12.358979372372668,"ec":0.0}}}
+progress-1               | {
+progress-1               |   name: 'states',
+progress-1               |   time: 3600,
+progress-1               |   data: {
+progress-1               |     oid: 'person-238',
+progress-1               |     value: {
+progress-1               |       co2: 2220.187962001723,
+progress-1               |       lon: 139.65604399881465,
+progress-1               |       type: 'car',
+progress-1               |       lat: 35.58144064784538,
+progress-1               |       speed: 12.358979372372668,
+progress-1               |       ec: 0
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | {"name":"current-usage","time":3600,"data":{"oid":"station-17","value":{"minBattery":79.99999999999996,"reserved":0,"available":5,"low":0,"type":"station"}}}
+progress-1               | {
+progress-1               |   name: 'current-usage',
+progress-1               |   time: 3600,
+progress-1               |   data: {
+progress-1               |     oid: 'station-17',
+progress-1               |     value: {
+progress-1               |       minBattery: 79.99999999999996,
+progress-1               |       reserved: 0,
+progress-1               |       available: 5,
+progress-1               |       low: 0,
+progress-1               |       type: 'station'
+progress-1               |     }
+progress-1               |   }
+progress-1               | }
+progress-1               | 
+[Kend-1 exited with code 0
+sdt-dmm-service-1        | Inmodel raw values [{'w_time': 1.4245821, 'w_cost': 0.5318553, 'alpha_tt0': 0.5550148, 'alpha_c0': 0.5816773, 'gamma_tt0': 0.36022148, 'gamma_c0': 1.1171415, 'r0': 1.9130908, 'lammda': 6.6206307}, {'w_time': 0.8015754, 'w_cost': 0.6890345, 'alpha_tt0': 0.6795452, 'alpha_c0': 0.5330335, 'gamma_tt0': 0.41817513, 'gamma_c0': 0.8185435, 'r0': 1.0354708, 'lammda': 0.93796337}, {'w_time': 0.91464114, 'w_cost': 0.7324686, 'alpha_tt0': 0.94292706, 'alpha_c0': 0.9785145, 'gamma_tt0': 0.30714142, 'gamma_c0': 0.8068244, 'r0': 1.3129957, 'lammda': 1.2960619}, {'w_time': 0.57234466, 'w_cost': 1.0443413, 'alpha_tt0': 0.5821251, 'alpha_c0': 0.9576319, 'gamma_tt0': 0.6695637, 'gamma_c0': 0.8514689, 'r0': 0.67248094, 'lammda': 0.41729105}]
+sdt-dmm-service-1        | Models loading done.
+[Kprogress-1 exited with code 0
+[Ksdt-dmm-service-1 exited with code 0
+exit code:0

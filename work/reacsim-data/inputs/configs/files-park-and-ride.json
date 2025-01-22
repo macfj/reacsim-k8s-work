@@ -1,0 +1,135 @@
+[
+  {
+    "env": "",
+    "src": "",
+    "default": "configs/config-park-and-ride.yml",
+    "dst": "config.yml",
+    "replace": true
+  },
+  {
+    "env": "ASSIMIL_PERSON_FILE",
+    "src": "simulations/",
+    "default": "",
+    "dst": "",
+    "replace": false
+  },
+  {
+    "env": "SOARS_STATIONS_FILE",
+    "src": "simulations/",
+    "default": "",
+    "dst": "",
+    "replace": false
+  },
+  {
+    "env": "PARKING_FILE",
+    "src": "simulations/",
+    "default": "",
+    "dst": "",
+    "replace": false
+  },
+  {
+    "env": "SUMO_NET_FILE",
+    "src": "simulations/",
+    "default": "",
+    "dst": "",
+    "replace": false
+  },
+  {
+    "env": "DMM_MODEL_INFO_FILE",
+    "src": "simulations/",
+    "default": "",
+    "dst": "",
+    "replace": false
+  },
+  {
+    "env": "",
+    "src": "",
+    "default": "configs/otp/convert.sh",
+    "dst": "2/convert.sh",
+    "replace": true
+  },
+  {
+    "env": "",
+    "src": "",
+    "default": "configs/otp/otp-config.json",
+    "dst": "1/otp-config.json",
+    "replace": true
+  },
+  {
+    "env": "",
+    "src": "",
+    "default": "configs/otp/build-config.json",
+    "dst": "1/build-config.json",
+    "replace": true
+  },
+  {
+    "env": "",
+    "src": "",
+    "default": "configs/otp/router-config.json",
+    "dst": "1/router-config.json",
+    "replace": true
+  },
+  {
+    "env": "",
+    "src": "",
+    "default": "configs/otp/logback.xml",
+    "dst": "1/logback.xml",
+    "replace": true
+  },
+  {
+    "env": "OTP_OSM_FILE",
+    "src": "simulations/",
+    "default": "configs/otp/kawasaki.osm.pbf",
+    "dst": "1/map.osm.pbf",
+    "replace": false
+  },
+  {
+    "env": "OTP_GTFS_USE_DEFAULT",
+    "src": "",
+    "default": "configs/otp/jreast.gtfs.zip",
+    "dst": "1/jreast.gtfs.zip",
+    "replace": false
+  },
+  {
+    "env": "OTP_GTFS_FILE_0",
+    "src": "simulations/",
+    "default": "",
+    "dst": "1/0.gtfs.zip",
+    "replace": false
+  },
+  {
+    "env": "OTP_GTFS_FILE_1",
+    "src": "simulations/",
+    "default": "",
+    "dst": "1/1.gtfs.zip",
+    "replace": false
+  },
+  {
+    "env": "OTP_GTFS_FILE_2",
+    "src": "simulations/",
+    "default": "",
+    "dst": "1/2.gtfs.zip",
+    "replace": false
+  },
+  {
+    "env": "OTP_GTFS_FILE_3",
+    "src": "simulations/",
+    "default": "",
+    "dst": "1/3.gtfs.zip",
+    "replace": false
+  },
+  {
+    "env": "OTP_GTFS_FILE_4",
+    "src": "simulations/",
+    "default": "",
+    "dst": "1/4.gtfs.zip",
+    "replace": false
+  },
+  {
+    "env": "OTP_GTFS_FILE_5",
+    "src": "simulations/",
+    "default": "",
+    "dst": "1/5.gtfs.zip",
+    "replace": false
+  }
+]
