@@ -18,14 +18,11 @@ spec:
     spec:
       containers:
         - env:
-            - name: DUMPER_OUTPUT_DIR
-              value: /opt/outputs/%SIMULATION_ID%
             - name: INPUTS_PATH
               value: /opt/inputs
-            - name: REACSIM_CONFIG_FILE
-              value: /opt/inputs/%SIMULATION_ID%/config.yml
-            - name: SIMULATION_ID
-              value: %SIMULATION_ID%
+          envFrom: # SIMULATION_ID, REACSIM_CONFIG_FILE, DUMPER_OUTPUT_DIR
+            - configMapRef:
+                name: reacsimenv-configmap
           image: macfltechdev.azurecr.io/dumperjs:2024-3q
           name: dumperjs
           resources:

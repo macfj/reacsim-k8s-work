@@ -23,9 +23,9 @@ spec:
         io.kompose.service: sdt-dmm-service
     spec:
       containers:
-        - env:
-            - name: DMM_MODEL_INFO_FILE
-              value: %SIMULATION_ID%/model.zip
+        - envFrom: # DMM_MODEL_INFO_FILE
+            - configMapRef:
+                name: reacsimenv-configmap
           image: macfltechdev.azurecr.io/sdt-dmm-service:2024-3q
           livenessProbe:
             exec:

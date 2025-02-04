@@ -24,14 +24,11 @@ spec:
     spec:
       containers:
         - env:
-            - name: DMM_MODEL_INFO_FILE
-              value: %SIMULATION_ID%/model.zip
             - name: INPUTS_PATH
               value: /opt/inputs
-            - name: REACSIM_CONFIG_FILE
-              value: /opt/inputs/%SIMULATION_ID%/config.yml
-            - name: SIMULATION_ID
-              value: %SIMULATION_ID%
+          envFrom: # SIMULATION_ID, REACSIM_CONFIG_FILE, DMM_MODEL_INFO_FILE
+            - configMapRef:
+                name: reacsimenv-configmap
           image: macfltechdev.azurecr.io/prepare:2024-3q
           name: prepare
           volumeMounts:

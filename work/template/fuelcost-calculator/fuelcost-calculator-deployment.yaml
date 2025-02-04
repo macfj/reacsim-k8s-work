@@ -28,12 +28,11 @@ spec:
               value: /opt/jars/domain-simulator/calculator/fuelcost-calculator/fuelcost-calculator-1.0.0-jar-with-dependencies.jar
             - name: INPUTS_PATH
               value: /opt/inputs
-            - name: REACSIM_CONFIG_FILE
-              value: /opt/inputs/%SIMULATION_ID%/config.yml
             - name: REACSIM_SIMULATOR_NAME
               value: fuelcost-calculator
-            - name: SIMULATION_ID
-              value: %SIMULATION_ID%
+          envFrom: # SIMULATION_ID, REACSIM_CONFIG_FILE
+            - configMapRef:
+                name: reacsimenv-configmap
           image: macfltechdev.azurecr.io/javaruntime:2024-3q
           name: fuelcost-calculator
           resources:

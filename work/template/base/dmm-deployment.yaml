@@ -28,12 +28,11 @@ spec:
               value: /opt/inputs
             - name: LOGGING_LEVEL
               value: INFO
-            - name: REACSIM_CONFIG_FILE
-              value: /opt/inputs/%SIMULATION_ID%/config.yml
             - name: REACSIM_SIMULATOR_NAME
               value: dmm
-            - name: SIMULATION_ID
-              value: %SIMULATION_ID%
+          envFrom: # SIMULATION_ID, REACSIM_CONFIG_FILE
+            - configMapRef:
+                name: reacsimenv-configmap
           image: macfltechdev.azurecr.io/dmm:2024-3q
           livenessProbe:
             exec:

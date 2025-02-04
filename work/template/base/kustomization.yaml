@@ -1,0 +1,12 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - action-selector-deployment.yaml
+  - prepare-job.yaml
+  - dumperjs-job.yaml
+  - sdt-dmm-service-deployment.yaml
+  - dmm-deployment.yaml
+  - start-job.yaml
+  - progress-deployment.yaml
+  - end-job.yaml

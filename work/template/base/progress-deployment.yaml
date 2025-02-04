@@ -26,8 +26,9 @@ spec:
         - env:
             - name: SERVER
               value: http://mac-work-fltechdev.japaneast.cloudapp.azure.com:40203
-            - name: SIMULATION_ID
-              value: %SIMULATION_ID%
+          envFrom: # SIMULATION_ID
+            - configMapRef:
+                name: reacsimenv-configmap
           image: macfltechdev.azurecr.io/progress:2024-3q
           name: progress
           volumeMounts:

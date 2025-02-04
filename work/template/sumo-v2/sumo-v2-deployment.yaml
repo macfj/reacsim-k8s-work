@@ -28,14 +28,13 @@ spec:
               value: /opt/inputs
             - name: LOGGING_LEVEL
               value: INFO
-            - name: REACSIM_CONFIG_FILE
-              value: /opt/inputs/%SIMULATION_ID%/config.yml
             - name: REACSIM_SIMULATOR_NAME
               value: sumo-v2
-            - name: SIMULATION_ID
-              value: %SIMULATION_ID%
             - name: SUMO_NET_FILE
               value: /opt/inputs/map.net.xml.gz
+          envFrom: # SIMULATION_ID, REACSIM_CONFIG_FILE
+            - configMapRef:
+                name: reacsimenv-configmap
           image: macfltechdev.azurecr.io/sumo-v2.1:2024-3q
           livenessProbe:
             exec:
