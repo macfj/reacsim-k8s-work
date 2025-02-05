@@ -1,0 +1,140 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: /home/mac/kompose -f ./docker-compose/docker-compose.yml -f docker-compose/docker-compose-initial-location.yml -f docker-compose/docker-compose-initial-location-deploy.yml convert
+    kompose.version: 1.35.0 (9532ceef3)
+  labels:
+    io.kompose.service: flow-provider
+  name: flow-provider
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: flow-provider
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: /home/mac/kompose -f ./docker-compose/docker-compose.yml -f docker-compose/docker-compose-initial-location.yml -f docker-compose/docker-compose-initial-location-deploy.yml convert
+        kompose.version: 1.35.0 (9532ceef3)
+      labels:
+        io.kompose.service: flow-provider
+    spec:
+      containers:
+        - env:
+            - name: CLASSPATH
+              value: /opt/jars/domain-simulator/flow/flow-provider/flow-provider-1.0.3-jar-with-dependencies.jar
+            - name: INPUTS_PATH
+              value: /opt/inputs
+            - name: REACSIM_SIMULATOR_NAME
+              value: flow-provider
+          envFrom: # SIMULATION_ID, REACSIM_CONFIG_FILE
+            - configMapRef:
+                name: reacsimenv-configmap
+          image: macfltechdev.azurecr.io/javaruntime:2024-3q
+          name: flow-provider
+          resources:
+            limits:
+              memory: "268435456"
+          volumeMounts:
+            - mountPath: /opt/inputs
+              name: flow-provider-inputs
+            - mountPath: /opt/jars
+              name: flow-provider-jars
+      restartPolicy: Always
+      volumes:
+        - name: flow-provider-inputs
+          persistentVolumeClaim:
+            claimName: reacsim-inputs
+            readOnly: true
+        - name: flow-provider-jars
+          persistentVolumeClaim:
+            claimName: reacsim-jars
+            readOnly: true
+      initContainers:
+        - name: wait-for-kafka
+          image: bitnami/kubectl:1.24
+          imagePullPolicy: IfNotPresent
+          command:
+            - /bin/sh
+            - -exc
+            - kubectl wait --for condition=ready kafka/my-cluster
+        - name: wait-for-dumperjs
+          image: bitnami/kubectl:1.24
+          imagePullPolicy: IfNotPresent
+          command:
+            - /bin/sh
+            - -exc
+            - while :; do ready=$(kubectl get job/dumperjs -o json | jq .status.ready); if [ ${ready} -eq 1 ]; then break; fi; sleep 1; done
+        - name: wait-for-action-selector
+          image: bitnami/kubectl:1.24
+          imagePullPolicy: IfNotPresent
+          command:
+            - /bin/sh
+            - -exc
+            - kubectl wait --for condition=available deployments/action-selector
+        - name: wait-for-vehicle-planner
+          image: bitnami/kubectl:1.24
+          imagePullPolicy: IfNotPresent
+          command:
+            - /bin/sh
+            - -exc
+            - kubectl wait --for condition=available deployments/vehicle-planner
+        - name: wait-for-dmm
+          image: bitnami/kubectl:1.24
+          imagePullPolicy: IfNotPresent
+          command:
+            - /bin/sh
+            - -exc
+            - kubectl wait --for condition=available deployments/dmm
+        - name: wait-for-sumo-v2
+          image: bitnami/kubectl:1.24
+          imagePullPolicy: IfNotPresent
+          command:
+            - /bin/sh
+            - -exc
+            - kubectl wait --for condition=available deployments/sumo-v2
+        - name: wait-for-station
+          image: bitnami/kubectl:1.24
+          imagePullPolicy: IfNotPresent
+          command:
+            - /bin/sh
+            - -exc
+            - kubectl wait --for condition=available deployments/station
+        - name: wait-for-fee-calculator
+          image: bitnami/kubectl:1.24
+          imagePullPolicy: IfNotPresent
+          command:
+            - /bin/sh
+            - -exc
+            - kubectl wait --for condition=available deployments/fee-calculator
+        - name: wait-for-fuelcost-calculator
+          image: bitnami/kubectl:1.24
+          imagePullPolicy: IfNotPresent
+          command:
+            - /bin/sh
+            - -exc
+            - kubectl wait --for condition=available deployments/fuelcost-calculator
+        - name: wait-for-parkcharge-calculator
+          image: bitnami/kubectl:1.24
+          imagePullPolicy: IfNotPresent
+          command:
+            - /bin/sh
+            - -exc
+            - kubectl wait --for condition=available deployments/parkcharge-calculator
+        - name: wait-for-lowbattery-discount
+          image: bitnami/kubectl:1.24
+          imagePullPolicy: IfNotPresent
+          command:
+            - /bin/sh
+            - -exc
+            - kubectl wait --for condition=available deployments/lowbattery-discount
+        - name: wait-for-return-discount
+          image: bitnami/kubectl:1.24
+          imagePullPolicy: IfNotPresent
+          command:
+            - /bin/sh
+            - -exc
+            - kubectl wait --for condition=available deployments/return-discount
