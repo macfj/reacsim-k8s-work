@@ -1,0 +1,132 @@
+{
+  "usecase": "road-pricing",
+  "name": "02/04_02:24:19",
+  "start": 10,
+  "end": 12,
+  "mapcenter": [
+    132.47584819793704,
+    34.3970659021055
+  ],
+  "mapzoom": 14,
+  "currencySymbol": "¥",
+  "createdAt": "2025-02-04T02:24:25.385+00:00Z",
+  "seed": 0,
+  "dmmmodel": {},
+  "markerCfg": "s",
+  "vtypes": {
+    "car": true,
+    "pedestrian": true,
+    "escooter": true
+  },
+  "stations": [
+    {
+      "id": "station-1",
+      "initial": 5,
+      "pos": [
+        "132.478869",
+        "34.394753"
+      ],
+      "zone": "a"
+    },
+    {
+      "id": "station-2",
+      "initial": 5,
+      "pos": [
+        "132.482484",
+        "34.392789"
+      ],
+      "zone": "a"
+    },
+    {
+      "id": "station-3",
+      "initial": 5,
+      "pos": [
+        "132.475956",
+        "34.400904"
+      ],
+      "zone": "a"
+    },
+    {
+      "id": "station-4",
+      "initial": 5,
+      "pos": [
+        "132.479536",
+        "34.389272"
+      ],
+      "zone": "a"
+    },
+    {
+      "id": "station-5",
+      "initial": 5,
+      "pos": [
+        "132.465532",
+        "34.395602"
+      ],
+      "zone": "a"
+    },
+    {
+      "id": "station-6",
+      "initial": 5,
+      "pos": [
+        "132.466287",
+        "34.402206"
+      ],
+      "zone": "a"
+    },
+    {
+      "id": "station-7",
+      "initial": 5,
+      "pos": [
+        "132.477189",
+        "34.404393"
+      ],
+      "zone": "a"
+    },
+    {
+      "id": "station-8",
+      "initial": 5,
+      "pos": [
+        "132.485852",
+        "34.388255"
+      ],
+      "zone": "a"
+    },
+    {
+      "id": "station-9",
+      "initial": 5,
+      "pos": [
+        "132.465278",
+        "34.390658"
+      ],
+      "zone": "a"
+    },
+    {
+      "id": "station-10",
+      "initial": 5,
+      "pos": [
+        "132.467395",
+        "34.393801"
+      ],
+      "zone": "a"
+    }
+  ],
+  "usecases": {
+    "batteryBased": {
+      "enabled": true,
+      "discount": 10,
+      "lowBatteryPercent": 15
+    },
+    "numberBased": {
+      "enabled": true,
+      "discount": 10,
+      "scooterNumberThreshold": 2
+    }
+  },
+  "roadClosureFile": "simdata-64853eb1-4c88-4a5d-a4d1-98bc946ed25a/road-closure.csv",
+  "detour": {
+    "car": true,
+    "pedestrian": false,
+    "bicycle": false
+  },
+  "roadPricingFile": "simdata-288b5fae-7dee-4b59-b232-58bb3b79b185/road-pricing.csv"
+}

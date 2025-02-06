@@ -1,0 +1,63 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: /home/mac/kompose -f ./docker-compose/docker-compose.yml -f docker-compose/docker-compose-dynamic-discount.yml -f docker-compose/docker-compose-dynamic-discount-deploy.yml convert
+    kompose.version: 1.35.0 (9532ceef3)
+  labels:
+    io.kompose.service: toll-calculator
+  name: toll-calculator
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: toll-calculator
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: /home/mac/kompose -f ./docker-compose/docker-compose.yml -f docker-compose/docker-compose-dynamic-discount.yml -f docker-compose/docker-compose-dynamic-discount-deploy.yml convert
+        kompose.version: 1.35.0 (9532ceef3)
+      labels:
+        io.kompose.service: toll-calculator
+    spec:
+      containers:
+        - env:
+            - name: CLASSPATH
+              value: /opt/jars/domain-simulator/calculator/toll-calculator/toll-calculator-1.0.0-jar-with-dependencies.jar
+            - name: INPUTS_PATH
+              value: /opt/inputs
+            - name: REACSIM_SIMULATOR_NAME
+              value: toll-calculator
+          envFrom: # SIMULATION_ID, REACSIM_CONFIG_FILE
+            - configMapRef:
+                name: reacsimenv-configmap
+          image: macfltechdev.azurecr.io/javaruntime:2024-3q
+          name: toll-calculator
+          resources:
+            limits:
+              memory: "268435456"
+          volumeMounts:
+            - mountPath: /opt/inputs
+              name: toll-calculator-inputs
+            - mountPath: /opt/jars
+              name: toll-calculator-jars
+      restartPolicy: Always
+      volumes:
+        - name: toll-calculator-inputs
+          persistentVolumeClaim:
+            claimName: reacsim-inputs
+            readOnly: true
+        - name: toll-calculator-jars
+          persistentVolumeClaim:
+            claimName: reacsim-jars
+            readOnly: true
+      initContainers:
+        - name: wait-for-kafka
+          image: bitnami/kubectl:1.24
+          imagePullPolicy: IfNotPresent
+          command:
+            - /bin/sh
+            - -exc
+            - kubectl wait --for condition=ready kafka/my-cluster
