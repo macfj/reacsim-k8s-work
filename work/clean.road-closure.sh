@@ -4,7 +4,4 @@ trap 'echo "ERROR: $BASH_SOURCE:$LINENO $BASH_COMMAND" >&2' ERR
 
 USECASE=road-closure
 
-kubectl delete -k template/${USECASE}/
-kubectl delete -f kafka-only-ephemeral-single-node.yaml
-kubectl delete -f reacsim-data/
-
+./clean.sh $USECASE

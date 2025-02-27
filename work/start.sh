@@ -11,6 +11,14 @@ ENV_JSON=/opt/inputs/${SIMULATION_ID}/env.json
 REACSIM_CONFIG_FILE=/opt/inputs/${SIMULATION_ID}/config.yml
 DMM_MODEL_INFO_FILE=${SIMULATION_ID}/model.zip
 DUMPER_OUTPUT_DIR=/opt/outputs/${SIMULATION_ID}
+ROOT_PATH=/opt/inputs/${SIMULATION_ID}/2
+EOF
+
+### opentripplanner用のconfigmap
+cat > template/opentripplanner/opentripplanner.env << EOF
+JAVA_OPTS=-Dlogback.configurationFile=/opt/inputs/${SIMULATION_ID}/1/logback.xml
+JAVA_TOOL_OPTIONS=-XX:InitialRAMPercentage=70 -XX:MaxRAMPercentage=70
+CONFIG_DIR=/opt/inputs/${SIMULATION_ID}/1
 EOF
 
 ./mkdatepvc.sh $SIMULATION_ID ${USECASE}
