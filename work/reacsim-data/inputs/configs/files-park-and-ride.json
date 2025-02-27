@@ -44,13 +44,6 @@
   {
     "env": "",
     "src": "",
-    "default": "configs/otp/convert.sh",
-    "dst": "2/convert.sh",
-    "replace": true
-  },
-  {
-    "env": "",
-    "src": "",
     "default": "configs/otp/otp-config.json",
     "dst": "1/otp-config.json",
     "replace": true
