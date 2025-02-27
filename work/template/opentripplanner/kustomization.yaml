@@ -1,0 +1,8 @@
+
+configMapGenerator:
+- name: opentripplanner-configmap
+  envs:
+  - opentripplanner.env
+
+resources:
+  - opentripplanner-deployment.yaml

@@ -1,0 +1,63 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: /home/mac/kompose -f ../docker-compose/docker-compose-park-and-ride-deploy.yml -f ../docker-compose/docker-compose-park-and-ride.yml -f ../docker-compose/docker-compose.yml convert
+    kompose.version: 1.35.0 (9532ceef3)
+  labels:
+    io.kompose.service: otp-planner
+  name: otp-planner
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: otp-planner
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: /home/mac/kompose -f ../docker-compose/docker-compose-park-and-ride-deploy.yml -f ../docker-compose/docker-compose-park-and-ride.yml -f ../docker-compose/docker-compose.yml convert
+        kompose.version: 1.35.0 (9532ceef3)
+      labels:
+        io.kompose.service: otp-planner
+    spec:
+      containers:
+        - env:
+            - name: CLASSPATH
+              value: /opt/jars/domain-simulator/planner/otp-planner/otp-planner-1.0.3-jar-with-dependencies.jar
+            - name: INPUTS_PATH
+              value: /opt/inputs
+            - name: REACSIM_SIMULATOR_NAME
+              value: otp-planner
+          envFrom: # SIMULATION_ID, REACSIM_CONFIG_FILE, ROOT_PATH
+            - configMapRef:
+                name: reacsimenv-configmap
+          image: macfltechdev.azurecr.io/javaruntime:2024-3q
+          name: otp-planner
+          resources:
+            limits:
+              memory: "268435456"
+          volumeMounts:
+            - mountPath: /opt/inputs
+              name: otp-planner-inputs
+            - mountPath: /opt/jars
+              name: otp-planner-jars
+      restartPolicy: Always
+      volumes:
+        - name: otp-planner-inputs
+          persistentVolumeClaim:
+            claimName: reacsim-inputs
+            readOnly: true
+        - name: otp-planner-jars
+          persistentVolumeClaim:
+            claimName: reacsim-jars
+            readOnly: true
+      initContainers:
+        - name: wait-for-kafka
+          image: bitnami/kubectl:1.24
+          imagePullPolicy: IfNotPresent
+          command:
+            - /bin/sh
+            - -exc
+            - kubectl wait --for condition=ready kafka/my-cluster
