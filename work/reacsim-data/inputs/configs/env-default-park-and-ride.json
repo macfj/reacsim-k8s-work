@@ -20,5 +20,5 @@
   "ASSIMIL_PERSON_FILE": "configs/od/od.csv.gz",
   "SOARS_STATIONS_FILE": "configs/default/stations.csv",
   "SUMO_NET_FILE": "configs/sumo/map_kawasaki.net.xml.gz",
-  "PARKING_FILE": "confis/default/parking.csv"
+  "PARKING_FILE": "configs/default/parking.csv"
 }

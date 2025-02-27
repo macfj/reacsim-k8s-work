@@ -14,7 +14,7 @@
   "USECASE_NUMBER_DISCOUNT": "0",
   "USECASE_NUMBER_THRESHOLD": "1",
   "ASSIMIL_PERSON_FILE": "configs/od/od.csv.gz",
-  "SOARS_STATIONS_FILE": "confis/default/stations.csv",
+  "SOARS_STATIONS_FILE": "configs/default/stations.csv",
   "SUMO_NET_FILE": "configs/sumo/map_kawasaki.net.xml.gz",
   "ROAD_CLOSURE_FILE": "configs/default/road-closure.csv",
   "ROAD_PRICING_FILE": "configs/default/road-pricing.csv"
