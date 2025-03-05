@@ -6,6 +6,7 @@ resources:
   - prepare-job.yaml
   - dumperjs-job.yaml
   - sdt-dmm-service-deployment.yaml
+  - sdt-dmm-service-svc.yaml
   - dmm-deployment.yaml
   - start-job.yaml
   - progress-deployment.yaml

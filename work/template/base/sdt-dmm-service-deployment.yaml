@@ -21,6 +21,7 @@ spec:
         kompose.version: 1.35.0 (9532ceef3)
       labels:
         io.kompose.service: sdt-dmm-service
+        service: sdt-dmm-service
     spec:
       containers:
         - envFrom: # DMM_MODEL_INFO_FILE
