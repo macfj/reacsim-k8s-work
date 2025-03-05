@@ -6,3 +6,4 @@ configMapGenerator:
 
 resources:
   - opentripplanner-deployment.yaml
+  - opentripplanner-svc.yaml
