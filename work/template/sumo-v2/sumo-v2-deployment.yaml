@@ -66,3 +66,10 @@ spec:
             - /bin/sh
             - -exc
             - kubectl wait --for condition=ready kafka/my-cluster
+        - name: wait-for-prepare
+          image: bitnami/kubectl:1.24
+          imagePullPolicy: IfNotPresent
+          command:
+            - /bin/sh
+            - -exc
+            - kubectl wait --for condition=complete job/prepare
