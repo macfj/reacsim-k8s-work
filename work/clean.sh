@@ -6,5 +6,3 @@ USECASE=$1
 
 kubectl delete -k template/${USECASE}/
 kubectl delete -f kafka-only-ephemeral-single-node.yaml
-kubectl delete -f reacsim-data/
-
