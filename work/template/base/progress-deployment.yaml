@@ -1,5 +1,5 @@
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: v1
+kind: Pod
 metadata:
   annotations:
     kompose.cmd: /home/mac/kompose -f ./docker-compose/docker-compose.yml -f docker-compose/docker-compose-initial-location.yml -f docker-compose/docker-compose-initial-location-deploy.yml convert
@@ -8,46 +8,31 @@ metadata:
     io.kompose.service: progress
   name: progress
 spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      io.kompose.service: progress
-  strategy:
-    type: Recreate
-  template:
-    metadata:
-      annotations:
-        kompose.cmd: /home/mac/kompose -f ./docker-compose/docker-compose.yml -f docker-compose/docker-compose-initial-location.yml -f docker-compose/docker-compose-initial-location-deploy.yml convert
-        kompose.version: 1.35.0 (9532ceef3)
-      labels:
-        io.kompose.service: progress
-    spec:
-      containers:
-        - env:
-            - name: SERVER
-              value: http://mac-work-fltechdev.japaneast.cloudapp.azure.com:40203
-          envFrom: # SIMULATION_ID
-            - configMapRef:
-                name: reacsimenv-configmap
-          image: macfltechdev.azurecr.io/progress:2024-3q
-          name: progress
-          volumeMounts:
-            - mountPath: /opt/inputs
-              name: progress-inputs
-              readOnly: true
-      restartPolicy: Always
-      volumes:
-        - name: progress-inputs
-          persistentVolumeClaim:
-            claimName: reacsim-outputs
-            readOnly: true
-      # serviceAccountName: exec-kubectl
-      initContainers:
-        - name: wait-for-start
-          image: bitnami/kubectl:1.24
-          imagePullPolicy: IfNotPresent
-          command:
-            - /bin/sh
-            - -exc
-            - kubectl wait --for condition=complete job/start
-
+  containers:
+    - env:
+        - name: SERVER
+          value: http://mac-work-fltechdev.japaneast.cloudapp.azure.com:40203
+      envFrom: # SIMULATION_ID
+        - configMapRef:
+            name: reacsimenv-configmap
+      image: macfltechdev.azurecr.io/progress:2024-3q
+      name: progress
+      volumeMounts:
+        - mountPath: /opt/inputs
+          name: progress-inputs
+          readOnly: true
+  restartPolicy: Never
+  volumes:
+    - name: progress-inputs
+      persistentVolumeClaim:
+        claimName: reacsim-outputs
+        readOnly: true
+  # serviceAccountName: exec-kubectl
+  initContainers:
+    - name: wait-for-start
+      image: bitnami/kubectl:1.24
+      imagePullPolicy: IfNotPresent
+      command:
+        - /bin/sh
+        - -exc
+        - kubectl wait --for condition=complete job/start --timeout 1h

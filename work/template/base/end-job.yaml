@@ -1,57 +1,45 @@
-apiVersion: batch/v1
-kind: Job
+apiVersion: v1
+kind: Pod
 metadata:
-  annotations:
-    kompose.cmd: /home/mac/kompose -f ./docker-compose/docker-compose.yml -f docker-compose/docker-compose-initial-location.yml -f docker-compose/docker-compose-initial-location-deploy.yml convert
-    kompose.version: 1.35.0 (9532ceef3)
-  labels:
-    io.kompose.service: end
   name: end
 spec:
-  template:
-    metadata:
-      annotations:
-        kompose.cmd: /home/mac/kompose -f ./docker-compose/docker-compose.yml -f docker-compose/docker-compose-initial-location.yml -f docker-compose/docker-compose-initial-location-deploy.yml convert
-        kompose.version: 1.35.0 (9532ceef3)
-      labels:
-        io.kompose.service: end
-    spec:
-      containers:
-        - env:
-            - name: SERVER
-              value: http://mac-work-fltechdev.japaneast.cloudapp.azure.com:40203
-          envFrom: # SIMULATION_ID
-            - configMapRef:
-                name: reacsimenv-configmap
-          image: macfltechdev.azurecr.io/end:2024-3q
-          name: end
-          volumeMounts:
-            - mountPath: /opt/outputs
-              name: end-outputs
-            - mountPath: /opt/inputs
-              name: end-inputs
-              readOnly: true
-      restartPolicy: OnFailure
-      volumes:
-        - name: end-outputs
-          persistentVolumeClaim:
-            claimName: reacsim-simulations
-        - name: end-inputs
-          persistentVolumeClaim:
-            claimName: reacsim-outputs
-            readOnly: true
-      initContainers:
-        - name: wait-for-dumperjs-ready
-          image: bitnami/kubectl:1.24
-          imagePullPolicy: IfNotPresent
-          command:
-            - /bin/sh
-            - -exc
-            - while :; do ready=$(kubectl get job/dumperjs -o json | jq .status.ready); if [ ${ready} -eq 1 ]; then break; fi; sleep 1; done
-        - name: wait-for-dumperjs
-          image: bitnami/kubectl:1.24
-          imagePullPolicy: IfNotPresent
-          command:
-            - /bin/sh
-            - -exc
-            - kubectl wait --for condition=complete job/dumperjs
+  containers:
+    - env:
+        - name: SERVER
+          value: http://mac-work-fltechdev.japaneast.cloudapp.azure.com:40203
+      envFrom: # SIMULATION_ID
+        - configMapRef:
+            name: reacsimenv-configmap
+      image: macfltechdev.azurecr.io/end:2024-3q
+      name: end
+      volumeMounts:
+        - mountPath: /opt/outputs
+          name: end-outputs
+        - mountPath: /opt/inputs
+          name: end-inputs
+          readOnly: true
+  restartPolicy: Never
+  volumes:
+    - name: end-outputs
+      persistentVolumeClaim:
+        claimName: reacsim-simulations
+    - name: end-inputs
+      persistentVolumeClaim:
+        claimName: reacsim-outputs
+        readOnly: true
+  initContainers:
+    - name: wait-for-dumperjs-ready
+      image: bitnami/kubectl:1.24
+      imagePullPolicy: IfNotPresent
+      command:
+        - /bin/sh
+        - -exc
+        # - while :; do ready=$(kubectl get job/dumperjs -o json | jq .status.ready); if [ ${ready} -eq 1 ]; then break; fi; sleep 1; done
+        - kubectl wait --for condition=ready=true pod/dumperjs --timeout 1h
+    - name: wait-for-dumperjs
+      image: bitnami/kubectl:1.24
+      imagePullPolicy: IfNotPresent
+      command:
+        - /bin/sh
+        - -exc
+        - kubectl wait --for condition=ready=false pod/dumperjs --timeout 1h

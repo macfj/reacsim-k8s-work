@@ -1,5 +1,5 @@
-apiVersion: batch/v1
-kind: Job
+apiVersion: v1
+kind: Pod
 metadata:
   annotations:
     kompose.cmd: /home/mac/kompose -f ./docker-compose/docker-compose.yml -f docker-compose/docker-compose-initial-location.yml -f docker-compose/docker-compose-initial-location-deploy.yml convert
@@ -8,52 +8,45 @@ metadata:
     io.kompose.service: dumperjs
   name: dumperjs
 spec:
-  template:
-    metadata:
-      annotations:
-        kompose.cmd: /home/mac/kompose -f ./docker-compose/docker-compose.yml -f docker-compose/docker-compose-initial-location.yml -f docker-compose/docker-compose-initial-location-deploy.yml convert
-        kompose.version: 1.35.0 (9532ceef3)
-      labels:
-        io.kompose.service: dumperjs
-    spec:
-      containers:
-        - env:
-            - name: INPUTS_PATH
-              value: /opt/inputs
-          envFrom: # SIMULATION_ID, REACSIM_CONFIG_FILE, DUMPER_OUTPUT_DIR
-            - configMapRef:
-                name: reacsimenv-configmap
-          image: macfltechdev.azurecr.io/dumperjs:2024-3q
-          name: dumperjs
-          resources:
-            limits:
-              memory: "134217728"
-          volumeMounts:
-            - mountPath: /opt/inputs
-              name: dumperjs-inputs
-            - mountPath: /opt/outputs
-              name: dumperjs-outputs
-      restartPolicy: OnFailure
-      volumes:
-        - name: dumperjs-inputs
-          persistentVolumeClaim:
-            claimName: reacsim-inputs
-            readOnly: true
-        - name: dumperjs-outputs
-          persistentVolumeClaim:
-            claimName: reacsim-outputs
-      initContainers:
-        - name: wait-for-kafka
-          image: bitnami/kubectl:1.24
-          imagePullPolicy: IfNotPresent
-          command:
-            - /bin/sh
-            - -exc
-            - kubectl wait --for condition=ready kafka/my-cluster
-        - name: wait-for-prepare
-          image: bitnami/kubectl:1.24
-          imagePullPolicy: IfNotPresent
-          command:
-            - /bin/sh
-            - -exc
-            - kubectl wait --for condition=complete job/prepare
+  containers:
+    - env:
+        - name: INPUTS_PATH
+          value: /opt/inputs
+      envFrom: # SIMULATION_ID, REACSIM_CONFIG_FILE, DUMPER_OUTPUT_DIR
+        - configMapRef:
+            name: reacsimenv-configmap
+      image: macfltechdev.azurecr.io/dumperjs:2024-3q
+      imagePullPolicy: Always
+      name: dumperjs
+      resources:
+        limits:
+          memory: "134217728"
+      volumeMounts: 
+        - mountPath: /opt/inputs
+          name: dumperjs-inputs
+        - mountPath: /opt/outputs
+          name: dumperjs-outputs
+  restartPolicy: Never
+  volumes:
+    - name: dumperjs-inputs
+      persistentVolumeClaim:
+        claimName: reacsim-inputs
+        readOnly: true
+    - name: dumperjs-outputs
+      persistentVolumeClaim:
+        claimName: reacsim-outputs
+  initContainers:
+    - name: wait-for-kafka
+      image: bitnami/kubectl:1.24
+      imagePullPolicy: IfNotPresent
+      command:
+        - /bin/sh
+        - -exc
+        - kubectl wait --for condition=ready kafka/my-cluster --timeout -1h
+    - name: wait-for-prepare
+      image: bitnami/kubectl:1.24
+      imagePullPolicy: IfNotPresent
+      command:
+        - /bin/sh
+        - -exc
+        - kubectl wait --for condition=complete job/prepare --timeout 1h

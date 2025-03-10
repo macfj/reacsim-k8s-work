@@ -47,5 +47,5 @@ spec:
           command:
             - /bin/sh
             - -exc
-            - kubectl wait --for condition=complete job/start
+            - kubectl wait --for condition=complete job/start --timeout 1h
 
